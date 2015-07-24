@@ -81,9 +81,9 @@ bower install [nome_dep] --save
 - Utilizar mecanismo [factory](https://github.com/fabiohsv-cit/ciandt-components-factory), método factory.newController
 - Utilizar padrão VM para declaração dos atributos e métodos do controlador
 - Nomenclatura:
-* Pasta física: app\[module]\features\[submodule]\[feature*]\
-* Nome Controller: app.[module].[submodule].[feature*].[feature]Ctrl
-* Model: [feature]Model
+	- Pasta física: app\\[module]\features\\[submodule]\\[feature]\
+	- Nome Controller: app.[module].[submodule].[feature*].[feature]Ctrl
+	- Model: [feature]Model
 - No corpo do controle deve-se seguir a seguinte ordem de declaração:
 * Declaração dos serviços
 ```javascript
@@ -122,12 +122,12 @@ bower install [nome_dep] --save
 - Serviços não devem ser expostos no vm nem em nenhum outro atributo, devem sempre passar por métodos do controller.
 - Todos os atributos da tela que forem relacionados ao modelo devem ser declarados no vm.[feature]Model, ex:
 ```javascript
-vm.featureRegistrationModel = { pageSize: $rootScope.appContext.defaultPageSize };
+vm.featureRegistrationModel = { id: 1, name: 'teste 1' };
 ```
 
 ### Views
 - Nomenclatura:
-	- Pasta física: app\[module]\features\[submodule]\[feature*]\
+	- Pasta física: app\\[module]\features\\[submodule]\\[feature]\
 	- Nome página: [feature].html
 - Sempre construído com html puro, seguindo os padrões estruturais do twitter bootstrap, sem javascript e usando apenas diretivas angular
 - ng-repeat deve sempre ser declarado com track by, para evitar problemas de performance
@@ -152,21 +152,21 @@ Ou
 - Diretivas sempre declaradas com o nome do módulo e submódulo, para evitar duplicidade e sobreposição em caso de projetos grandes e distribuídos
 - Nomenclatura:
 	- **Se geral para o módulo**
-	- Arquivo: app\[module]\components\[component]\[component]-directive.js
+	- Arquivo: app\\[module]\components\\[component]\\[component]-directive.js
 	- Nome diretiva: app-[module]-[component]-[diretiva]
 	- **Se for de uma feature**
-	- Arquivo: app\[module]\features\[feature]\[feature]-directive.js
+	- Arquivo: app\\[module]\features\\[feature]\\[feature]-directive.js
 	- Nome diretiva: app-[module]-[submodule]-[feature]-[diretiva]
 
 ### Filters
 - Utilizar mecanismo [factory](https://github.com/fabiohsv-cit/ciandt-components-factory), método factory.newFilter
 - Nomenclatura:
-* **Se geral para o módulo**
-* Arquivo: app\[module]\components\[component]\[component]-filter.js
-* Nome diretiva: app[module][component][filter]
-* **Se for de uma feature**
-* Arquivo: app\[module]\features\[feature]\[feature]-filter.js
-* Nome diretiva: app[module][submodule][feature][filter]
+	- **Se geral para o módulo**
+	- Arquivo: app\\[module]\components\\[component]\\[component]-filter.js
+	- Nome diretiva: app[module][component][filter]
+	- **Se for de uma feature**
+	- Arquivo: app\\[module]\features\\[feature]\\[feature]-filter.js
+	- Nome diretiva: app[module][submodule][feature][filter]
 
 ### Modais
 - Utilizar mecanismo [factory](https://github.com/fabiohsv-cit/ciandt-components-factory), método factory.newModal
