@@ -1,7 +1,5 @@
 # Arquitetura de Referência CI&T para Projetos AngularJs
 
-> [Yeoman](http://yeoman.io) generator
-
 ## Estrutura base
 
 ### Recursos gerais
@@ -45,6 +43,148 @@
 	
 	- as rota para as funcionalidades deverão seguir o seguinte padrão: /[module]/[submodule]/[feature]
 
-## License
+## Padrões e Restrições da Arquitetura
 
-LGPL
+### Gerais
+
+- Utilizar requirejs para controlar carregamento sob demanda dos arquivos javascripts
+- Utilizar mecanismo de hash nos nomes dos arquivos para evitar cache do browser. Recomenda-se utilizar o componente [grunt-filerev](https://www.npmjs.com/package/grunt-filerev)
+- Utilizar mecanismo [factory](https://github.com/fabiohsv-cit/ciandt-components-factory) para declarar controllers, services, filters, directives, modais, etc.
+- Sempre incluir dependências externas pelo bower, incluindo no main.js e na configuração shim
+```bash
+bower install [nome_dep] --save && grunt
+```
+- Todo arquivo javascript deve ser carregado pelo [module]-app.js de seu módulo
+- Recursos ligados a uma funcionalidade devem ser criados na estrutura de pastas da funcionalidade
+> app\[module]\features\[submodule*]\[feature]\[recursos da feature]
+- Componentes devem ser criados na estrutura abaixo e não devem ser telas, devem ser componentes que compõem tela, trechos parciais de html ou simplesmente filters, utilitários, etc:
+> app\[module]\componentes\[component]\[recursos do componente]
+- Css devem ser codificados/customizados apenas no arquivo assets\css\app.css, demais css são de terceiros e não devem ser alterados diretamente
+- Scripts de terceiros não devem ser alterados, em vez disso tentar criar uma versão nova e publicar no bower, no pior caso criar no projeto na pasta assets\js\
+- Valores hardcode que representam diretórios ou informações que podem ser alteradas de acordo com o ambiente, devem ser transferidos para o script [module]-env.json do módulo específico e acessada:
+> envSettings[.module].[variable]
+- Todos os textos dos htmls devem fazer uso da diretiva [i18n](https://github.com/fabiohsv-cit/ciandt-components-i18n), para possibilitar a internacionalização posterior ou mesmo durante o projeto.
+- Métodos, classes, variáveis, etc... sempre escritos em inglês.
+- Métodos, parâmetros de métodos e variáveis sempre no formato camelCase.
+- Nome do recurso (controller, modal, service, etc.) sempre no formato PascalCase.
+- Para evitar conflitos, todos os componentes/recursos angular devem ter o namespace no seguinte padrão:
+> app.[module].[submodule].[feature*].[component], ex: app.security.auth.userprofile.UserProfileCtrl
+- Sempre usar a declaração 'use strict'; ao início de todo arquivo .js
+- Nomes de pastas e arquivos devem ser tudo em minúsculo.
+- Todos os componentes angular devem ter dependencias injetadas pelo nome, evitar declarar apenas no construtor do componente, uma vez que a minificação encurtará os nomes dos parâmetros.
+- Fazer uso de logs atravez do componente $log em vez do console.log
+- Não usar a function “alert” nativa do js, em vez disso usar o componente [dialogs](https://github.com/fabiohsv-cit/ciandt-components-dialogs)
+- Para camada de serviço, utilizar componente de abstração [Restangular](https://github.com/mgonto/restangular)
+
+### Controllers
+
+- Utilizar mecanismo [factory](https://github.com/fabiohsv-cit/ciandt-components-factory), método factory.newController
+- Utilizar padrão VM para declaração dos atributos e métodos do controlador
+- Nomenclatura:
+* Pasta física: app\[module]\features\[submodule]\[feature*]\
+* Nome Controller: app.[module].[submodule].[feature*].[feature]Ctrl
+* Model: [feature]Model
+- No corpo do controle deve-se seguir a seguinte ordem de declaração:
+* Declaração dos serviços
+```javascript
+	var service = SecurityRestService.all('admin/feature');
+```
+* Declaração do vm (view model)
+```javascript
+	var vm = this;
+```
+* Declaração do model e demais variáveis de controle
+```javascript
+	vm.featureRegistrationModel = { pageSize: $rootScope.appContext.defaultPageSize };
+	vm.maxFileCount = 0;
+```
+* Bind dos métodos
+```javascript
+	vm.filter = filter;
+	vm.remove = remove;
+	vm.clear = clear;
+```
+* Execuções de métodos, carregamentos de dados ou qualquer execução na inicialização da tela
+```javascript
+	loadSystems(function (systems) {
+		vm.featureRegistrationModel.systems = systems;
+	});
+```
+* Declaração dos métodos e seu statement
+```javascript
+	function loadSystems(success) {
+		console.log('Recuperando systems');
+		SecurityRestService.all('admin/system').getList().then(success);
+	}
+```
+- Não deve haver regra de negócio nos controllers, o mesmo deverá estar presente no escopo das APIs apenas.
+- Serviços não devem ser expostos no vm nem em nenhum outro atributo, devem sempre passar por métodos do controller.
+- Todos os atributos da tela que forem relacionados ao modelo devem ser declarados no vm.[feature]Model, ex:
+```javascript
+vm.featureRegistrationModel = { pageSize: $rootScope.appContext.defaultPageSize };
+```
+
+### Views
+- Nomenclatura:
+* Pasta física: app\[module]\features\[submodule]\[feature*]\
+* Nome página: [feature].html
+- Sempre construído com html puro, seguindo os padrões estruturais do twitter bootstrap, sem javascript e usando apenas diretivas angular
+- ng-repeat deve sempre ser declarado com track by, para evitar problemas de performance
+- Utilizar componentes [layout](https://github.com/fabiohsv-cit/ciandt-components-layout), em especial o app-input na declaração dos campos da tela, para mantr todos no mesmo padrão visual
+- Em tabelas de consultas, usar por padrão a diretiva [at-table](https://github.com/mateusmcg/angular-table-restful) com paginação via api rest
+- Na declaração do controller da tela, usar alias em formato camelCase, ex:
+```html
+ng-controller="app.framework.imports.importfiles.ImportFilesCtrl as importFilesCtrl"
+```
+- Não declarar styles nos elementos html, em vez disso usar classe dos css de terceiros ou os declarados no arquivo assets\css\app.css
+- Todo texto em html deverá fazer uso da diretiva i18n
+```html
+<i18n>Texto qualquer<i18n>
+
+Ou
+
+<a i18n>Texto qualquer<\a>
+```
+
+### Directives
+- Utilizar mecanismo [factory](https://github.com/fabiohsv-cit/ciandt-components-factory), método factory.newDirective
+- Diretivas sempre declaradas com o nome do módulo e submódulo, para evitar duplicidade e sobreposição em caso de projetos grandes e distribuídos
+- Nomenclatura:
+* **Se geral para o módulo**
+* Arquivo: app\[module]\components\[component]\[component]-directive.js
+* Nome diretiva: app-[module]-[component]-[diretiva]
+* **Se for de uma feature**
+* Arquivo: app\[module]\features\[feature]\[feature]-directive.js
+* Nome diretiva: app-[module]-[submodule]-[feature]-[diretiva]
+
+### Filters
+- Utilizar mecanismo [factory](https://github.com/fabiohsv-cit/ciandt-components-factory), método factory.newFilter
+- Nomenclatura:
+* **Se geral para o módulo**
+* Arquivo: app\[module]\components\[component]\[component]-filter.js
+* Nome diretiva: app[module][component][filter]
+* **Se for de uma feature**
+* Arquivo: app\[module]\features\[feature]\[feature]-filter.js
+* Nome diretiva: app[module][submodule][feature][filter]
+
+### Modais
+- Utilizar mecanismo [factory](https://github.com/fabiohsv-cit/ciandt-components-factory), método factory.newModal
+- Seguir mesmas regras do controller + directive, modal utiliza os dois tipos de definição juntas.
+
+## Referências:
+
+### Scaffold CI&T:
+https://github.com/fabiohsv-cit/ciandt-angularjs-ref-arch/tree/master/generator-ciandt-angularjs-ref-arch
+
+### ciandt components:
+https://github.com/fabiohsv-cit/ciandt-components-breadcrumb
+https://github.com/fabiohsv-cit/ciandt-components-dialogs
+https://github.com/fabiohsv-cit/ciandt-components-factory
+https://github.com/fabiohsv-cit/ciandt-components-i18n
+https://github.com/fabiohsv-cit/ciandt-components-layout
+https://github.com/fabiohsv-cit/ciandt-components-loading
+https://github.com/fabiohsv-cit/ciandt-components-utilities
+
+### Fontes externas de pesquisa:
+https://scotch.io/tutorials/angularjs-best-practices-directory-structure
+https://github.com/johnpapa/angular-styleguide
