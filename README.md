@@ -25,7 +25,7 @@
 	app\common\features\[submodule]\[feature] - funcionalidades globais do sistema, como telas de login, etc.
 	app\common\features\auth - telas globais relacionadas com autenticação
 	
-	- as rota para as funcionalidades deverão seguir o seguinte padrão: /common/[submodule]/[feature]
+- as rota para as funcionalidades deverão seguir o seguinte padrão: /common/[submodule]/[feature]
 
 ### Estrutura por módulo
 	app\[module] - módulo específico, contendo funcionalidades de negócio
@@ -41,7 +41,7 @@
 	app\[module]\features\[submodule*]\[feature]\[feature].html - página
 	app\[module]\features\[submodule*]\[feature]\[feature]\view\*.html - se houver mais de um arquivo html, organizá-los na pasta view
 	
-	- as rota para as funcionalidades deverão seguir o seguinte padrão: /[module]/[submodule]/[feature]
+- as rota para as funcionalidades deverão seguir o seguinte padrão: /[module]/[submodule]/[feature]
 
 ## Padrões e Restrições da Arquitetura
 
@@ -52,7 +52,7 @@
 - Utilizar mecanismo [factory](https://github.com/fabiohsv-cit/ciandt-components-factory) para declarar controllers, services, filters, directives, modais, etc.
 - Sempre incluir dependências externas pelo bower, incluindo no main.js e na configuração shim
 ```bash
-bower install [nome_dep] --save && grunt
+bower install [nome_dep] --save
 ```
 - Todo arquivo javascript deve ser carregado pelo [module]-app.js de seu módulo
 - Recursos ligados a uma funcionalidade devem ser criados na estrutura de pastas da funcionalidade
@@ -95,8 +95,9 @@ bower install [nome_dep] --save && grunt
 ```
 * Declaração do model e demais variáveis de controle
 ```javascript
-	vm.featureRegistrationModel = { pageSize: $rootScope.appContext.defaultPageSize };
+	vm.featureRegistrationModel = { id: 1, name: 'teste 1' };
 	vm.maxFileCount = 0;
+	vm.pageSize = $rootScope.appContext.defaultPageSize;
 ```
 * Bind dos métodos
 ```javascript
@@ -126,8 +127,8 @@ vm.featureRegistrationModel = { pageSize: $rootScope.appContext.defaultPageSize 
 
 ### Views
 - Nomenclatura:
-* Pasta física: app\[module]\features\[submodule]\[feature*]\
-* Nome página: [feature].html
+	- Pasta física: app\[module]\features\[submodule]\[feature*]\
+	- Nome página: [feature].html
 - Sempre construído com html puro, seguindo os padrões estruturais do twitter bootstrap, sem javascript e usando apenas diretivas angular
 - ng-repeat deve sempre ser declarado com track by, para evitar problemas de performance
 - Utilizar componentes [layout](https://github.com/fabiohsv-cit/ciandt-components-layout), em especial o app-input na declaração dos campos da tela, para mantr todos no mesmo padrão visual
@@ -150,12 +151,12 @@ Ou
 - Utilizar mecanismo [factory](https://github.com/fabiohsv-cit/ciandt-components-factory), método factory.newDirective
 - Diretivas sempre declaradas com o nome do módulo e submódulo, para evitar duplicidade e sobreposição em caso de projetos grandes e distribuídos
 - Nomenclatura:
-* **Se geral para o módulo**
-* Arquivo: app\[module]\components\[component]\[component]-directive.js
-* Nome diretiva: app-[module]-[component]-[diretiva]
-* **Se for de uma feature**
-* Arquivo: app\[module]\features\[feature]\[feature]-directive.js
-* Nome diretiva: app-[module]-[submodule]-[feature]-[diretiva]
+	- **Se geral para o módulo**
+	- Arquivo: app\[module]\components\[component]\[component]-directive.js
+	- Nome diretiva: app-[module]-[component]-[diretiva]
+	- **Se for de uma feature**
+	- Arquivo: app\[module]\features\[feature]\[feature]-directive.js
+	- Nome diretiva: app-[module]-[submodule]-[feature]-[diretiva]
 
 ### Filters
 - Utilizar mecanismo [factory](https://github.com/fabiohsv-cit/ciandt-components-factory), método factory.newFilter
@@ -174,17 +175,17 @@ Ou
 ## Referências:
 
 ### Scaffold CI&T:
-https://github.com/fabiohsv-cit/ciandt-angularjs-ref-arch/tree/master/generator-ciandt-angularjs-ref-arch
+- https://github.com/fabiohsv-cit/ciandt-angularjs-ref-arch/tree/master/generator-ciandt-angularjs-ref-arch
 
 ### ciandt components:
-https://github.com/fabiohsv-cit/ciandt-components-breadcrumb
-https://github.com/fabiohsv-cit/ciandt-components-dialogs
-https://github.com/fabiohsv-cit/ciandt-components-factory
-https://github.com/fabiohsv-cit/ciandt-components-i18n
-https://github.com/fabiohsv-cit/ciandt-components-layout
-https://github.com/fabiohsv-cit/ciandt-components-loading
-https://github.com/fabiohsv-cit/ciandt-components-utilities
+- https://github.com/fabiohsv-cit/ciandt-components-breadcrumb
+- https://github.com/fabiohsv-cit/ciandt-components-dialogs
+- https://github.com/fabiohsv-cit/ciandt-components-factory
+- https://github.com/fabiohsv-cit/ciandt-components-i18n
+- https://github.com/fabiohsv-cit/ciandt-components-layout
+- https://github.com/fabiohsv-cit/ciandt-components-loading
+- https://github.com/fabiohsv-cit/ciandt-components-utilities
 
 ### Fontes externas de pesquisa:
-https://scotch.io/tutorials/angularjs-best-practices-directory-structure
-https://github.com/johnpapa/angular-styleguide
+- https://scotch.io/tutorials/angularjs-best-practices-directory-structure
+- https://github.com/johnpapa/angular-styleguide
