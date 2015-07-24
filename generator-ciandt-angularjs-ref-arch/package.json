@@ -1,0 +1,32 @@
+{
+  "name": "generator-ciandt-angularjs-ref-arch",
+  "version": "0.0.0",
+  "description": "Yeoman generator",
+  "license": "LGPL",
+  "main": ["app/index.js", "controller/index.js", "modal/index.js", "controller/module.js"],
+  "repository": "https://github.com/fabiohsv-cit/generator-ciandt-angularjs-ref-arch",
+  "author": {
+    "name": "Fábio Henrique da Silva Viana",
+    "email": "fabiohsv@ciandt.com",
+    "url": "https://github.com/fabiohsv-cit"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "generators"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "chalk": "^1.0.0",
+    "mkdirp": "^0.5.1",
+    "underscore.string": "^3.1.1",
+    "yeoman-generator": "^0.19.0",
+    "yosay": "^1.0.2"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  }
+}

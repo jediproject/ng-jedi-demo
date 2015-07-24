@@ -1,0 +1,57 @@
+﻿<!doctype html>
+<!--[if lt IE 8]>
+<html class="no-js lt-ie8">
+<![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+        <title i18n><%= props.appTitle%></title>
+        <meta name="description" content="<%= props.appTitle%>">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+        <!-- Needs images, font... therefore can not be part of main.css -->
+        <link rel="stylesheet" href="assets/css/font-awesome.css">
+        <link rel="stylesheet" href="assets/css/weather-icons.css">
+        <!-- end Needs images -->
+
+        <!-- build:css({.tmp,client}) assets/css/main.css -->
+        <link rel="stylesheet" href="assets/css/bootstrap.css">
+        <link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.css">
+        <link rel='stylesheet' href='assets/css/loading-bar.css' type='text/css' media='all' />
+        <link rel="stylesheet" href="assets/css/app.css">
+        <!-- endbuild -->
+    </head>
+
+    <body id="app"
+          class="app layout-boxed"
+          off-canvas-nav
+          ng-controller="app.common.AppCtrl as appCtrl">
+
+        <!--[if lt IE 9]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <app-loading></app-loading>
+        
+        <section ng-include="'app/common/components/header/header.html'"
+                 id="header"
+                 class="header-container"></section>
+
+        <div class="main-container">
+            <aside ng-include="'app/common/components/navigation/navigation.html'"
+                   id="nav-container"
+                   class="nav-container nav-horizontal"></aside>
+
+            <section id="content"
+                     class="content-container"
+                     ng-view style="overflow: visible;"></section>
+        </div>
+
+        <!-- Le javascript ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster-->
+        <script data-main="main.js" src="assets/libs/requirejs/require.js"></script>
+    </body>
+</html>

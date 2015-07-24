@@ -1,0 +1,44 @@
+﻿<div class="page-signin" app-full-screen-page>
+
+    <div class="signin-header">
+        <section class="logo text-center" i18n><%= props.appTitle%></section>
+    </div>
+
+    <div class="signin-body">
+        <div class="container">
+            <div class="form-container" ng-controller="app.common.auth.SigninCtrl as signinCtrl">
+                <form name="form_signin" class="form-horizontal form-validation" novalidate ng-submit="signinCtrl.signin()">
+                    <fieldset>
+                        <div class="form-group">
+                            <div class="btn-icon-lined btn-icon-round btn-icon-sm btn-default-light">
+                                <span class="glyphicon glyphicon-envelope"></span>
+                            </div>
+                            <input type="text"
+                                   class="form-control input-lg input-round text-center"
+                                   app-input
+                                   required
+                                   ng-model="signinCtrl.signinModel.username"
+                                   i18n placeholder="Usuário">
+                        </div>
+                        <div class="form-group">
+                            <div class="btn-icon-lined btn-icon-round btn-icon-sm btn-default-light">
+                                <span class="glyphicon glyphicon-lock"></span>
+                            </div>
+                            <input type="password"
+                                   class="form-control input-lg input-round text-center"
+                                   app-input
+                                   required
+                                   ng-model="signinCtrl.signinModel.password"
+                                   i18n placeholder="Senha">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit"
+                                    class="btn btn-primary btn-lg btn-round btn-block text-center"
+                                    ng-disabled="!form_signin.$valid" i18n>Entrar</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
