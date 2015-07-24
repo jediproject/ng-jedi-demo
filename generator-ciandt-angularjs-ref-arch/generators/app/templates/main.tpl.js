@@ -57,7 +57,7 @@ require.config({
         'jquery': 'assets/libs/jquery/jquery',
         'lodash': 'assets/libs/lodash/lodash',
         'moment': 'assets/libs/moment/moment',<% if (props.defaultLanguage != 'en') {%>
-        'moment-locale': 'assets/js/moment/<%= props.defaultLanguage%>',<%}%>
+        'moment-locale': 'assets/libs/moment/<%= props.defaultLanguage%>',<%}%>
         'slimscroll': 'assets/libs/slimscroll/jquery.slimscroll',
         'json': 'assets/libs/requirejs-plugins/json',
         'text': 'assets/libs/requirejs-plugins/text'
@@ -71,7 +71,7 @@ require.config({
         },
         "slimscroll": ["jquery"],
         "bootstrap": ["jquery"],
-        "bootstrap-datetimepicker": ["bootstrap", <% if (props.defaultLanguage != 'en') {%>"moment-locale"<%} else {%>"moment"<%}>],
+        "bootstrap-datetimepicker": ["bootstrap", <% if (props.defaultLanguage != 'en') {%>"moment-locale"<%} else {%>"moment"<%}%>],
         "angular": {
             deps: ["jquery"],
             exports: "angular"
