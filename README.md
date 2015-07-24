@@ -56,19 +56,27 @@ bower install [nome_dep] --save
 ```
 - Todo arquivo javascript deve ser carregado pelo [module]-app.js de seu módulo
 - Recursos ligados a uma funcionalidade devem ser criados na estrutura de pastas da funcionalidade
-> app\[module]\features\[submodule*]\[feature]\[recursos da feature]
+```bash
+app\[module]\features\[submodule*]\[feature]\[recursos da feature]
+```
 - Componentes devem ser criados na estrutura abaixo e não devem ser telas, devem ser componentes que compõem tela, trechos parciais de html ou simplesmente filters, utilitários, etc:
-> app\[module]\componentes\[component]\[recursos do componente]
+```bash
+app\[module]\componentes\[component]\[recursos do componente]
+```
 - Css devem ser codificados/customizados apenas no arquivo assets\css\app.css, demais css são de terceiros e não devem ser alterados diretamente
 - Scripts de terceiros não devem ser alterados, em vez disso tentar criar uma versão nova e publicar no bower, no pior caso criar no projeto na pasta assets\js\
 - Valores hardcode que representam diretórios ou informações que podem ser alteradas de acordo com o ambiente, devem ser transferidos para o script [module]-env.json do módulo específico e acessada:
-> envSettings[.module].[variable]
+```bash
+envSettings[.module].[variable]
+```
 - Todos os textos dos htmls devem fazer uso da diretiva [i18n](https://github.com/fabiohsv-cit/ciandt-components-i18n), para possibilitar a internacionalização posterior ou mesmo durante o projeto.
 - Métodos, classes, variáveis, etc... sempre escritos em inglês.
 - Métodos, parâmetros de métodos e variáveis sempre no formato camelCase.
 - Nome do recurso (controller, modal, service, etc.) sempre no formato PascalCase.
 - Para evitar conflitos, todos os componentes/recursos angular devem ter o namespace no seguinte padrão:
-> app.[module].[submodule].[feature*].[component], ex: app.security.auth.userprofile.UserProfileCtrl
+```bash
+app.[module].[submodule].[feature*].[component], ex: app.security.auth.userprofile.UserProfileCtrl
+```
 - Sempre usar a declaração 'use strict'; ao início de todo arquivo .js
 - Nomes de pastas e arquivos devem ser tudo em minúsculo.
 - Todos os componentes angular devem ter dependencias injetadas pelo nome, evitar declarar apenas no construtor do componente, uma vez que a minificação encurtará os nomes dos parâmetros.
