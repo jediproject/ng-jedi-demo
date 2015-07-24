@@ -22,6 +22,10 @@ module.exports = yeoman.generators.Base.extend({
     ));
 
     var prompts = [{
+      name: 'title',
+      message: 'What\'s the modal title?'
+    },
+  {
       name: 'module',
       message: 'What\'s the module?',
 	  default: 'core'
