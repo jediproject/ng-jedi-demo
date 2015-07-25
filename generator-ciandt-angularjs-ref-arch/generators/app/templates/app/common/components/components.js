@@ -6,8 +6,7 @@ define([<% if (props.useI18n) {%>'ciandt-components-i18n',
         'ciandt-components-loading',
         <% if (props.useBreadcrumb) {%>'ciandt-components-breadcrumb',
         <%}%>'ciandt-components-layout',
-        'app-common-components-exceptions',
-        'app-common-components-navigation'], function () {
+        'app-common-components-exceptions'], function () {
 
     angular.module('app.common.components', [<% if (props.useI18n) {%>'ciandt.components.i18n',
                                              <%}%>'ciandt.components.dialogs',
@@ -15,7 +14,6 @@ define([<% if (props.useI18n) {%>'ciandt-components-i18n',
                                              'ciandt.components.loading',
                                              <% if (props.useBreadcrumb) {%>'ciandt.components.breadcrumb',
                                              <%}%>'ciandt.components.layout',
-                                             'app.common.components.exceptions',
-                                             'app.common.components.navigation']);
+                                             'app.common.components.exceptions']);
 
 });

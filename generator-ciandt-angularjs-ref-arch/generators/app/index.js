@@ -24,20 +24,20 @@ module.exports = yeoman.generators.Base.extend({
 
 		var prompts = [{
 				name: 'appName',
-				message: 'What\'s your app\'s name?'
+				message: 'What\'s the app\'s name?'
 			},
 			{
 				name: 'appTitle',
-				message: 'What\'s your app\'s title?'
+				message: 'What\'s the app\'s title?'
 			},
 			{
 				name: 'moduleName',
-				message: 'What\'s your principal module name?',
+				message: 'What\'s the principal module name?',
 				default: 'core'
 			},
 			{
 				name: 'defaultLang',
-				message: 'What\'s your principal language?',
+				message: 'What\'s the principal language?',
 				default: 'en'
 			},
 			{
@@ -69,7 +69,6 @@ module.exports = yeoman.generators.Base.extend({
 		this.prompt(prompts, function (props) {
 			this.props = props;
 			this.props.useRestangular = true;
-			//this.composeWith('ciandt-angularjs-ref-arch:module', { args: [this.props.moduleName, this.props.useI18n] });
 			done();
 		}.bind(this));
 	},
@@ -111,25 +110,25 @@ module.exports = yeoman.generators.Base.extend({
 			this.destinationPath('main.tpl.js'),
 			this
 		);
-this.log('2');
+
 		this.fs.copyTpl(
 			this.templatePath('index.tpl.html'),
 			this.destinationPath('index.tpl.html'),
 			this
 		);
-this.log('3');
+
 		this.fs.copyTpl(
 			this.templatePath('app/app.js'),
 			this.destinationPath('app/app.js'),
 			this
 		);
-this.log('4');
+
 		this.fs.copyTpl(
 			this.templatePath('app/common/common-app.js'),
 			this.destinationPath('app/common/common-app.js'),
 			this
 		);
-this.log('5');
+
 		if (this.props.useI18n) {
 			this.fs.copyTpl(
 				this.templatePath('app/common/i18n/resources.json'),
@@ -137,31 +136,31 @@ this.log('5');
 				this
 			);
 		}
-this.log('6');
+
 		this.fs.copyTpl(
 			this.templatePath('app/common/components/components.js'),
 			this.destinationPath('app/common/components/components.js'),
 			this
 		);
-this.log('7');
+
 		this.fs.copyTpl(
 			this.templatePath('app/common/components/header/header.html'),
 			this.destinationPath('app/common/components/header/header.html'),
 			this
 		);
-this.log('8');
+
 		this.fs.copyTpl(
 			this.templatePath('app/common/components/navigation/navigation.html'),
 			this.destinationPath('app/common/components/navigation/navigation.html'),
 			this
 		);
-this.log('9');
+
 		this.fs.copyTpl(
 			this.templatePath('_package.json'),
 			this.destinationPath('package.json'),
 			this
 		);
-this.log('10');
+
 		this.fs.copyTpl(
 			this.templatePath('_bower.json'),
 			this.destinationPath('bower.json'),
@@ -221,16 +220,23 @@ this.log('10');
 		);
 
 		this.fs.copy(
+			this.templatePath('assets/img/en-US.png'),
+			this.destinationPath('assets/img/en-US.png')
+		);
+
+		this.fs.copy(
+			this.templatePath('assets/img/pt-BR.png'),
+			this.destinationPath('assets/img/pt-BR.png')
+		);
+
+		this.fs.copy(
 			this.templatePath('gitignore'),
 			this.destinationPath('.gitignore')
 		);
+	},
 
-		//----
-		// generate module
-		// var done = this.async();
-		// this.invoke("ciandt-angularjs-ref-arch:module", {args: [this.props.moduleName, this.props.useI18n]}, function(){
-		// 	done();
-		// });
+	end: function () {
+		this.composeWith('ciandt-angularjs-ref-arch:module', {args: [this.props.moduleName + ':' + this.props.useI18n + ':' + this.props.defaultLang]});
 	},
 
 	install: function () {

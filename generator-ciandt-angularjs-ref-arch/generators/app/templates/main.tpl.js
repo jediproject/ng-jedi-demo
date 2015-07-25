@@ -32,7 +32,6 @@ require.config({
         'app-common-env': 'app/common/env/common-env.json',
         'app-common-components': 'app/common/components/components',
         'app-common-components-exceptions': 'app/common/components/exceptions/exceptions',
-        'app-common-components-navigation': 'app/common/components/navigation/navigation-directives',
 
         //## 3rd party angular scripts
         'angular': 'assets/libs/angular/angular',

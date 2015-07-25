@@ -1,30 +1,26 @@
-<header class="top-header clearfix">
-
-    <!-- Logo -->
-    <div class="logo">
-        <a href="#/">
-            <img src="assets/img/logo.png" />
-            <span class="hidden-xs" i18n><%= props.appTitle%></span>
-        </a>
+<nav class="navbar navbar-inverse navbar-static-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><%= props.appTitle%></a>
     </div>
-
-    <div class="top-nav">
-        <div class="profile">
-            <a href="javascript:;" title="Sair" ng-click="appCtrl.signout()"><span class="glyphicon glyphicon-off"></span></a>
-            <div class="profile-name text-normal">{{appContext.identity.name}}</div>
-        </div><% if (props.useI18n) {%>
-
-        <div class="langs">
-            <img src="assets/img/pt-BR.gif" ng-disabled="appCtrl.getLanguage() == 'pt'" ng-click="appCtrl.setLanguage('pt')" />
-            <img src="assets/img/en-US.png" ng-disabled="appCtrl.getLanguage() == 'en'" ng-click="appCtrl.setLanguage('en')" />
-        </div><%}%>
-
-        <!-- needs to be put after logo to make it working-->
-        <div class="menu-button" toggle-off-canvas>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </div>
+    <div class="collapse navbar-collapse" id="menu">
+        <ul class="nav navbar-nav">
+            <li><a href="#/myModule/mySubmodule/myFeature1">My Feature 1</a></li>
+            <li><a href="#/myModule/mySubmodule/myFeature2">My Feature 2</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right"><% if (props.useI18n) {%>
+            <li><a href="javascript:;" alt="Português"><img src="assets/img/pt-BR.gif" ng-disabled="appCtrl.getLanguage() == 'pt'" ng-click="appCtrl.setLanguage('pt')" /></a></li>
+            <li><a href="javascript:;" alt="English"><img src="assets/img/en-US.png" ng-disabled="appCtrl.getLanguage() == 'en'" ng-click="appCtrl.setLanguage('en')" /></a></li><%}%>
+            <li><a href="javascript:;" title="Sair" ng-click="appCtrl.signout()"><span class="glyphicon glyphicon-off"></span></a></li>
+        </ul>
+        <div class="nav navbar-nav navbar-right"><p class="navbar-text">{{appContext.identity.name}}</p></div>
     </div>
-
-</header>
+  </div>
+</nav>

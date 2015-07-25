@@ -11,23 +11,16 @@
         <title i18n><%= props.appTitle%></title>
         <meta name="description" content="<%= props.appTitle%>">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-
-        <!-- Needs images, font... therefore can not be part of main.css -->
         <link rel="stylesheet" href="assets/css/font-awesome.css">
         <link rel="stylesheet" href="assets/css/weather-icons.css">
-        <!-- end Needs images -->
-
-        <!-- build:css({.tmp,client}) assets/css/main.css -->
         <link rel="stylesheet" href="assets/css/bootstrap.css">
         <link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.css">
         <link rel='stylesheet' href='assets/css/loading-bar.css' type='text/css' media='all' />
         <link rel="stylesheet" href="assets/css/app.css">
-        <!-- endbuild -->
     </head>
 
     <body id="app"
           class="app layout-boxed"
-          off-canvas-nav
           ng-controller="app.common.AppCtrl as appCtrl">
 
         <!--[if lt IE 9]>
@@ -36,9 +29,9 @@
 
         <app-loading></app-loading>
         
-        <section ng-include="'app/common/components/header/header.html'"
+        <div ng-include="'app/common/components/header/header.html'"
                  id="header"
-                 class="header-container"></section>
+                 class="container"></div>
 
         <div class="main-container">
             <aside ng-include="'app/common/components/navigation/navigation.html'"

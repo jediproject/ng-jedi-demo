@@ -85,7 +85,7 @@ define([
             $log.info('Load modules');
 
             // load app modules (e.g.: core, billing)
-            factory.loadModules([<%= props.moduleName%>]], <% if (props.useI18n) {%>function (module) {
+            factory.loadModules(['<%= props.moduleName%>'], <% if (props.useI18n) {%>function (module) {
                 // adiciona path para i18n do sistema
                 localize.addResource('app/' + module + '/i18n/resources_{lang}.json');
             }, <%}%>function () {

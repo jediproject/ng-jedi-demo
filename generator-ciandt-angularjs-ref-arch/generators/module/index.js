@@ -5,25 +5,21 @@ var mkdirp = require('mkdirp');
 var s = require("underscore.string");
 
 module.exports = yeoman.generators.Base.extend({
-  initializing: function () {
+  initializing: function (args, options) {
     this.argument('moduleName', {
       required: false,
       type: String,
       desc: 'The module name'
     });
-
-    this.argument('useI18n', {
-      required: false,
-      type: Boolean,
-      desc: 'Enable use the i18n component'
-    });
   },
 
   prompting: function () {
     if (this.moduleName) {
+      this.moduleName = this.moduleName.split(':');
       this.props = {
-        moduleName: this.moduleName,
-        useI18n: this.useI18n
+        moduleName: this.moduleName[0],
+        useI18n: this.moduleName[1],
+        defaultLang: this.moduleName[2]
       };
     } else {
       var done = this.async();
