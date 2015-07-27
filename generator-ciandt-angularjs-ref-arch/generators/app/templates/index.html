@@ -33,15 +33,7 @@
                  id="header"
                  class="container"></div>
 
-        <div class="main-container">
-            <aside ng-include="'app/common/components/navigation/navigation.html'"
-                   id="nav-container"
-                   class="nav-container nav-horizontal"></aside>
-
-            <section id="content"
-                     class="content-container"
-                     ng-view style="overflow: visible;"></section>
-        </div>
+        <div class="container" ng-view></div>
 
         <!-- Le javascript ================================================== -->
         <!-- Placed at the end of the document so the pages load faster-->
