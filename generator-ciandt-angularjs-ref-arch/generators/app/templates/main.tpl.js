@@ -45,7 +45,7 @@ require.config({
         'angular-cookie': 'assets/libs/angular-cookie/angular-cookie.js',
         'angular-file-upload': 'assets/libs/angular-file-upload/angular-file-upload.js',<% if (props.useI18n) {%>
         'angular-dynamic-locale': 'assets/libs/angular-dynamic-locale/tmhDynamicLocale.js',<%} else {%>
-        'angular-i18n': 'assets/libs/angular-i18n/angular-locale_<%= props.defaultLanguage%>.js',<%}%>
+        'angular-i18n': 'assets/libs/angular-i18n/angular-locale_<%= props.defaultLang%>.js',<%}%>
         'angular-loading-bar': 'assets/libs/angular-loading-bar/loading-bar.js',
         'angular-ngMask': 'assets/libs/angular-ngMask/ngMask.js',
         'angular-route': 'assets/libs/angular-route/angular-route.js',
@@ -61,7 +61,7 @@ require.config({
         'jquery': 'assets/libs/jquery/jquery.js',
         'lodash': 'assets/libs/lodash/lodash.js',
         'moment': 'assets/libs/moment/moment.js',<% if (props.defaultLang != 'en') {%>
-        'moment-locale': 'assets/libs/moment/<%= props.defaultLanguage%>.js',<%}%>
+        'moment-locale': 'assets/libs/moment/<%= props.defaultLang%>.js',<%}%>
         'slimscroll': 'assets/libs/slimscroll/jquery.slimscroll.js',
         'json': 'assets/libs/requirejs-plugins/json.js',
         'text': 'assets/libs/requirejs-plugins/text.js'
