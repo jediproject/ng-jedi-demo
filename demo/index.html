@@ -1,0 +1,42 @@
+<!doctype html>
+<!--[if lt IE 8]>
+<html class="no-js lt-ie8">
+<![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+        <title i18n>Adote-me</title>
+        <meta name="description" content="Adote-me">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="assets/css/font-awesome.css">
+        <link rel="stylesheet" href="assets/css/weather-icons.css">
+        <link rel="stylesheet" href="assets/css/bootstrap.css">
+        <link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.css">
+        <link rel='stylesheet' href='assets/css/loading-bar.css' type='text/css' media='all' />
+        <link rel="stylesheet" href="assets/css/app.css">
+    </head>
+
+    <body id="app"
+          class="app layout-boxed"
+          ng-controller="app.common.AppCtrl as appCtrl">
+
+        <!--[if lt IE 9]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <app-loading></app-loading>
+        
+        <div ng-include="'app/common/components/header/header.html'"
+                 id="header"
+                 class="container"></div>
+
+        <div class="container" ng-view></div>
+
+        <!-- Le javascript ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster-->
+        <script data-main="main.js" src="assets/libs/requirejs/require.js"></script>
+    </body>
+</html>

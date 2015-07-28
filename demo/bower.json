@@ -1,0 +1,50 @@
+{
+  "name": "adoteme",
+  "version": "0.0.1",
+  "description": "Adote-me",
+  "license": "MIT",
+  "ignore": [
+	"**/.*",
+	"node_modules",
+	"bower_components",
+	"test",
+	"tests"
+  ],
+  "dependencies": {
+	"requirejs": "~2.1.15",
+	"angular-route": "~1.4.0",
+	"angular-animate": "~1.4.0",
+	"angular-i18n": "~1.4.0",
+	"angular-bootstrap": "~0.12.0",
+	"restangular": "~1.5.1",
+	"angular-loading-bar": "*",
+	"eonasdan-bootstrap-datetimepicker": "~4.7.14",
+	"bootstrap": "~3.3.4",
+	"slimscroll": "~1.3.3",
+	"moment": "~2.9.0",
+	"ng-token-auth": "~0.0.25",
+	"file-saver-saveas-js": "~1.20150507.2",
+	"angular-ngMask-alias": "*",
+	"angular-authService": "*",
+	"angular-file-upload-interceptor": "*",
+	"fontawesome": "~4.3.0",
+	"weather-icons": "~1.3.2",
+	"angular-table-restful": "*",
+	"angularAMD-multiscript": "*",
+	"ng-mask-currency": "*",
+	"ciandt-components-breadcrumb": "*",
+	"ciandt-components-dialogs": "*",
+	"ciandt-components-loading": "*",
+	"ciandt-components-utilities": "*",
+	"ciandt-components-factory": "*",
+	"ciandt-components-i18n": "*",
+    "angular-dynamic-locale": "~0.1.27",
+    "ciandt-components-layout": "*",
+    "requirejs-plugins": "~1.0.3",
+    "angular-dynamic-locale": "~0.1.27"
+  },
+  "resolutions": {
+	"angular": "1.4.3"
+  },
+  "devDependencies": {}
+}

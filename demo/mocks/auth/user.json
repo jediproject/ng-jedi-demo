@@ -1,0 +1,6 @@
+{
+  "expires_in": "123",
+  "roles": "USER",
+  "access_token": "token_mock",
+  "name": "Usuário"
+}

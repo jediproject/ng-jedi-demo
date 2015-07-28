@@ -14,15 +14,15 @@ require.config({
         // ## ciandt components
         'ciandt-components-utilities': 'assets/libs/ciandt-components-utilities/utilities.js',
         'ciandt-components-utilities-directives': 'assets/libs/ciandt-components-utilities/utilities-directives.js',
-        'ciandt-components-utilities-filters': 'assets/libs/ciandt-components-utilities/utilities-filters.js',<% if (props.useI18n) {%>
-        'ciandt-components-i18n': 'assets/libs/ciandt-components-i18n/i18n.js',<%}%>
+        'ciandt-components-utilities-filters': 'assets/libs/ciandt-components-utilities/utilities-filters.js',
+        'ciandt-components-i18n': 'assets/libs/ciandt-components-i18n/i18n.js',
         'ciandt-components-dialogs': 'assets/libs/ciandt-components-dialogs/dialogs.js',
         'ciandt-components-dialogs-ctrls': 'assets/libs/ciandt-components-dialogs/dialogs-ctrls.js',
         'ciandt-components-factory': 'assets/libs/ciandt-components-factory/factory.js',
         'ver': 'assets/libs/ciandt-components-factory/version.js.js',
         'ciandt-components-loading': 'assets/libs/ciandt-components-loading/loading.js',
-        'ciandt-components-loading-directives': 'assets/libs/ciandt-components-loading/loading-directives.js',<% if (props.useBreadcrumb) {%>
-        'ciandt-components-breadcrumb': 'assets/libs/ciandt-components-breadcrumb/breadcrumb.js',<%}%>
+        'ciandt-components-loading-directives': 'assets/libs/ciandt-components-loading/loading-directives.js',
+        'ciandt-components-breadcrumb': 'assets/libs/ciandt-components-breadcrumb/breadcrumb.js',
         'ciandt-components-layout': 'assets/libs/ciandt-components-layout/layout.js',
         'ciandt-components-layout-datepicker': 'assets/libs/ciandt-components-layout/datepicker.js',
         'ciandt-components-layout-input': 'assets/libs/ciandt-components-layout/input.js',
@@ -42,16 +42,15 @@ require.config({
         'angular-authService': 'assets/libs/angular-authService/authService.js',
         'angular-bootstrap': 'assets/libs/angular-bootstrap/ui-bootstrap-tpls.js',
         'angular-cookie': 'assets/libs/angular-cookie/angular-cookie.js',
-        'angular-file-upload': 'assets/libs/angular-file-upload/angular-file-upload.js',<% if (props.useI18n) {%>
-        'angular-dynamic-locale': 'assets/libs/angular-dynamic-locale/tmhDynamicLocale.js',<%} else {%>
-        'angular-i18n': 'assets/libs/angular-i18n/angular-locale_<%= props.defaultLang%>.js',<%}%>
+        'angular-file-upload': 'assets/libs/angular-file-upload/angular-file-upload.js',
+        'angular-dynamic-locale': 'assets/libs/angular-dynamic-locale/tmhDynamicLocale.js',
         'angular-loading-bar': 'assets/libs/angular-loading-bar/loading-bar.js',
         'angular-ngMask': 'assets/libs/angular-ngMask/ngMask.js',
         'angular-route': 'assets/libs/angular-route/angular-route.js',
         'angular-table': 'assets/libs/angular-table/angular-table.js',
         'angularAMD': 'assets/libs/angularAMD/angularAMD.js',
-        'ng-currency-mask': 'assets/libs/ng-currency-mask/ng-currency-mask.js',<% if (props.useRestangular) {%>
-        'restangular': 'assets/libs/restangular/restangular.js',<%}%>
+        'ng-currency-mask': 'assets/libs/ng-currency-mask/ng-currency-mask.js',
+        'restangular': 'assets/libs/restangular/restangular.js',
 
         //## 3rd party non angular scripts
         'bootstrap': 'assets/libs/bootstrap/bootstrap.js',
@@ -59,8 +58,8 @@ require.config({
         'file-saver-saveas-js': 'assets/libs/file-saver-saveas-js/FileSaver.js',
         'jquery': 'assets/libs/jquery/jquery.js',
         'lodash': 'assets/libs/lodash/lodash.js',
-        'moment': 'assets/libs/moment/moment.js',<% if (props.defaultLang != 'en') {%>
-        'moment-locale': 'assets/libs/moment/<%= props.defaultLang%>.js',<%}%>
+        'moment': 'assets/libs/moment/moment.js',
+        'moment-locale': 'assets/libs/moment/pt.js',
         'slimscroll': 'assets/libs/slimscroll/jquery.slimscroll.js',
         'json': 'assets/libs/requirejs-plugins/json.js',
         'text': 'assets/libs/requirejs-plugins/text.js'
@@ -74,7 +73,7 @@ require.config({
         },
         "slimscroll": ["jquery"],
         "bootstrap": ["jquery"],
-        "bootstrap-datetimepicker": ["bootstrap", <% if (props.defaultLang != 'en') {%>"moment-locale"<%} else {%>"moment"<%}%>],
+        "bootstrap-datetimepicker": ["bootstrap", "moment-locale"],
         "angular": {
             deps: ["jquery"],
             exports: "angular"
@@ -88,10 +87,10 @@ require.config({
         "angular-authService": ["angular"],
         "ng-currency-mask": ["angular"],
         "angular-ngMask": ["angular"],
-        "angular-file-upload": ["angular"],<% if (props.useRestangular != 'en') {%>
-        "restangular": ["lodash", "angular"],<%}%>
-        "angular-loading-bar": ["angular"]<% if (props.useI18n) {%>,
-        'angular-dynamic-locale': ["angular"]<%}%>
+        "angular-file-upload": ["angular"],
+        "restangular": ["lodash", "angular"],
+        "angular-loading-bar": ["angular"],
+        'angular-dynamic-locale': ["angular"]
     },
 
     // kick start application
