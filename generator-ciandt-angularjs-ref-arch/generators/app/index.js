@@ -87,7 +87,6 @@ module.exports = yeoman.generators.Base.extend({
 		mkdirp('app/common');
 		mkdirp('app/common/components');
 		mkdirp('app/common/components/exceptions');
-		mkdirp('app/common/components/navigation');
 		mkdirp('app/common/components/header');
 		mkdirp('app/common/env');
 
@@ -156,12 +155,6 @@ module.exports = yeoman.generators.Base.extend({
 		);
 
 		this.fs.copyTpl(
-			this.templatePath('app/common/components/navigation/navigation.html'),
-			this.destinationPath('app/common/components/navigation/navigation.html'),
-			this
-		);
-
-		this.fs.copyTpl(
 			this.templatePath('_package.json'),
 			this.destinationPath('package.json'),
 			this
@@ -218,11 +211,6 @@ module.exports = yeoman.generators.Base.extend({
 		this.fs.copy(
 			this.templatePath('app/common/components/exceptions/exceptions.js'),
 			this.destinationPath('app/common/components/exceptions/exceptions.js')
-		);
-
-		this.fs.copy(
-			this.templatePath('app/common/components/navigation/navigation-directives.js'),
-			this.destinationPath('app/common/components/navigation/navigation-directives.js')
 		);
 
 		this.fs.copy(
