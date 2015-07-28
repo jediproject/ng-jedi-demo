@@ -40,10 +40,11 @@
 	"ciandt-components-i18n": "*",
     "angular-dynamic-locale": "~0.1.27",<%}%>
     "ciandt-components-layout": "*",
-    "requirejs-plugins": "~1.0.3"
+    "requirejs-plugins": "~1.0.3",
+    "angular-dynamic-locale": "~0.1.27"
   },
   "resolutions": {
-	"angular": "1.4.2"
+	"angular": "1.4.3"
   },
   "devDependencies": {}
 }

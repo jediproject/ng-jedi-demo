@@ -8,5 +8,5 @@ assets/css/loading-bar.css
 assets/css/font-awesome.css
 assets/css/weather-icons.css
 **/env/*-env.json
-index.html
 main.js
+version.json

@@ -25,7 +25,9 @@
     "load-grunt-tasks": "^3.2.0"
   },
   "scripts": {
-    "debug": "npm install && node.exe node_modules/bower/bin/bower install && node.exe node_modules/grunt-cli/bin/grunt debug",
-	  "release": "npm install && node.exe node_modules/bower/bin/bower install && node.exe node_modules/grunt-cli/bin/grunt release"
+    "develop": "npm install && node.exe node_modules/bower/bin/bower install && node.exe node_modules/grunt-cli/bin/grunt develop",
+	  "release": "npm install && node.exe node_modules/bower/bin/bower install && node.exe node_modules/grunt-cli/bin/grunt release",
+    "master": "npm install && node.exe node_modules/bower/bin/bower install && node.exe node_modules/grunt-cli/bin/grunt master",
+    "start": "npm install && node.exe node_modules/bower/bin/bower install && node.exe node_modules/grunt-cli/bin/grunt develop && node.exe node_modules/http-server/bin/http-server -a localhost -p 8080"
   }
 }

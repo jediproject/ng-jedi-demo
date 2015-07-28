@@ -1,0 +1,4 @@
+﻿{
+    "version": "@@version",
+    "files": @@mapping
+}

@@ -118,6 +118,12 @@ module.exports = yeoman.generators.Base.extend({
 		);
 
 		this.fs.copyTpl(
+			this.templatePath('assetsfiles.json'),
+			this.destinationPath('assetsfiles.json'),
+			this
+		);
+
+		this.fs.copyTpl(
 			this.templatePath('app/app.js'),
 			this.destinationPath('app/app.js'),
 			this
@@ -169,6 +175,11 @@ module.exports = yeoman.generators.Base.extend({
 
 		// //----
 		// // statics
+		
+		this.fs.copy(
+			this.templatePath('version.tpl.json'),
+			this.destinationPath('version.tpl.json')
+		);
 		
 		if (this.props.generateAuth) {
 			this.fs.copy(
@@ -232,6 +243,11 @@ module.exports = yeoman.generators.Base.extend({
 		this.fs.copy(
 			this.templatePath('gitignore'),
 			this.destinationPath('.gitignore')
+		);
+
+		this.fs.copy(
+			this.templatePath('_Gruntfile.js'),
+			this.destinationPath('Gruntfile.js')
 		);
 	},
 
