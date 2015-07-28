@@ -79,16 +79,20 @@ module.exports = yeoman.generators.Base.extend({
     // statics
 
     this.fs.copy(
-      this.templatePath('env/env.debug.json'),
-      this.destinationPath('app/'+this.props.moduleName.toLowerCase()+'/env/'+this.props.moduleName.toLowerCase()+'-env.debug.json')
+      this.templatePath('env/env.develop.json'),
+      this.destinationPath('app/'+this.props.moduleName.toLowerCase()+'/env/'+this.props.moduleName.toLowerCase()+'-env.develop.json')
     );
     this.fs.copy(
       this.templatePath('env/env.release.json'),
       this.destinationPath('app/'+this.props.moduleName.toLowerCase()+'/env/'+this.props.moduleName.toLowerCase()+'-env.release.json')
     );
     this.fs.copy(
-      this.templatePath('env/env.tpl.js'),
-      this.destinationPath('app/'+this.props.moduleName.toLowerCase()+'/env/'+this.props.moduleName.toLowerCase()+'-env.tpl.js')
+      this.templatePath('env/env.master.json'),
+      this.destinationPath('app/'+this.props.moduleName.toLowerCase()+'/env/'+this.props.moduleName.toLowerCase()+'-env.master.json')
+    );
+    this.fs.copy(
+      this.templatePath('env/env.tpl.json'),
+      this.destinationPath('app/'+this.props.moduleName.toLowerCase()+'/env/'+this.props.moduleName.toLowerCase()+'-env.tpl.json')
     );
 
     if (this.props.useI18n) {

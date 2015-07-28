@@ -157,6 +157,19 @@ module.exports = function (grunt) {
                     }]
                 },
                 files: [{ src: ['version.tpl.json'], dest: 'build/version.json' }]
+            },
+            versiondevelop: {
+                options: {
+                    patterns: [{
+                        match: 'mapping',
+                        replacement: "{}",
+                    },
+                    {
+                        match: 'version',
+                        replacement: "<%= grunt.task.current.args.length ? grunt.task.current.args[0] : pkg.version %>" // ToDo Versioning
+                    }]
+                },
+                files: [{ src: ['version.tpl.json'], dest: 'version.json' }]
             }
         },
         prompt: {
@@ -166,11 +179,11 @@ module.exports = function (grunt) {
                         config: 'environment', // name of config property
                         type: 'list', // list, checkbox, confirm, input, password
                         message: 'Choice an environment to build',
-                        default: 'Develop', // default value if nothing is entered
+                        default: 'develop', // default value if nothing is entered
                         choices: [
-                            { name: "Develop", value: 'Develop' },
-                            { name: "Release", value: 'Release' },
-                            { name: "Master", value: 'Master' }
+                            { name: "develop", value: 'develop' },
+                            { name: "release", value: 'release' },
+                            { name: "master", value: 'master' }
                         ],
                     }]
                 }
@@ -201,9 +214,9 @@ module.exports = function (grunt) {
     });
 
     // Main tasks for each environment
-    grunt.registerTask('develop', ['execute:Develop']);
-    grunt.registerTask('release', ['execute:Release']);
-    grunt.registerTask('master', ['execute:Master']);
+    grunt.registerTask('develop', ['execute:develop']);
+    grunt.registerTask('release', ['execute:release']);
+    grunt.registerTask('master', ['execute:master']);
 
     // Task Default, prompt user for parameters
     grunt.registerTask('default', 'Default Task', function () {
@@ -220,18 +233,18 @@ module.exports = function (grunt) {
         grunt.task.run('set-environment:' + env);
 
         // Build version 
-        if (env == 'Develop') {
-            grunt.task.run('build-Develop');
+        if (env == 'develop') {
+            grunt.task.run('build-develop');
         } else
-            if (env != 'Master') {
+            if (env != 'master') {
                 grunt.task.run('build');
             } else {
                 grunt.task.run('build-min');
             }
     });
 
-    // Task responsible for prepare and replace scripts to debug mode
-    grunt.registerTask('build-debug', ['replace:main']);
+    // Task responsible for prepare and replace scripts to develop mode
+    grunt.registerTask('build-develop', ['replace:main', 'replace:versiondevelop']);
 
     grunt.registerTask('cache-bust', ['filerev', 'filerev_apply_cit', 'replace:version', 'replace:mainbuild'])
 

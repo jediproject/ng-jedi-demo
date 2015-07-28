@@ -12,15 +12,15 @@
     </div>
     <div class="collapse navbar-collapse" id="menu">
         <ul class="nav navbar-nav">
-            <li><a href="#/myModule/mySubmodule/myFeature1">My Feature 1</a></li>
-            <li><a href="#/myModule/mySubmodule/myFeature2">My Feature 2</a></li>
+            <li><a href="#/<%= props.moduleName%>/mysubmodule/myfeature1">My Feature 1</a></li>
+            <li><a href="#/<%= props.moduleName%>/mysubmodule/myfeature2">My Feature 2</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right"><% if (props.useI18n) {%>
-            <li><a href="javascript:;" alt="Português"><img src="assets/img/pt-BR.gif" ng-disabled="appCtrl.getLanguage() == 'pt'" ng-click="appCtrl.setLanguage('pt')" /></a></li>
-            <li><a href="javascript:;" alt="English"><img src="assets/img/en-US.png" ng-disabled="appCtrl.getLanguage() == 'en'" ng-click="appCtrl.setLanguage('en')" /></a></li><%}%>
+            <li><a href="javascript:;" alt="Português" ng-disabled="appCtrl.getLanguage() == 'pt'"><img src="assets/img/pt-BR.png" ng-click="appCtrl.setLanguage('pt')" /></a></li>
+            <li><a href="javascript:;" alt="English" ng-disabled="appCtrl.getLanguage() == 'en'"><img src="assets/img/en-US.png" ng-click="appCtrl.setLanguage('en')" /></a></li><%}%>
             <li><a href="javascript:;" title="Sair" ng-click="appCtrl.signout()"><span class="glyphicon glyphicon-off"></span></a></li>
         </ul>
-        <div class="nav navbar-nav navbar-right"><p class="navbar-text">{{appContext.identity.name}}</p></div>
+        <div class="nav navbar-nav navbar-right"><p class="navbar-text">{{appContext.identity.username}}</p></div>
     </div>
   </div>
 </nav>

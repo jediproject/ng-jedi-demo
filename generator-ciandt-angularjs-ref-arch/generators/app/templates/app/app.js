@@ -94,17 +94,15 @@ define([
                 $log.info('Load routes');
 
                 $routeProviderReference
-                    .when('/myModule/mySubmodule/myFeature1', angularAMD.route({
-                        breadcrumb: ['My Module', 'My Submodule', 'My Feature 1'],
-                        templateUrl: factory.getFileVersion('app/myModule/features/mySubmodule/myFeature2/myFeature1.html'),
-                        controllerUrl: factory.getFileVersion('app/myModule/features/mySubmodule/myFeature2/myFeature1-ctrl.js')
+                    .when('/<%= props.moduleName%>/mysubmodule/myfeature1', angularAMD.route({
+                        breadcrumb: ['<%= props.moduleName.capitalize()%>', 'My Submodule', 'My Feature 1'],
+                        templateUrl: factory.getFileVersion('app/<%= props.moduleName%>/features/mysubmodule/myfeature1/myfeature1.html'),
+                        controllerUrl: factory.getFileVersion('app/<%= props.moduleName%>/features/mysubmodule/myfeature1/myfeature1-ctrl.js')
                     })).
-                    when('/myModule/mySubmodule/myFeature2', angularAMD.route({
-                        breadcrumb: ['My Module', 'My Submodule', 'My Feature 2'],
-                        templateUrl: factory.getFileVersion('app/myModule/features/mySubmodule/myFeature2/myFeature2.html'),
-                        controllerUrl: [factory.getFileVersion('app/myModule/features/mySubmodule/myFeature2/myFeature2-ctrl.js'),
-                                        factory.getFileVersion('app/myModule/features/mySubmodule/myFeature2/myFeature2-filter.js'),
-                                        factory.getFileVersion('app/myModule/features/mySubmodule/myFeature2/myFeature2-directive.js')]
+                    when('/<%= props.moduleName%>/mysubmodule/myfeature2', angularAMD.route({
+                        breadcrumb: ['<%= props.moduleName.capitalize()%>', 'My Submodule', 'My Feature 2'],
+                        templateUrl: factory.getFileVersion('app/<%= props.moduleName%>/features/mysubmodule/myfeature2/myfeature2.html'),
+                        controllerUrl: factory.getFileVersion('app/<%= props.moduleName%>/features/mysubmodule/myfeature2/myfeature2-ctrl.js')
                     }));
             });
 

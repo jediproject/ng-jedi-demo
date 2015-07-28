@@ -25,21 +25,21 @@ module.exports = yeoman.generators.Base.extend({
       name: 'title',
       message: 'What\'s the modal title?'
     },
-	{
-      name: 'module',
-      message: 'What\'s the module?',
-	  default: 'core'
-    },
-	{
-      name: 'submodule',
-      message: 'What\'s the submodule (*)?',
-	  default: ''
-    },
-	{
-      name: 'controller',
-      message: 'What\'s the controller name (e.g.: SelectCustomer)?'
-    },
-	{
+  	{
+        name: 'module',
+        message: 'What\'s the module?',
+  	  default: 'core'
+      },
+  	{
+        name: 'submodule',
+        message: 'What\'s the submodule (*)?',
+  	  default: ''
+      },
+    	{
+        name: 'controller',
+        message: 'What\'s the controller name (e.g.: SelectCustomer)?'
+      },
+	   {
       name: 'params',
       message: 'What are the parameters (*, e.g.: name, group)?',
 	  default: ''
@@ -63,7 +63,7 @@ module.exports = yeoman.generators.Base.extend({
   writing: function () {
     var dest = 'app/' + this.props.module.toLowerCase() + '/features/';
 	if (this.props.submodule) {
-		dest += props.submodule.toLowerCase() + '/';
+		dest += this.props.submodule.toLowerCase() + '/';
 	}
 	dest += this.props.controller.toLowerCase();
 	mkdirp(dest);

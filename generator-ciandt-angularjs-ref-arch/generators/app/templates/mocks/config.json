@@ -1,0 +1,21 @@
+{
+  "mockDirectory": "mocks",
+  "staticDirectory": "mocks",
+  "staticPath": "mocks",
+  "port": "3000",
+  "allowedDomains": ["*"],
+  "allowedHeaders": ["accept", "access-control-allow-credendtials", "access-control-allow-headers", "access-control-allow-methods", "access-control-allow-origin", "content-type", "if-modified-since"],
+  "webServices": {<% if (props.generateAuth) {%>
+    "auth": {
+      "verbs": ["post"],
+      "switch": ["username", "password"],
+      "responses": {
+        "post": {"httpStatus": 401, "mockFile": "auth/fail.json"}
+      },
+      "switchResponses": {
+        "usernameadminpasswordpass": {"httpStatus": 200, "mockFile": "auth/admin.json"},
+        "usernameuserpasswordpass": {"httpStatus": 200, "mockFile": "auth/user.json"}
+      }
+    }<%}%>
+  }
+}

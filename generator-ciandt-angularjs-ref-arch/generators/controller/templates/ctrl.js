@@ -6,7 +6,7 @@
 factory.newController('app.<%= props.module.toLowerCase()%>.<%if (props.submodule) {%><%= props.submodule.toLowerCase()%>.<%}%><%= props.controller.toLowerCase()%>.<%= props.controller.capitalize()%>Ctrl', [function () {
 
     //#region Service initialize
-    var service = ...//e.g: restangular instance
+    var service;// = ... e.g: restangular instance
     //#endregion
 
     //#region View/Model initialize

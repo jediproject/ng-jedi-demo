@@ -3,7 +3,7 @@
 /*
     Controller to signup
 */
-factory.newController('app.common.auth.signup.SignupCtrl', ['$authService', function (authService) {
+factory.newController('app.common.auth.signup.SignupCtrl', ['authService', function (authService) {
 
     //#region View/Model initialize
     var vm = this;

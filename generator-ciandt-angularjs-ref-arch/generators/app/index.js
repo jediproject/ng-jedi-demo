@@ -77,6 +77,8 @@ module.exports = yeoman.generators.Base.extend({
 		//----
 		// structure
 
+		mkdirp('mocks');
+
 		mkdirp('assets');
 		mkdirp('assets/fonts');
 		mkdirp('assets/css');
@@ -166,6 +168,12 @@ module.exports = yeoman.generators.Base.extend({
 			this
 		);
 
+		this.fs.copyTpl(
+			this.templatePath('mocks/config.json'),
+			this.destinationPath('mocks/config.json'),
+			this
+		);
+
 		// //----
 		// // statics
 		
@@ -184,6 +192,7 @@ module.exports = yeoman.generators.Base.extend({
 				this.destinationPath('app/common/features/auth/signin/signin.html'),
 				this
 			);
+			
 			this.fs.copy(
 				this.templatePath('app/common/features/auth/signup/signup-ctrl.js'),
 				this.destinationPath('app/common/features/auth/signup/signup-ctrl.js')
@@ -193,19 +202,37 @@ module.exports = yeoman.generators.Base.extend({
 				this.destinationPath('app/common/features/auth/signup/signup.html'),
 				this
 			);
+
+			// mocks
+			this.fs.copy(
+				this.templatePath('mocks/auth/admin.json'),
+				this.destinationPath('mocks/auth/admin.json')
+			);
+			this.fs.copy(
+				this.templatePath('mocks/auth/fail.json'),
+				this.destinationPath('mocks/auth/fail.json')
+			);
+			this.fs.copy(
+				this.templatePath('mocks/auth/user.json'),
+				this.destinationPath('mocks/auth/user.json')
+			);
 		}
 
 		this.fs.copy(
-			this.templatePath('app/common/env/common-env.debug.json'),
-			this.destinationPath('app/common/env/common-env.debug.json')
+			this.templatePath('app/common/env/common-env.develop.json'),
+			this.destinationPath('app/common/env/common-env.develop.json')
 		);
 		this.fs.copy(
 			this.templatePath('app/common/env/common-env.release.json'),
 			this.destinationPath('app/common/env/common-env.release.json')
 		);
 		this.fs.copy(
-			this.templatePath('app/common/env/common-env.tpl.js'),
-			this.destinationPath('app/common/env/common-env.tpl.js')
+			this.templatePath('app/common/env/common-env.master.json'),
+			this.destinationPath('app/common/env/common-env.master.json')
+		);
+		this.fs.copy(
+			this.templatePath('app/common/env/common-env.tpl.json'),
+			this.destinationPath('app/common/env/common-env.tpl.json')
 		);
 
 		this.fs.copy(
@@ -241,6 +268,8 @@ module.exports = yeoman.generators.Base.extend({
 
 	end: function () {
 		this.composeWith('ciandt-angularjs-ref-arch:module', {args: [this.props.moduleName + ':' + this.props.useI18n + ':' + this.props.defaultLang]});
+		this.composeWith('ciandt-angularjs-ref-arch:controller', {args: ['My Feature 1:' + this.props.moduleName + ':mysubmodule:myfeature1']});
+		this.composeWith('ciandt-angularjs-ref-arch:controller', {args: ['My Feature 2:' + this.props.moduleName + ':mysubmodule:myfeature2']});
 	},
 
 	install: function () {

@@ -1,4 +1,4 @@
-﻿{
+{
 	"files": [
 		{
 			"src": "bower_components/bootstrap/fonts/glyphicons-halflings-regular.eot",
@@ -171,7 +171,11 @@
 		{
 			"src": "bower_components/moment/moment.js",
 			"dest": "assets/libs/moment/moment.js"
-		},
+		},<% if (props.defaultLang != 'en') {%>
+		{
+			"src": "bower_components/moment/locale/<%= props.defaultLang%>.js",
+			"dest": "assets/libs/moment/<%= props.defaultLang%>.js"
+		},<%}%>
 		{
 			"src": "bower_components/slimscroll/jquery.slimscroll.js",
 			"dest": "assets/libs/slimscroll/jquery.slimscroll.js"
@@ -223,6 +227,10 @@
 		{
 			"src": "bower_components/ciandt-components-loading/loading.html",
 			"dest": "assets/libs/ciandt-components-loading/loading.html"
+		},
+		{
+			"src": "bower_components/ciandt-components-loading/loading.gif",
+			"dest": "assets/libs/ciandt-components-loading/loading.gif"
 		},
 		{
 			"src": "bower_components/ciandt-components-utilities/utilities.js",
