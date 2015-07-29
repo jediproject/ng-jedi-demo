@@ -83,7 +83,7 @@ bower install [componente] --save
 
 Para utilizar o gerador, siga os passos:
 
-1- Instalação do gerador
+1. Instalação do gerador
 
 	```bash
 	npm install -g yo
@@ -95,7 +95,7 @@ Para utilizar o gerador, siga os passos:
 	npm link
 	```
 
-2- Execução do gerador principal
+2. Execução do gerador principal
 
 	```bash
 	yo ciandt-angularjs-ref-arch
@@ -109,7 +109,7 @@ Para utilizar o gerador, siga os passos:
 	npm run start
 	```
 
-3- Execução do gerador de controller
+3. Execução do gerador de controller
 
 	```bash
 	yo ciandt-angularjs-ref-arch:controller
@@ -118,7 +118,7 @@ Para utilizar o gerador, siga os passos:
 	- informe o título da tela, nome do módulo, nome do submódulo e nome do controlador.
 	- ao final será criado um controller e uma tela no caminho: app//[nome do módulo]//[nome do submódulo]//[nome do controlador]
 
-4- Execução do gerador de modal
+4. Execução do gerador de modal
 
 	```bash
 	yo ciandt-angularjs-ref-arch:modal
@@ -127,7 +127,7 @@ Para utilizar o gerador, siga os passos:
 	- informe o título da modal, nome do módulo, nome do submódulo e nome do controlador.
 	- ao final será criado um controller e uma tela no caminho: app//[nome do módulo]//[nome do submódulo]//[nome do controlador]
 
-4- Execução do gerador de módulo
+5. Execução do gerador de módulo
 
 	```bash
 	yo ciandt-angularjs-ref-arch:module
