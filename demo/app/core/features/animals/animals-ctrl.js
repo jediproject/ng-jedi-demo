@@ -30,12 +30,7 @@ factory.newController('app.core.animals.AnimalsCtrl', ['coreRestService', 'ciand
     }
 
     function animalDetail(animal) {
-        ModalHelper.open('app/core/features/animals/animals-detail.html', ['$scope', 'animal', function ($scope, animal) {
-            //#region View/Model initialize
-            var subvm = $scope.animalsDetailCtrl = {};
-            subvm.animalsDetailModel = {"animal": animal};
-            //#endregion
-        }], { "animal": animal });
+        ModalHelper.open('app/core/features/animals/animals-detail.html', { "animal": animal });
     }
     //#endregion
 
