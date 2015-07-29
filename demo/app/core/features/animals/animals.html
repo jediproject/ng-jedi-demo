@@ -1,15 +1,13 @@
-<form ng-controller="app.core.animals.AnimalsCtrl as animalsCtrl" name="animalsForm">
-    <div class="form-group">
-        <input type="search" class="form-control" placeholder="Pesquisar" ng-model="animalsCtrl.animalsModel.searchText" i18n>
-    </div>
-	<div id="products" class="row list-group">
+<form app-panel app-title="Lista de Animais" ng-controller="app.core.animals.AnimalsCtrl as animalsCtrl" name="animalsForm">
+    <input app-input type="search" placeholder="Pesquisar" ng-model="animalsCtrl.animalsModel.searchText">
+    <div id="products" class="row list-group">
 	    <div class="item  col-xs-4 col-lg-4" ng-repeat="animal in animalsCtrl.animalsModel.animalList | filter:animalsCtrl.animalsModel.searchText">
 	        <div class="thumbnail">
-	            <img class="group list-group-image" src={{animal.img}} style="width=358px; height=224px;" />
+	            <img class="group list-group-image" ng-src={{animal.img}} style="width=358px; height=224px;" />
 	            <div class="caption">
 	                <div class="row">
 	                    <div class="col-xs-12 col-md-6">
-	                        <h2 >{{animal.name}}<small><p>{{animal.spitz}}</p></small></h2>
+	                        <h2>{{animal.name}}<small><p>{{animal.spitz}}</p></small></h2>
 	                    </div>
 	                </div>
 	                <p class="group inner list-group-item-text">{{animal.desciption}}</p>

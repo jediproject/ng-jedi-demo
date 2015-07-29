@@ -1,6 +1,16 @@
 {
 	"resources": {
-		"adote-me": "Adote-me"
+		"adote-me": "Adopt me",
+		"lista de animais": "Animals",
+		"quero doar": "Donate",
+		"sair": "Exit",
+		"usuário": "User",
+		"senha": "Password",
+		"entrar": "Enter",
+		"cadastrar-se": "Sign up",
+		"nome": "Name",
+		"confirmação de senha": "Password confirmation",
+		"salvar": "Save"
 	},
 	"regexResources": {
 	}

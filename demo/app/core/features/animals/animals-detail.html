@@ -3,21 +3,21 @@
         <div class="col-md-6">
             <div class="panel panel-default">
                 <div class="panel-heading"><strong>
-                    <span class="glyphicon glyphicon-th"></span>Sobre o animal</strong>
+                    <span class="glyphicon glyphicon-th"></span><i18n>Sobre o animal</i18n></strong>
                 </div>
                 <div class="panel-body">
                     <div class="text-center">
-                        <h1>{{animal.name}}
-                        <p><small>{{animal.spitz}}<small> </p>
+                        <h1>{{animalsDetailCtrl.animalsDetailModel.animal.name}}
+                        <p><small>{{animalsDetailCtrl.animalsDetailModel.animal.spitz}}<small> </p>
                         </h1>
                     </div>
                     <div class="divider divider-lg"></div>
                     <div class="divider divider-lg"></div>
                     <div class="panel-img">
-                        <img alt="" src={{animal.img}} width="100%" class="img-rounded">
+                        <img ng-src={{animalsDetailCtrl.animalsDetailModel.animal.img}} width="100%" class="img-rounded">
                     </div>
                     <h4 class="text-center">
-                        <p>{{animal.desciption}}</p>
+                        <p>{{animalsDetailCtrl.animalsDetailModel.animal.desciption}}</p>
                     </h4>
                 </div>
             </div>
@@ -25,29 +25,29 @@
         <div class="col-md-6">
             <div class="panel panel-default">
                 <div class="panel-heading"><strong>
-                    <span class="glyphicon glyphicon-th"></span>Contato para adoção</strong>
+                    <span class="glyphicon glyphicon-th"></span><i18n>Contato para adoção</i18n></strong>
                 </div>
                 <div class="panel-body">
                     <ul class="list-unstyled list-info">
                         <li>
                             <span class="icon glyphicon glyphicon-user"></span>
-                            <label>Contato</label>
-                            {{animal.owner.name}}
+                            <label i18n>Contato</label>
+                            {{animalsDetailCtrl.animalsDetailModel.animal.owner.name}}
                         </li>
                         <li>
                             <span class="icon glyphicon glyphicon-envelope"></span>
-                            <label>Email</label>
-                            {{animal.owner.email}}
+                            <label i18n>Email</label>
+                            {{animalsDetailCtrl.animalsDetailModel.animal.owner.email}}
                         </li>
                         <li>
                             <span class="icon glyphicon glyphicon-home"></span>
-                            <label>Endereço</label>
-                            {{animal.owner.city}}
+                            <label i18n>Endereço</label>
+                            {{animalsDetailCtrl.animalsDetailModel.animal.owner.city}}
                         </li>
                         <li>
                             <span class="icon glyphicon glyphicon-earphone"></span>
-                            <label>Telefone</label>
-                            {{animal.owner.tel}}
+                            <label i18n>Telefone</label>
+                            {{animalsDetailCtrl.animalsDetailModel.animal.owner.tel}}
                         </li>
                     </ul>
                 </div>

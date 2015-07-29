@@ -104,6 +104,8 @@ define([
                         templateUrl: factory.getFileVersion('app/<%= props.moduleName%>/features/mysubmodule/myfeature2/myfeature2.html'),
                         controllerUrl: factory.getFileVersion('app/<%= props.moduleName%>/features/mysubmodule/myfeature2/myfeature2-ctrl.js')
                     }));
+                
+                $route.reload();
             });
 
             if ($location.$$path == '/common/auth/signin' || $location.$$path == '/common/auth/signup') {

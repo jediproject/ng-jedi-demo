@@ -2,3 +2,7 @@
 .body-wide #header {
 	display: none;
 }
+
+.form-control.ng-dirty.ng-invalid {
+	border: 1px solid #C72557
+}

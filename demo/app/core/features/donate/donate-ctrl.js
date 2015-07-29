@@ -3,7 +3,7 @@
 /*
     Controller for the feature Donate
 */
-factory.newController('app.core.animals.DonateCtrl', ['coreRestService', 'ciandt.components.dialogs.AlertHelper', function (CoreRestService, AlertHelper) {
+factory.newController('app.core.animals.DonateCtrl', ['coreRestService', 'ciandt.components.dialogs.AlertHelper', '$location', function (CoreRestService, AlertHelper, $location) {
 
     //#region Service initialize
     var service = CoreRestService.all('animals');
@@ -11,7 +11,7 @@ factory.newController('app.core.animals.DonateCtrl', ['coreRestService', 'ciandt
 
     //#region View/Model initialize
     var vm = this;
-    vm.donateModel = service.copy({}});
+    vm.donateModel = service.copy({}); // adiciona métodos crud no objeto criado
     //#endregion
 
     //#region Events binds

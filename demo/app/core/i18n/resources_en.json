@@ -1,5 +1,28 @@
 {
 	"resources": {
+		"quero adotar": "I want to adopt",
+		"detalhes do animal": "Animal Details",
+		"sobre o animal": "About Animal",
+		"contato para adoção": "Contact for adoption",
+		"contato": "Contact",
+		"endereço": "Address",
+		"telefone": "Phone",
+		"preenche as informações no animal para doação": "Fills the animal's informations for donation",
+		"nome do animal": "Animal name",
+		"ex: batatinha": "E.g: Batatinha",
+		"ex: cachorro, gato, tartaruga, etc": "E.g: dog, cat...",
+		"ex: pastor alemão": "E.g: Yorkshire",
+		"raça": "Breed",
+		"idade": "Age",
+		"ex: 0 a 6 meses": "E.g: 0 to 6 month",
+		"descrição": "Description",
+		"ex: uma breve descrição sobre o animal": "E.g: A brief description of the animal",
+		"escolha uma foto do animal": "Choose a photo of the animal",
+		"ex: assets/img/dogs/dog8.jpg": "E.g: assets/img/dogs/dog8.jpg",
+		"contato para doação": "Donation contact",
+		"nome da pessoa de contato": "Contact person name",
+		"ex: rua x, número 1, bairro xyz": "E.g: 7th street, 1",
+		"ex: (31) 3333-3333": "E.g: (31) 3333-3333"
 	},
 	"regexResources": {
 	}

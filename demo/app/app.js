@@ -104,6 +104,8 @@ define([
                         templateUrl: factory.getFileVersion('app/core/features/donate/donate.html'),
                         controllerUrl: factory.getFileVersion('app/core/features/donate/donate-ctrl.js')
                     }));
+
+                $route.reload();
             });
 
             if ($location.$$path == '/common/auth/signin' || $location.$$path == '/common/auth/signup') {

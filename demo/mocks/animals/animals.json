@@ -1,0 +1,203 @@
+{
+  "animals": [
+    {
+      "id": 1,
+      "img": "assets/img/dogs/dog1.jpg",
+      "name": "Mel",
+      "type": "Cachorro",
+      "spitz": "Pastor Alemão",
+      "size": "médio",
+      "age": "0 a 6 meses",
+      "desciption": "A Mel tem 6 anos, tem todas as vacinas em dia. É companheira e carinhosa",
+      "owner": {
+        "name": "Aline",
+        "city": "Belo Horizonte",
+        "tel": "8888-8888",
+        "email": "aline@gmail.com"
+      }
+    },
+    {
+      "id": 2,
+      "img": "assets/img/dogs/dog2.jpg",
+      "name": "Batata",
+      "type": "Cachorro",
+      "spitz": "Pastor Alemão",
+      "size": "médio",
+      "age": "0 a 6 meses",
+      "desciption": "A Mel tem 6 anos, tem todas as vacinas em dia. É companheira e carinhosa",
+      "owner": {
+        "name": "Aline",
+        "city": "Belo Horizonte",
+        "tel": "8888-8888",
+        "email": "aline@gmail.com"
+      }
+    },
+    {
+      "id": 3,
+      "img": "assets/img/dogs/dog3.jpg",
+      "name": "Hulk",
+      "type": "Cachorro",
+      "spitz": "Pastor Alemão",
+      "size": "médio",
+      "age": "0 a 6 meses",
+      "desciption": "A Mel tem 6 anos, tem todas as vacinas em dia. É companheira e carinhosa",
+      "owner": {
+        "name": "Aline",
+        "city": "Belo Horizonte",
+        "tel": "8888-8888",
+        "email": "aline@gmail.com"
+      }
+    },
+    {
+      "id": 4,
+      "img": "assets/img/dogs/dog4.jpg",
+      "name": "Mel",
+      "type": "Cachorro",
+      "spitz": "Pastor Alemão",
+      "size": "médio",
+      "age": "0 a 6 meses",
+      "desciption": "A Mel tem 6 anos, tem todas as vacinas em dia. É companheira e carinhosa",
+      "owner": {
+        "name": "Aline",
+        "city": "Belo Horizonte",
+        "tel": "8888-8888",
+        "email": "aline@gmail.com"
+      }
+    },
+    {
+      "id": 5,
+      "img": "assets/img/dogs/dog5.jpg",
+      "name": "Melzinha",
+      "type": "Cachorro",
+      "spitz": "Pastor Alemão",
+      "size": "médio",
+      "age": "0 a 6 meses",
+      "desciption": "A Mel tem 6 anos, tem todas as vacinas em dia. É companheira e carinhosa",
+      "owner": {
+        "name": "Aline",
+        "city": "Belo Horizonte",
+        "tel": "8888-8888",
+        "email": "aline@gmail.com"
+      }
+    },
+    {
+      "id": 6,
+      "img": "assets/img/dogs/dog6.jpg",
+      "name": "Mocinha",
+      "type": "Cachorro",
+      "spitz": "Pastor Alemão",
+      "size": "médio",
+      "age": "0 a 6 meses",
+      "desciption": "A Mel tem 6 anos, tem todas as vacinas em dia. É companheira e carinhosa",
+      "owner": {
+        "name": "Aline",
+        "city": "Belo Horizonte",
+        "tel": "8888-8888",
+        "email": "aline@gmail.com"
+      }
+    },
+    {
+      "id": 7,
+      "img": "assets/img/dogs/dog7.jpg",
+      "name": "Pérola",
+      "type": "Cachorro",
+      "spitz": "Pastor Alemão",
+      "size": "médio",
+      "age": "0 a 6 meses",
+      "desciption": "A Mel tem 6 anos, tem todas as vacinas em dia. É companheira e carinhosa",
+      "owner": {
+        "name": "Aline",
+        "city": "Belo Horizonte",
+        "tel": "8888-8888",
+        "email": "aline@gmail.com"
+      }
+    },
+    {
+      "id": 8,
+      "img": "assets/img/dogs/dog8.jpg",
+      "name": "Kiara",
+      "type": "Cachorro",
+      "spitz": "Pastor Alemão",
+      "size": "médio",
+      "age": "0 a 6 meses",
+      "desciption": "A Mel tem 6 anos, tem todas as vacinas em dia. É companheira e carinhosa",
+      "owner": {
+        "name": "Aline",
+        "city": "Belo Horizonte",
+        "tel": "8888-8888",
+        "email": "aline@gmail.com"
+      }
+    },
+    {
+      "id": 9,
+      "img": "assets/img/dogs/dog9.jpg",
+      "name": "toto",
+      "type": "Cachorro",
+      "spitz": "Pastor Alemão",
+      "size": "médio",
+      "age": "0 a 6 meses",
+      "desciption": "A Mel tem 6 anos, tem todas as vacinas em dia. É companheira e carinhosa",
+      "owner": {
+        "name": "Aline",
+        "city": "Belo Horizonte",
+        "tel": "8888-8888",
+        "email": "aline@gmail.com"
+      }
+    },
+    {
+      "id": 10,
+      "img": "assets/img/dogs/dog10.jpg",
+      "name": "Zangado",
+      "type": "Cachorro",
+      "spitz": "Pastor Alemão",
+      "size": "médio",
+      "age": "0 a 6 meses",
+      "desciption": "A Mel tem 6 anos, tem todas as vacinas em dia. É companheira e carinhosa",
+      "owner": {
+        "name": "Aline",
+        "city": "Belo Horizonte",
+        "tel": "8888-8888",
+        "email": "aline@gmail.com"
+      }
+    },
+    {
+      "name": "Kiara",
+      "type": "Cachorro",
+      "spitz": "vira lata",
+      "age": "1 ano",
+      "description": "é um chachorro muito legal",
+      "img": "assets/img/dogs/dog11.jpg",
+      "id": 11
+    },
+    {
+      "name": "teste",
+      "type": "teste",
+      "spitz": "teste",
+      "age": 1,
+      "description": "teste",
+      "img": "teste",
+      "owner": {
+        "name": "teste",
+        "city": "teste",
+        "tel": "(12) 31231-2312",
+        "email": "adas@cia.com"
+      },
+      "id": 12
+    },
+    {
+      "name": "çldkf",
+      "type": "$location",
+      "spitz": "çlasd",
+      "age": 123,
+      "description": "çlk",
+      "img": "çlk",
+      "owner": {
+        "name": "çlk",
+        "city": "çlk",
+        "tel": "(12) 31231-2312",
+        "email": "fasl@adskl.com"
+      },
+      "id": 13
+    }
+  ]
+}

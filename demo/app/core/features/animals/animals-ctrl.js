@@ -25,12 +25,17 @@ factory.newController('app.core.animals.AnimalsCtrl', ['coreRestService', 'ciand
     //#region Events definitions
     function loadAnimals() {
         service.getList().then(function (animals) {
-            vm.animalsModel = animals;
+            vm.animalsModel.animalList = animals;
         });
     }
 
     function animalDetail(animal) {
-        modalHelper.open('app/core/features/animals/animals-detail.html', ['animal'], { "animal": animal });
+        ModalHelper.open('app/core/features/animals/animals-detail.html', ['$scope', 'animal', function ($scope, animal) {
+            //#region View/Model initialize
+            var subvm = $scope.animalsDetailCtrl = {};
+            subvm.animalsDetailModel = {"animal": animal};
+            //#endregion
+        }], { "animal": animal });
     }
     //#endregion
 
