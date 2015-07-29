@@ -168,36 +168,6 @@
       "description": "é um chachorro muito legal",
       "img": "assets/img/dogs/dog11.jpg",
       "id": 11
-    },
-    {
-      "name": "teste",
-      "type": "teste",
-      "spitz": "teste",
-      "age": 1,
-      "description": "teste",
-      "img": "teste",
-      "owner": {
-        "name": "teste",
-        "city": "teste",
-        "tel": "(12) 31231-2312",
-        "email": "adas@cia.com"
-      },
-      "id": 12
-    },
-    {
-      "name": "çldkf",
-      "type": "$location",
-      "spitz": "çlasd",
-      "age": 123,
-      "description": "çlk",
-      "img": "çlk",
-      "owner": {
-        "name": "çlk",
-        "city": "çlk",
-        "tel": "(12) 31231-2312",
-        "email": "fasl@adskl.com"
-      },
-      "id": 13
     }
   ]
 }
