@@ -10,7 +10,19 @@
 		"cadastrar-se": "Sign up",
 		"nome": "Name",
 		"confirmação de senha": "Password confirmation",
-		"salvar": "Save"
+		"salvar": "Save",
+		"não": "No",
+		"sim": "Yes",
+		"atenção!": "Attention!",
+		"preenchimento obrigatório.": "Required",
+		"email informado é inválido.": "Invalid email",
+		"endereço acessado está incorreto ou indisponível no momento.": "Unavailable address",
+		"conteúdo da requisição está inválido, confira os dados submetidos e refaça a operação.": "Bad request",
+		"sessão expirou, autentique-se novamente.": "Session is expired",
+		"acesso negado, você não possui permissão para acessar esta ação.": "Access denied",
+		"ocorreu algum erro inesperado durante sua requisição. tente novamente mais tarde ou contacte o suporte técnico.": "Internal server error",
+		"ocorreu algum erro não identificado durante sua requisição. tente novamente mais tarde ou contacte o suporte técnico.": "Internal server error",
+		"ocorreu algum erro desconhecido durante carregamento da página.": "Internal client error"
 	},
 	"regexResources": {
 	}

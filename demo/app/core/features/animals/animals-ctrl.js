@@ -3,7 +3,7 @@
 /*
     Controller for the feature Animals
 */
-factory.newController('app.core.animals.AnimalsCtrl', ['coreRestService', 'ciandt.components.dialogs.ModalHelper', function (CoreRestService, ModalHelper) {
+factory.newController('app.core.animals.AnimalsCtrl', ['coreRestService', 'ciandt.components.dialogs.ModalHelper', 'ciandt.components.dialogs.AlertHelper', function (CoreRestService, ModalHelper, AlertHelper) {
 
     //#region Service initialize
     var service = CoreRestService.all('animals');
@@ -16,6 +16,7 @@ factory.newController('app.core.animals.AnimalsCtrl', ['coreRestService', 'ciand
 
     //#region Events binds
     vm.animalDetail = animalDetail;
+    vm.removeAnimal = removeAnimal;
     //#endregion
 
     //#region Load controller
@@ -31,6 +32,14 @@ factory.newController('app.core.animals.AnimalsCtrl', ['coreRestService', 'ciand
 
     function animalDetail(animal) {
         ModalHelper.open('app/core/features/animals/animals-detail.html', { "animal": animal });
+    }
+
+    function removeAnimal(animal) {
+        AlertHelper.confirm('Gostaria de remover o animal ' + animal.name + '?', function () {
+            animal.remove().then(function () {
+                AlertHelper.addInfo('Animal removido com sucesso!');
+            });
+        });
     }
     //#endregion
 

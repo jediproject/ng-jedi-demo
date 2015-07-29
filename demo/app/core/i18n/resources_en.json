@@ -22,8 +22,11 @@
 		"contato para doação": "Donation contact",
 		"nome da pessoa de contato": "Contact person name",
 		"ex: rua x, número 1, bairro xyz": "E.g: 7th street, 1",
-		"ex: (31) 3333-3333": "E.g: (31) 3333-3333"
+		"ex: (31) 3333-3333": "E.g: (31) 3333-3333",
+		"animal removido com sucesso!": "Animal removed!",
+		"remover": "Remove"
 	},
 	"regexResources": {
+		"Gostaria de remover o animal ([^(?)]+)?": "Would you like to remove the animal $1?"
 	}
 }
