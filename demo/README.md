@@ -9,5 +9,5 @@ npm run start
 Abra o brower no link: http://localhost:8080
 
 Entre com os usuários:
-admin/pass
-user/pass
+- admin/pass
+- user/pass
