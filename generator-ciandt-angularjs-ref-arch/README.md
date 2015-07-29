@@ -45,10 +45,13 @@ Cada módulo, por padrão, possui um arquivo json template (app/MODULO/env/MODUL
 Para adicionar uma nova dependencia ao projeto basta seguir os seguintes passos:
 
 1. bower install
+
 ```bash
 bower install [componente] --save
 ```
+
 2. assetsfiles.json
+
 	- Inclusão dos arquivos para cópia a partir da pasta bower_components/ para assets/
 	```json
 	{
@@ -60,9 +63,11 @@ bower install [componente] --save
 		...
 	]}
 	```
+
 3. main.tpl.js
 	- Caso seja algum javascript, é necessário adiciona-lo na configuração base do requirejs, editando o arquivo main.tpl.js.
 	- Deve-se criar um alias na sessão "paths" que aponte para o arquivo na pasta assets e na sessão shim deve ser adicionado a ordem em que o arquivo deverá ser carregado pela aplicação (quais suas dependências).
+
 	```json
 	{
 		paths: {
@@ -79,6 +84,7 @@ bower install [componente] --save
 Para utilizar o gerador, siga os passos:
 
 1- Instalação do gerador
+
 	```bash
 	npm install -g yo
 
@@ -90,38 +96,48 @@ Para utilizar o gerador, siga os passos:
 	```
 
 2- Execução do gerador principal
+
 	```bash
 	yo ciandt-angularjs-ref-arch
 	```
+
 	- informe o nome do projeto, título, nome do módulo padrão, linguagem padrão e relação de componentes que deseja gerar.
 	- ao final será criado um projeto v0 na raiz onde o comando for executado, já pronto para execução.
 	- Para executar a aplicação utilizar o comando:
+
 	```bash
 	npm run start
 	```
 
 3- Execução do gerador de controller
+
 	```bash
 	yo ciandt-angularjs-ref-arch:controller
 	```
+
 	- informe o título da tela, nome do módulo, nome do submódulo e nome do controlador.
 	- ao final será criado um controller e uma tela no caminho: app//[nome do módulo]//[nome do submódulo]//[nome do controlador]
 
 4- Execução do gerador de modal
+
 	```bash
 	yo ciandt-angularjs-ref-arch:modal
 	```
+
 	- informe o título da modal, nome do módulo, nome do submódulo e nome do controlador.
 	- ao final será criado um controller e uma tela no caminho: app//[nome do módulo]//[nome do submódulo]//[nome do controlador]
 
 4- Execução do gerador de módulo
+
 	```bash
 	yo ciandt-angularjs-ref-arch:module
 	```
+
 	- informe o nome do módulo, linguagem padrão e se deve utilizar i18n
 	- ao final será criado um módulo com estrutura base no caminho: app//[nome do módulo]
 
 Aprecie o [demo](https://github.com/fabiohsv-cit/ciandt-angularjs-ref-arch/tree/master/demo) criado utilizando este gerador, após baixa-lo basta rodar o comando abaixo e acesse pelo browser o endereço http://localhost:8080
+
 ```bash
 npm run start
 ```
