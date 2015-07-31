@@ -1,5 +1,5 @@
-<form app-panel app-title="Lista de Animais" ng-controller="app.core.animals.AnimalsCtrl as animalsCtrl" name="animalsForm">
-    <input app-input type="search" placeholder="Pesquisar" ng-model="animalsCtrl.animalsModel.searchText">
+<form jd-panel jd-title="Lista de Animais" ng-controller="app.core.animals.AnimalsCtrl as animalsCtrl" name="animalsForm">
+    <input jd-input type="search" placeholder="Pesquisar" ng-model="animalsCtrl.animalsModel.searchText">
     <div id="products" class="row list-group">
 	    <div class="item  col-xs-4 col-lg-4" ng-repeat="animal in animalsCtrl.animalsModel.animalList | filter:animalsCtrl.animalsModel.searchText">
 	        <div class="thumbnail">
@@ -13,8 +13,8 @@
 	                <p class="group inner list-group-item-text">{{animal.desciption}}</p>
 	                <div class="row">
 	                    <div class="col-xs-12 col-md-6">
-	                        <a class="btn btn-success" ng-click="animalsCtrl.animalDetail(animal)" i18n>Quero adotar</a>
-	                        <a class="btn btn-success" ng-click="animalsCtrl.removeAnimal(animal)" as-roles-to-show="ADMIN" i18n>Remover</a>
+	                        <a class="btn btn-success" ng-click="animalsCtrl.animalDetail(animal)" jd-i18n>Quero adotar</a>
+	                        <a class="btn btn-success" ng-click="animalsCtrl.removeAnimal(animal)" as-roles-to-show="ADMIN" jd-i18n>Remover</a>
 	                    </div>
 	                </div>
 	            </div>

@@ -1,7 +1,7 @@
 {
 	"resources": {
 		"adote-me": "Adopt me",
-		"lista de animais": "Animals",
+		"animais": "Animals",
 		"quero doar": "Donate",
 		"sair": "Exit",
 		"usuário": "User",
@@ -22,7 +22,8 @@
 		"acesso negado, você não possui permissão para acessar esta ação.": "Access denied",
 		"ocorreu algum erro inesperado durante sua requisição. tente novamente mais tarde ou contacte o suporte técnico.": "Internal server error",
 		"ocorreu algum erro não identificado durante sua requisição. tente novamente mais tarde ou contacte o suporte técnico.": "Internal server error",
-		"ocorreu algum erro desconhecido durante carregamento da página.": "Internal client error"
+		"ocorreu algum erro desconhecido durante carregamento da página.": "Internal client error",
+		"principal": "Home"
 	},
 	"regexResources": {
 	}

@@ -3,7 +3,7 @@
 /*
     Controller for the feature Animals
 */
-factory.newController('app.core.animals.AnimalsCtrl', ['coreRestService', 'ciandt.components.dialogs.ModalHelper', 'ciandt.components.dialogs.AlertHelper', function (CoreRestService, ModalHelper, AlertHelper) {
+jd.factory.newController('app.core.animals.AnimalsCtrl', ['coreRestService', 'jedi.dialogs.ModalHelper', 'jedi.dialogs.AlertHelper', function (CoreRestService, ModalHelper, AlertHelper) {
 
     //#region Service initialize
     var service = CoreRestService.all('animals');

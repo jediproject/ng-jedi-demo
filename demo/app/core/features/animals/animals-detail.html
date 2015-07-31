@@ -1,9 +1,9 @@
-<div app-modal app-title="Detalhes do Animal">
+<div jd-modal jd-title="Detalhes do Animal">
     <div class="row">
         <div class="col-md-6">
             <div class="panel panel-default">
                 <div class="panel-heading"><strong>
-                    <span class="glyphicon glyphicon-th"></span><i18n>Sobre o animal</i18n></strong>
+                    <span class="glyphicon glyphicon-th"></span><jd-i18n>Sobre o animal</jd-i18n></strong>
                 </div>
                 <div class="panel-body">
                     <div class="text-center">
@@ -25,28 +25,28 @@
         <div class="col-md-6">
             <div class="panel panel-default">
                 <div class="panel-heading"><strong>
-                    <span class="glyphicon glyphicon-th"></span><i18n>Contato para adoção</i18n></strong>
+                    <span class="glyphicon glyphicon-th"></span><jd-i18n>Contato para adoção</jd-i18n></strong>
                 </div>
                 <div class="panel-body">
                     <ul class="list-unstyled list-info">
                         <li>
                             <span class="icon glyphicon glyphicon-user"></span>
-                            <label i18n>Contato</label>
+                            <label jd-i18n>Contato</label>
                             {{animal.owner.name}}
                         </li>
                         <li>
                             <span class="icon glyphicon glyphicon-envelope"></span>
-                            <label i18n>Email</label>
+                            <label jd-i18n>Email</label>
                             {{animal.owner.email}}
                         </li>
                         <li>
                             <span class="icon glyphicon glyphicon-home"></span>
-                            <label i18n>Endereço</label>
+                            <label jd-i18n>Endereço</label>
                             {{animal.owner.city}}
                         </li>
                         <li>
                             <span class="icon glyphicon glyphicon-earphone"></span>
-                            <label i18n>Telefone</label>
+                            <label jd-i18n>Telefone</label>
                             {{animal.owner.tel}}
                         </li>
                     </ul>

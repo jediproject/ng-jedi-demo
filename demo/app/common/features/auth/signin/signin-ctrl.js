@@ -3,7 +3,7 @@
 /*
     Controlador da tela de complemento do cadastro do usuário
 */
-factory.newController('app.common.auth.signin.SigninCtrl', ['authService', function (authService) {
+jd.factory.newController('app.common.auth.signin.SigninCtrl', ['authService', function (authService) {
     var vm = this;
     vm.signinModel = {};
 

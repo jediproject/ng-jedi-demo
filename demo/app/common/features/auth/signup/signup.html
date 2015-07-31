@@ -1,6 +1,8 @@
-<div class="page col-md-5 col-md-offset-4" app-full-screen-page>
-    <div class="panel panel-default" app-full-screen-page>
-        <div class="panel-heading text-center" i18n>Adote-me</div>
+<div class="page col-md-5 col-md-offset-4" jd-full-screen-page>
+    <div class="panel panel-default">
+        <div class="panel-heading text-center">
+            Adote-me
+        </div>
 
         <div class="panel-body">
             <form name="form_signup" class="form-horizontal form-validation" ng-controller="app.common.auth.signup.SignupCtrl as signupCtrl" novalidate ng-submit="signupCtrl.save()">
@@ -11,11 +13,11 @@
                         </div>
                         <input type="email"
                                class="form-control input-lg input-round text-center"
-                               app-input
+                               jd-input
                                required
                                ng-maxlength="100"
                                ng-model="signupCtrl.signupModel.email"
-                               i18n placeholder="Email">
+                               jd-i18n placeholder="Email">
                     </div>
                     <div class="form-group">
                         <div class="btn-icon-lined btn-icon-round btn-icon-sm btn-default-light">
@@ -23,11 +25,11 @@
                         </div>
                         <input type="text"
                                class="form-control input-lg input-round text-center"
-                               app-input
+                               jd-input
                                required
                                ng-maxlength="100"
                                ng-model="signupCtrl.signupModel.name"
-                               i18n placeholder="Nome">
+                               jd-i18n placeholder="Nome">
                     </div>
                     <div class="form-group">
                         <div class="btn-icon-lined btn-icon-round btn-icon-sm btn-default-light">
@@ -38,10 +40,10 @@
                                mask="cpf"
                                clean="true"
                                class="form-control input-lg input-round text-center"
-                               app-input
+                               jd-input
                                required
                                ng-model="signupCtrl.signupModel.cpf"
-                               i18n placeholder="CPF">
+                               jd-i18n placeholder="CPF">
                     </div>
                     <div class="form-group">
                         <div class="btn-icon-lined btn-icon-round btn-icon-sm btn-default-light">
@@ -49,10 +51,10 @@
                         </div>
                         <input type="password"
                                class="form-control input-lg input-round text-center"
-                               app-input
+                               jd-input
                                required
                                ng-model="signinCtrl.signinModel.password"
-                               i18n placeholder="Senha">
+                               jd-i18n placeholder="Senha">
                     </div>
                     <div class="form-group">
                         <div class="btn-icon-lined btn-icon-round btn-icon-sm btn-default-light">
@@ -60,16 +62,16 @@
                         </div>
                         <input type="password"
                                class="form-control input-lg input-round text-center"
-                               app-input
+                               jd-input
                                required
-                               app-validate-equals="signinCtrl.signinModel.password"
+                               jd-validate-equals="signinCtrl.signinModel.password"
                                ng-model="signinCtrl.signinModel.confirmPassword"
-                               i18n placeholder="Confirmação de Senha">
+                               jd-i18n placeholder="Confirmação de Senha">
                     </div>
                     <div class="form-group">
                         <button type="submit"
                                 class="btn btn-primary btn-lg btn-round btn-block text-center"
-                                ng-disabled="!form_signup.$valid" i18n>Salvar
+                                ng-disabled="!form_signup.$valid" jd-i18n>Salvar
                         </button>
                     </div>
                 </fieldset>

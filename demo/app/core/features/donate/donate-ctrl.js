@@ -3,7 +3,7 @@
 /*
     Controller for the feature Donate
 */
-factory.newController('app.core.animals.DonateCtrl', ['coreRestService', 'ciandt.components.dialogs.AlertHelper', '$location', function (CoreRestService, AlertHelper, $location) {
+jd.factory.newController('app.core.animals.DonateCtrl', ['coreRestService', 'jedi.dialogs.AlertHelper', '$location', function (CoreRestService, AlertHelper, $location) {
 
     //#region Service initialize
     var service = CoreRestService.all('animals');

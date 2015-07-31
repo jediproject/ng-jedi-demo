@@ -1,6 +1,8 @@
-<div class="page col-md-5 col-md-offset-4" app-full-screen-page>
-    <div class="panel panel-default" app-full-screen-page>
-        <div class="panel-heading text-center" i18n>Adote-me</div>
+<div class="page col-md-5 col-md-offset-4" jd-full-screen-page>
+    <div class="panel panel-default">
+        <div class="panel-heading text-center">
+            Adote-me
+        </div>
 
         <div class="panel-body">
             <form ng-controller="app.common.auth.signin.SigninCtrl as signinCtrl" name="form_signin" class="form-horizontal form-validation" novalidate ng-submit="signinCtrl.signin()">
@@ -11,10 +13,10 @@
                         </div>
                         <input type="text"
                                class="form-control input-lg input-round text-center"
-                               app-input
+                               jd-input
                                required
                                ng-model="signinCtrl.signinModel.username"
-                               i18n placeholder="Usuário">
+                               jd-i18n placeholder="Usuário">
                     </div>
                     <div class="form-group">
                         <div class="btn-icon-lined btn-icon-round btn-icon-sm btn-default-light">
@@ -22,18 +24,18 @@
                         </div>
                         <input type="password"
                                class="form-control input-lg input-round text-center"
-                               app-input
+                               jd-input
                                required
                                ng-model="signinCtrl.signinModel.password"
-                               i18n placeholder="Senha">
+                               jd-i18n placeholder="Senha">
                     </div>
                     <div class="form-group">
                         <button type="submit"
                                 class="btn btn-primary btn-lg btn-round btn-block text-center"
-                                ng-disabled="!form_signin.$valid" i18n>Entrar</button>
+                                ng-disabled="!form_signin.$valid" jd-i18n>Entrar</button>
                     </div>
                     <div class="form-group">
-                        <a href="#/common/auth/signup" i18n>Cadastrar-se</a>
+                        <a href="#/common/auth/signup" jd-i18n>Cadastrar-se</a>
                     </div>
                 </fieldset>
             </form>

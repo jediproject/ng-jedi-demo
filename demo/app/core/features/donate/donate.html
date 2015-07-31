@@ -1,23 +1,23 @@
-<form app-panel ng-controller="app.core.animals.DonateCtrl as donateCtrl" name="donateForm" app-title="Preenche as informações no animal para doação">
-    <input app-input app-label="Nome do animal" required type="text" class="form-control" ng:model="donateCtrl.donateModel.name" placeholder="Ex: Batatinha">
+<form jd-panel ng-controller="app.core.animals.DonateCtrl as donateCtrl" name="donateForm" jd-title="Preenche as informações no animal para doação">
+    <input jd-input jd-label="Nome do animal" required type="text" class="form-control" ng:model="donateCtrl.donateModel.name" placeholder="Ex: Batatinha">
 
-    <input app-input app-label="Animal" required type="text" class="form-control" ng:model="donateCtrl.donateModel.type" placeholder="Ex: Cachorro, gato, tartaruga, etc">
+    <input jd-input jd-label="Animal" required type="text" class="form-control" ng:model="donateCtrl.donateModel.type" placeholder="Ex: Cachorro, gato, tartaruga, etc">
 
-	<input app-input app-label="Raça" required type="text" class="form-control" ng:model="donateCtrl.donateModel.spitz" placeholder="Ex: Pastor Alemão">
+	<input jd-input jd-label="Raça" required type="text" class="form-control" ng:model="donateCtrl.donateModel.spitz" placeholder="Ex: Pastor Alemão">
 
-	<input app-input app-label="Idade" mask="int" required type="text" class="form-control" ng:model="donateCtrl.donateModel.age" placeholder="Ex: 0 a 6 meses">
+	<input jd-input jd-label="Idade" mask="int" required type="text" class="form-control" ng:model="donateCtrl.donateModel.age" placeholder="Ex: 0 a 6 meses">
 
-	<input app-input app-label="Descrição" required type="text" class="form-control" ng:model="donateCtrl.donateModel.description" placeholder="Ex: Uma breve descrição sobre o animal">
+	<input jd-input jd-label="Descrição" required type="text" class="form-control" ng:model="donateCtrl.donateModel.description" placeholder="Ex: Uma breve descrição sobre o animal">
 
-	<input app-input app-label="Escolha uma foto do animal" required type="text" placeholder="Ex: assets/img/dogs/dog8.jpg"  class="form-control" ng:model="donateCtrl.donateModel.img" >
+	<input jd-input jd-label="Escolha uma foto do animal" required type="text" placeholder="Ex: assets/img/dogs/dog8.jpg"  class="form-control" ng:model="donateCtrl.donateModel.img" >
 
-    <input app-input app-label="Contato para doação" required type="text" class="form-control" ng:model="donateCtrl.donateModel.owner.name" placeholder="Nome da pessoa de contato">
+    <input jd-input jd-label="Contato para doação" required type="text" class="form-control" ng:model="donateCtrl.donateModel.owner.name" placeholder="Nome da pessoa de contato">
 
-    <input app-input app-label="Endereço" required type="text" class="form-control" ng:model="donateCtrl.donateModel.owner.city" placeholder="Ex: rua x, número 1, bairro xyz">
+    <input jd-input jd-label="Endereço" required type="text" class="form-control" ng:model="donateCtrl.donateModel.owner.city" placeholder="Ex: rua x, número 1, bairro xyz">
 
-    <input app-input app-label="Telefone" mask="tel" required type="text" class="form-control" ng:model="donateCtrl.donateModel.owner.tel" placeholder="Ex: (31) 3333-3333">
+    <input jd-input jd-label="Telefone" mask="tel" required type="text" class="form-control" ng:model="donateCtrl.donateModel.owner.tel" placeholder="Ex: (31) 3333-3333">
 
-    <input app-input app-label="Email" required type="email" class="form-control" ng:model="donateCtrl.donateModel.owner.email" placeholder="">
+    <input jd-input jd-label="Email" required type="email" class="form-control" ng:model="donateCtrl.donateModel.owner.email" placeholder="">
 
-	<button type="submit" class="btn btn-primary btn-w-md" ng-click="donateCtrl.save()" i18n>Salvar</button>
+	<button type="submit" class="btn btn-primary btn-w-md" ng-click="donateCtrl.save()" jd-i18n>Salvar</button>
 </form>

@@ -8,19 +8,21 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#" i18n>Adote-me</a>
+      <a class="navbar-brand" href="#" jd-i18n>Adote-me</a>
     </div>
     <div class="collapse navbar-collapse" id="menu">
         <ul class="nav navbar-nav">
-            <li><a href="#/core/animals" i18n>Lista de Animais</a></li>
-            <li><a href="#/core/donate" i18n>Quero Doar</a></li>
+            <li><a href="#/core/animals" jd-i18n>Animais</a></li>
+            <li><a href="#/core/donate" jd-i18n>Quero Doar</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="javascript:;" alt="Português" ng-disabled="appCtrl.getLanguage() == 'pt'"><img src="assets/img/pt-BR.png" ng-click="appCtrl.setLanguage('pt')" /></a></li>
             <li><a href="javascript:;" alt="English" ng-disabled="appCtrl.getLanguage() == 'en'"><img src="assets/img/en-US.png" ng-click="appCtrl.setLanguage('en')" /></a></li>
-            <li><a href="javascript:;" title="Sair" ng-click="appCtrl.signout()" i18n><span class="glyphicon glyphicon-off"></span></a></li>
+            <li><a href="javascript:;" jd-i18n title="Sair" ng-click="appCtrl.signout()"><span class="glyphicon glyphicon-off"></span></a></li>
         </ul>
         <div class="nav navbar-nav navbar-right"><p class="navbar-text">{{appContext.identity.name}}</p></div>
     </div>
   </div>
 </nav>
+
+<jd-breadcrumb></jd-breadcrumb>

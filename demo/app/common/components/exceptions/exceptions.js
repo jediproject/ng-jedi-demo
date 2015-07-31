@@ -1,13 +1,13 @@
 'use strict';
 
-define(['ciandt-components-dialogs', 'ciandt-components-utilities'], function () {
+define(['ng-jedi-dialogs', 'ng-jedi-utilities'], function () {
 
-    angular.module('app.common.components.exceptions', ['ciandt.components.dialogs', 'ciandt.components.utilities']).factory('app.common.components.exceptions.ExceptionsInterceptor', ['$q', '$injector', 'ciandt.components.utilities.Utilities', '$log', function ($q, $injector, Utilities, $log) {
+    angular.module('app.common.components.exceptions', ['jedi.dialogs', 'jedi.utilities']).factory('app.common.components.exceptions.ExceptionsInterceptor', ['$q', '$injector', 'jedi.utilities.Utilities', '$log', function ($q, $injector, Utilities, $log) {
         return {
             responseError: function (rejection) {
                 // se request marcado pra nao tratar erro é porque será tratado manualmente
                 if (!rejection.config.bypassExceptionInterceptor) {
-                    var alertHelper = $injector.get('ciandt.components.dialogs.AlertHelper');
+                    var alertHelper = $injector.get('jedi.dialogs.AlertHelper');
                     //rejection.data.errorDescription, rejection.data.stackTrace
                     var message = (rejection.data && rejection.data.errorDescription) ? rejection.data.errorDescription : undefined;
                     if (!message) {
@@ -43,7 +43,7 @@ define(['ciandt-components-dialogs', 'ciandt-components-utilities'], function ()
                 return $q.reject(rejection);
             }
         }
-    }]).config(['$httpProvider', 'ciandt.components.utilities.UtilitiesProvider', function ($httpProvider, Utilities) {
+    }]).config(['$httpProvider', 'jedi.utilities.UtilitiesProvider', function ($httpProvider, Utilities) {
         var $log = angular.injector(['ng']).get('$log');
         // configura interceptor para capturar erros de requisição http
         $log.info('Registrando mecanismo de exceção http.');

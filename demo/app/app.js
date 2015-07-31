@@ -25,7 +25,7 @@ define([
     // store envSettings as a constant
     app.constant('envSettings', envSettings);
 
-    app.config(['$routeProvider', '$httpProvider', 'authServiceProvider', 'RestangularProvider', '$provide', 'ngMaskConfig', 'ciandt.components.utilities.UtilitiesProvider', 'ciandt.components.i18n.LocalizeConfig', function ($routeProvider, $httpProvider, authServiceProvider, RestangularProvider, $provide, ngMaskConfig, Utilities, LocalizeConfig) {
+    app.config(['$routeProvider', '$httpProvider', 'authServiceProvider', 'RestangularProvider', '$provide', 'ngMaskConfig', 'jedi.utilities.UtilitiesProvider', 'jedi.i18n.LocalizeConfig', function ($routeProvider, $httpProvider, authServiceProvider, RestangularProvider, $provide, ngMaskConfig, Utilities, LocalizeConfig) {
         var $log = angular.injector(['ng']).get('$log');
 
         // store local $routeProviderReference to be used during run, if it work with dynamic route mapping
@@ -44,7 +44,6 @@ define([
         LocalizeConfig.defaultLanguage = 'pt';
 
         // configure authService
-        $log.info('Configurando mecanismo de autenticação.');
         authServiceProvider.config({
             authUrlBase: envSettings.authUrlBase,
             storageKey: 'authData',
@@ -60,7 +59,7 @@ define([
         });
     }]);
 
-    app.run(['$http', '$route', '$rootScope', '$location', 'authService', 'ciandt.components.dialogs.AlertHelper', '$timeout', '$injector', '$log', 'ciandt.components.i18n.Localize', function ($http, $route, $rootScope, $location, authService, alertHelper, $timeout, $injector, $log, localize) {
+    app.run(['$http', '$route', '$rootScope', '$location', 'authService', 'jedi.dialogs.AlertHelper', '$timeout', '$injector', '$log', 'jedi.i18n.Localize', function ($http, $route, $rootScope, $location, authService, alertHelper, $timeout, $injector, $log, localize) {
         $log.info('Configure i18n');
         localize.addResource('app/common/i18n/resources_{lang}.json');
 
@@ -85,7 +84,7 @@ define([
             $log.info('Load modules');
 
             // load app modules (e.g.: core, billing)
-            factory.loadModules(['core'], function (module) {
+            jd.factory.loadModules(['core'], function (module) {
                 // adiciona path para i18n do sistema
                 localize.addResource('app/' + module + '/i18n/resources_{lang}.json');
             }, function () {
@@ -95,21 +94,24 @@ define([
 
                 $routeProviderReference
                     .when('/core/animals', angularAMD.route({
-                        breadcrumb: ['Animais'],
-                        templateUrl: factory.getFileVersion('app/core/features/animals/animals.html'),
-                        controllerUrl: factory.getFileVersion('app/core/features/animals/animals-ctrl.js')
+                        breadcrumb: ['Core', 'Animais'],
+                        templateUrl: jd.factory.getFileVersion('app/core/features/animals/animals.html'),
+                        controllerUrl: jd.factory.getFileVersion('app/core/features/animals/animals-ctrl.js')
                     })).
                     when('/core/donate', angularAMD.route({
-                        breadcrumb: ['Quero Doar'],
-                        templateUrl: factory.getFileVersion('app/core/features/donate/donate.html'),
-                        controllerUrl: factory.getFileVersion('app/core/features/donate/donate-ctrl.js')
-                    }));
-
+                        breadcrumb: ['Core', 'Quero Doar'],
+                        templateUrl: jd.factory.getFileVersion('app/core/features/donate/donate.html'),
+                        controllerUrl: jd.factory.getFileVersion('app/core/features/donate/donate-ctrl.js')
+                    })).otherwise({
+                        breadcrumb: ['Principal'],
+                        redirectTo: '/'
+                    });;
+                
                 $route.reload();
             });
 
             if ($location.$$path == '/common/auth/signin' || $location.$$path == '/common/auth/signup') {
-                $location.path("/core/animals");
+                $location.path("/");
             }
         }
 
@@ -118,13 +120,11 @@ define([
             $routeProviderReference
                 .when("/common/auth/signin", angularAMD.route({
                     templateUrl: 'app/common/features/auth/signin/signin.html',
-                    controllerUrl: factory.getFileVersion('app/common/features/auth/signin/signin-ctrl.js')
-                }));
-
-            $routeProviderReference
+                    controllerUrl: jd.factory.getFileVersion('app/common/features/auth/signin/signin-ctrl.js')
+                }))
                 .when("/common/auth/signup", angularAMD.route({
                     templateUrl: 'app/common/features/auth/signup/signup.html',
-                    controllerUrl: factory.getFileVersion('app/common/features/auth/signup/signup-ctrl.js')
+                    controllerUrl: jd.factory.getFileVersion('app/common/features/auth/signup/signup-ctrl.js')
                 }));
 
             $route.reload();
@@ -152,7 +152,7 @@ define([
     }]);
 
     // AppCtrl: possui controles gerais da aplicação, como a parte de locale e também de deslogar
-    app.controller("app.common.AppCtrl", ["ciandt.components.i18n.Localize", 'authService', function (localize, authService) {
+    app.controller("app.common.AppCtrl", ["jedi.i18n.Localize", 'authService', function (localize, authService) {
         var vm = this;
 
         vm.setLanguage = function (language) {

@@ -189,92 +189,92 @@
 			"dest": "assets/libs/requirejs-plugins/text.js"
 		},
 		{
-			"src": "bower_components/ciandt-components-breadcrumb/breadcrumb.html",
-			"dest": "assets/libs/ciandt-components-breadcrumb/breadcrumb.html"
+			"src": "bower_components/ng-jedi-breadcrumb/breadcrumb.html",
+			"dest": "assets/libs/ng-jedi-breadcrumb/breadcrumb.html"
 		},
 		{
-			"src": "bower_components/ciandt-components-breadcrumb/breadcrumb.js",
-			"dest": "assets/libs/ciandt-components-breadcrumb/breadcrumb.js"
+			"src": "bower_components/ng-jedi-breadcrumb/breadcrumb.js",
+			"dest": "assets/libs/ng-jedi-breadcrumb/breadcrumb.js"
 		},
 		{
-			"src": "bower_components/ciandt-components-dialogs/dialogs.js",
-			"dest": "assets/libs/ciandt-components-dialogs/dialogs.js"
+			"src": "bower_components/ng-jedi-dialogs/dialogs.js",
+			"dest": "assets/libs/ng-jedi-dialogs/dialogs.js"
 		},
 		{
-			"src": "bower_components/ciandt-components-dialogs/dialogs-ctrls.js",
-			"dest": "assets/libs/ciandt-components-dialogs/dialogs-ctrls.js"
+			"src": "bower_components/ng-jedi-dialogs/dialogs-ctrls.js",
+			"dest": "assets/libs/ng-jedi-dialogs/dialogs-ctrls.js"
 		},
 		{
-			"src": "bower_components/ciandt-components-dialogs/dialogs-alert.html",
-			"dest": "assets/libs/ciandt-components-dialogs/dialogs-alert.html"
+			"src": "bower_components/ng-jedi-dialogs/dialogs-alert.html",
+			"dest": "assets/libs/ng-jedi-dialogs/dialogs-alert.html"
 		},
 		{
-			"src": "bower_components/ciandt-components-dialogs/dialogs-confirm.html",
-			"dest": "assets/libs/ciandt-components-dialogs/dialogs-confirm.html"
+			"src": "bower_components/ng-jedi-dialogs/dialogs-confirm.html",
+			"dest": "assets/libs/ng-jedi-dialogs/dialogs-confirm.html"
 		},
 		{
-			"src": "bower_components/ciandt-components-loading/loading.js",
-			"dest": "assets/libs/ciandt-components-loading/loading.js"
+			"src": "bower_components/ng-jedi-loading/loading.js",
+			"dest": "assets/libs/ng-jedi-loading/loading.js"
 		},
 		{
-			"src": "bower_components/ciandt-components-loading/loading-directives.js",
-			"dest": "assets/libs/ciandt-components-loading/loading-directives.js"
+			"src": "bower_components/ng-jedi-loading/loading-directives.js",
+			"dest": "assets/libs/ng-jedi-loading/loading-directives.js"
 		},
 		{
-			"src": "bower_components/ciandt-components-loading/loading.html",
-			"dest": "assets/libs/ciandt-components-loading/loading.html"
+			"src": "bower_components/ng-jedi-loading/loading.html",
+			"dest": "assets/libs/ng-jedi-loading/loading.html"
 		},
 		{
-			"src": "bower_components/ciandt-components-loading/loading.gif",
-			"dest": "assets/libs/ciandt-components-loading/loading.gif"
+			"src": "bower_components/ng-jedi-loading/loading.gif",
+			"dest": "assets/libs/ng-jedi-loading/loading.gif"
 		},
 		{
-			"src": "bower_components/ciandt-components-utilities/utilities.js",
-			"dest": "assets/libs/ciandt-components-utilities/utilities.js"
+			"src": "bower_components/ng-jedi-utilities/utilities.js",
+			"dest": "assets/libs/ng-jedi-utilities/utilities.js"
 		},
 		{
-			"src": "bower_components/ciandt-components-utilities/utilities-directives.js",
-			"dest": "assets/libs/ciandt-components-utilities/utilities-directives.js"
+			"src": "bower_components/ng-jedi-utilities/utilities-directives.js",
+			"dest": "assets/libs/ng-jedi-utilities/utilities-directives.js"
 		},
 		{
-			"src": "bower_components/ciandt-components-utilities/utilities-filters.js",
-			"dest": "assets/libs/ciandt-components-utilities/utilities-filters.js"
+			"src": "bower_components/ng-jedi-utilities/utilities-filters.js",
+			"dest": "assets/libs/ng-jedi-utilities/utilities-filters.js"
 		},
 		{
-			"src": "bower_components/ciandt-components-factory/factory.js",
-			"dest": "assets/libs/ciandt-components-factory/factory.js"
+			"src": "bower_components/ng-jedi-factory/factory.js",
+			"dest": "assets/libs/ng-jedi-factory/factory.js"
 		},
 		{
-			"src": "bower_components/ciandt-components-factory/version.js",
-			"dest": "assets/libs/ciandt-components-factory/version.js"
+			"src": "bower_components/ng-jedi-factory/version.js",
+			"dest": "assets/libs/ng-jedi-factory/version.js"
 		},
 		{
-			"src": "bower_components/ciandt-components-i18n/i18n.js",
-			"dest": "assets/libs/ciandt-components-i18n/i18n.js"
+			"src": "bower_components/ng-jedi-i18n/i18n.js",
+			"dest": "assets/libs/ng-jedi-i18n/i18n.js"
 		},
 		{
-			"src": "bower_components/ciandt-components-layout/layout.js",
-			"dest": "assets/libs/ciandt-components-layout/layout.js"
+			"src": "bower_components/ng-jedi-layout/layout.js",
+			"dest": "assets/libs/ng-jedi-layout/layout.js"
 		},
 		{
-			"src": "bower_components/ciandt-components-layout/datepicker.js",
-			"dest": "assets/libs/ciandt-components-layout/datepicker.js"
+			"src": "bower_components/ng-jedi-layout/datepicker.js",
+			"dest": "assets/libs/ng-jedi-layout/datepicker.js"
 		},
 		{
-			"src": "bower_components/ciandt-components-layout/panel.js",
-			"dest": "assets/libs/ciandt-components-layout/panel.js"
+			"src": "bower_components/ng-jedi-layout/panel.js",
+			"dest": "assets/libs/ng-jedi-layout/panel.js"
 		},
 		{
-			"src": "bower_components/ciandt-components-layout/modal.js",
-			"dest": "assets/libs/ciandt-components-layout/modal.js"
+			"src": "bower_components/ng-jedi-layout/modal.js",
+			"dest": "assets/libs/ng-jedi-layout/modal.js"
 		},
 		{
-			"src": "bower_components/ciandt-components-layout/treeview.js",
-			"dest": "assets/libs/ciandt-components-layout/treeview.js"
+			"src": "bower_components/ng-jedi-layout/treeview.js",
+			"dest": "assets/libs/ng-jedi-layout/treeview.js"
 		},
 		{
-			"src": "bower_components/ciandt-components-layout/input.js",
-			"dest": "assets/libs/ciandt-components-layout/input.js"
+			"src": "bower_components/ng-jedi-layout/input.js",
+			"dest": "assets/libs/ng-jedi-layout/input.js"
 		}
 	]
 }

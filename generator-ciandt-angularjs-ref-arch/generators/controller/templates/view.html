@@ -1,6 +1,0 @@
-<form app-panel ng-controller="app.<%= props.module.toLowerCase()%>.<%if (props.submodule) {%><%= props.submodule.toLowerCase()%>.<%}%><%= props.controller.toLowerCase()%>.<%= props.controller.capitalize()%>Ctrl as <%= props.controller.decapitalize()%>Ctrl" name="<%= props.controller.decapitalize()%>Form" app-title="<%= props.title%>">
-    
-    <input type="text" app-input app-label="Input 1" ng-model="<%= props.controller.decapitalize()%>Ctrl.<%= props.controller.decapitalize()%>Model.input1">
-
-    <button ng-click="<%= props.controller.decapitalize()%>Ctrl.method1" i18n>Method 1</button>
-</form>
