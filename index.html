@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Angular Jedi Project by ng-jedi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Angular Jedi Project</h1>
+      <h2 class="project-tagline">Reference Architecture</h2>
+      <a href="https://github.com/ng-jedi/generator" class="btn">View on GitHub</a>
+      <a href="https://github.com/ng-jedi/generator/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/ng-jedi/generator/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="angular-jedi-project--arquitetura-de-referência-para-projetos-angularjs" class="anchor" href="#angular-jedi-project--arquitetura-de-refer%C3%AAncia-para-projetos-angularjs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Angular Jedi Project :: Arquitetura de Referência para Projetos AngularJs</h1>
+
+<h2>
+<a id="estrutura-base" class="anchor" href="#estrutura-base" aria-hidden="true"><span class="octicon octicon-link"></span></a>Estrutura base</h2>
+
+<h3>
+<a id="recursos-gerais" class="anchor" href="#recursos-gerais" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recursos gerais</h3>
+
+<pre><code>assets - componentes externos ou não vinculados aos componentes angular do projeto
+assets\libs - bibliotecas externas de terceiros (ex: jquery, bootstrap, etc)
+assets\css - css de terceiros
+assets\css\app.css - css de customização do projeto (o único que deve ser modificado)
+assets\fonts - fontes utilizadas pelo projeto
+assets\img - imagens utilizadas na montagem do site
+assets\js - scripts não angular customizados ou criados no projeto
+</code></pre>
+
+<h3>
+<a id="componentes-gerais-angular" class="anchor" href="#componentes-gerais-angular" aria-hidden="true"><span class="octicon octicon-link"></span></a>Componentes Gerais Angular</h3>
+
+<pre><code>app - configuração e componentes angular específicas do projeto
+app\app.js - script com as configurações básicas angular da aplicação
+app\common - foundation da arquitetura angular que suportarão todos os módulos do projeto (directives, filters, components, etc)
+app\common\common-app.js - script para configuração do módulo common, onde serão importados as dependências globais do sistema
+app\common\env\common-env.js - json com variaveis de ambiente gerais da aplicação
+app\common\i18n\resources_[en|pt|*].js - json de resources para i18n dos componentes deste módulo
+app\common\components - componentes angular especializados para o projeto
+app\common\components\[component] - contendo js, html, etc.
+app\common\components\header - componente de tela para montagem do header
+app\common\components\navegation - componente de tela para montagem do menu
+app\common\features\[submodule]\[feature] - funcionalidades globais do sistema, como telas de login, etc.
+app\common\features\auth - telas globais relacionadas com autenticação
+</code></pre>
+
+<ul>
+<li>as rota para as funcionalidades deverão seguir o seguinte padrão: /common/[submodule]/[feature]</li>
+</ul>
+
+<h3>
+<a id="estrutura-por-módulo" class="anchor" href="#estrutura-por-m%C3%B3dulo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Estrutura por módulo</h3>
+
+<pre><code>app\[module] - módulo específico, contendo funcionalidades de negócio
+app\[module]\[module]-app.js - script para configuração do módulo, onde serão importados as dependências específicas deste módulo
+app\[module]\env\[module]-env.js - json com variaveis de ambiente do módulo
+app\[module]\i18n\resources_[en|pt|*].js - json de resources para i18n dos componentes e funcionalidades deste módulo
+app\[module]\components\[component]\[component].[type] - componentes angular especializados para o módulo (js, html, etc)
+app\[module]\features\[submodule*]\[feature] - funcionalidade de negócio do módulo
+app\[module]\features\[submodule*]\[feature]\[feature]-ctrl.js - controller
+app\[module]\features\[submodule*]\[feature]\[feature]-service.js - service
+app\[module]\features\[submodule*]\[feature]\[feature]-directive.js - directive
+app\[module]\features\[submodule*]\[feature]\[feature]-filter.js - filter
+app\[module]\features\[submodule*]\[feature]\[feature].html - página
+app\[module]\features\[submodule*]\[feature]\[feature]\view\*.html - se houver mais de um arquivo html, organizá-los na pasta view
+</code></pre>
+
+<ul>
+<li>as rota para as funcionalidades deverão seguir o seguinte padrão: /[module]/[submodule]/[feature]</li>
+</ul>
+
+<h2>
+<a id="padrões-e-restrições-da-arquitetura" class="anchor" href="#padr%C3%B5es-e-restri%C3%A7%C3%B5es-da-arquitetura" aria-hidden="true"><span class="octicon octicon-link"></span></a>Padrões e Restrições da Arquitetura</h2>
+
+<h3>
+<a id="gerais" class="anchor" href="#gerais" aria-hidden="true"><span class="octicon octicon-link"></span></a>Gerais</h3>
+
+<ul>
+<li>Utilizar requirejs para controlar carregamento sob demanda dos arquivos javascripts</li>
+<li>Utilizar mecanismo de hash nos nomes dos arquivos para evitar cache do browser. Recomenda-se utilizar o componente <a href="https://www.npmjs.com/package/grunt-filerev">grunt-filerev</a>
+</li>
+<li>Utilizar mecanismo <a href="https://github.com/ng-jedi/factory">factory</a> para declarar controllers, services, filters, directives, modais, etc.</li>
+<li>Sempre incluir dependências externas pelo bower, incluindo no main.js e na configuração shim</li>
+</ul>
+
+<div class="highlight highlight-bash"><pre>bower install [nome_dep] --save</pre></div>
+
+<ul>
+<li>Todo arquivo javascript deve ser carregado pelo [module]-app.js de seu módulo</li>
+<li>Recursos ligados a uma funcionalidade devem ser criados na estrutura de pastas da funcionalidade</li>
+</ul>
+
+<div class="highlight highlight-bash"><pre>app<span class="pl-cce">\[</span>module]<span class="pl-cce">\f</span>eatures<span class="pl-cce">\[</span>submodule<span class="pl-k">*</span>]<span class="pl-cce">\[</span>feature]<span class="pl-cce">\[</span>recursos da feature]</pre></div>
+
+<ul>
+<li>Componentes devem ser criados na estrutura abaixo e não devem ser telas, devem ser componentes que compõem tela, trechos parciais de html ou simplesmente filters, utilitários, etc:</li>
+</ul>
+
+<div class="highlight highlight-bash"><pre>app<span class="pl-cce">\[</span>module]<span class="pl-cce">\c</span>omponentes<span class="pl-cce">\[</span>component]<span class="pl-cce">\[</span>recursos <span class="pl-k">do</span> componente]</pre></div>
+
+<ul>
+<li>Css devem ser codificados/customizados apenas no arquivo assets\css\app.css, demais css são de terceiros e não devem ser alterados diretamente</li>
+<li>Scripts de terceiros não devem ser alterados, em vez disso tentar criar uma versão nova e publicar no bower, no pior caso criar no projeto na pasta assets\js\</li>
+<li>Valores hardcode que representam diretórios ou informações que podem ser alteradas de acordo com o ambiente, devem ser transferidos para o script [module]-env.json do módulo específico e acessada:</li>
+</ul>
+
+<div class="highlight highlight-bash"><pre>envSettings[.module].[variable]</pre></div>
+
+<ul>
+<li>Todos os textos dos htmls devem fazer uso da diretiva <a href="https://github.com/ng-jedi/i18n">i18n</a>, para possibilitar a internacionalização posterior ou mesmo durante o projeto.</li>
+<li>Métodos, classes, variáveis, etc... sempre escritos em inglês.</li>
+<li>Métodos, parâmetros de métodos e variáveis sempre no formato camelCase.</li>
+<li>Nome do recurso (controller, modal, service, etc.) sempre no formato PascalCase.</li>
+<li>Para evitar conflitos, todos os componentes/recursos angular devem ter o namespace no seguinte padrão:</li>
+</ul>
+
+<div class="highlight highlight-bash"><pre>app.[module].[submodule].[feature<span class="pl-k">*</span>].[component], ex: app.security.auth.userprofile.UserProfileCtrl</pre></div>
+
+<ul>
+<li>Sempre usar a declaração 'use strict'; ao início de todo arquivo .js</li>
+<li>Nomes de pastas e arquivos devem ser tudo em minúsculo.</li>
+<li>Todos os componentes angular devem ter dependencias injetadas pelo nome, evitar declarar apenas no construtor do componente, uma vez que a minificação encurtará os nomes dos parâmetros.</li>
+<li>Fazer uso de logs atravez do componente $log em vez do console.log</li>
+<li>Não usar a function “alert” nativa do js, em vez disso usar o componente <a href="https://github.com/ng-jedi/dialogs">dialogs</a>
+</li>
+<li>Para camada de serviço, utilizar componente de abstração <a href="https://github.com/mgonto/restangular">Restangular</a>
+</li>
+</ul>
+
+<h3>
+<a id="controllers" class="anchor" href="#controllers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Controllers</h3>
+
+<ul>
+<li>Utilizar mecanismo <a href="https://github.com/ng-jedi/factory">factory</a>, método factory.newController</li>
+<li>Utilizar padrão VM para declaração dos atributos e métodos do controlador</li>
+<li>Nomenclatura:
+
+<ul>
+<li>Pasta física: app\[module]\features\[submodule]\[feature]\</li>
+<li>Nome Controller: app.[module].[submodule].[feature*].[feature]Ctrl</li>
+<li>Model: [feature]Model</li>
+</ul>
+</li>
+<li>No corpo do controle deve-se seguir a seguinte ordem de declaração:</li>
+<li>Declaração dos serviços</li>
+</ul>
+
+<div class="highlight highlight-javascript"><pre>    <span class="pl-k">var</span> service <span class="pl-k">=</span> SecurityRestService.<span class="pl-c1">all</span>(<span class="pl-s"><span class="pl-pds">'</span>admin/feature<span class="pl-pds">'</span></span>);</pre></div>
+
+<ul>
+<li>Declaração do vm (view model)</li>
+</ul>
+
+<div class="highlight highlight-javascript"><pre>    <span class="pl-k">var</span> vm <span class="pl-k">=</span> <span class="pl-v">this</span>;</pre></div>
+
+<ul>
+<li>Declaração do model e demais variáveis de controle</li>
+</ul>
+
+<div class="highlight highlight-javascript"><pre>    vm.featureRegistrationModel <span class="pl-k">=</span> { id<span class="pl-k">:</span> <span class="pl-c1">1</span>, name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>teste 1<span class="pl-pds">'</span></span> };
+    vm.maxFileCount <span class="pl-k">=</span> <span class="pl-c1">0</span>;
+    vm.pageSize <span class="pl-k">=</span> $rootScope.appContext.defaultPageSize;</pre></div>
+
+<ul>
+<li>Bind dos métodos</li>
+</ul>
+
+<div class="highlight highlight-javascript"><pre>    vm.filter <span class="pl-k">=</span> filter;
+    vm.remove <span class="pl-k">=</span> remove;
+    vm.<span class="pl-c1">clear</span> <span class="pl-k">=</span> clear;</pre></div>
+
+<ul>
+<li>Execuções de métodos, carregamentos de dados ou qualquer execução na inicialização da tela</li>
+</ul>
+
+<div class="highlight highlight-javascript"><pre>    loadSystems(<span class="pl-k">function</span> (<span class="pl-smi">systems</span>) {
+        vm.featureRegistrationModel.systems <span class="pl-k">=</span> systems;
+    });</pre></div>
+
+<ul>
+<li>Declaração dos métodos e seu statement</li>
+</ul>
+
+<div class="highlight highlight-javascript"><pre>    <span class="pl-k">function</span> <span class="pl-en">loadSystems</span>(<span class="pl-smi">success</span>) {
+        <span class="pl-en">console</span><span class="pl-c1">.log</span>(<span class="pl-s"><span class="pl-pds">'</span>Recuperando systems<span class="pl-pds">'</span></span>);
+        SecurityRestService.<span class="pl-c1">all</span>(<span class="pl-s"><span class="pl-pds">'</span>admin/system<span class="pl-pds">'</span></span>).getList().then(success);
+    }</pre></div>
+
+<ul>
+<li>Não deve haver regra de negócio nos controllers, o mesmo deverá estar presente no escopo das APIs apenas.</li>
+<li>Serviços não devem ser expostos no vm nem em nenhum outro atributo, devem sempre passar por métodos do controller.</li>
+<li>Todos os atributos da tela que forem relacionados ao modelo devem ser declarados no vm.[feature]Model, ex:</li>
+</ul>
+
+<div class="highlight highlight-javascript"><pre>vm.featureRegistrationModel <span class="pl-k">=</span> { id<span class="pl-k">:</span> <span class="pl-c1">1</span>, name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>teste 1<span class="pl-pds">'</span></span> };</pre></div>
+
+<h3>
+<a id="views" class="anchor" href="#views" aria-hidden="true"><span class="octicon octicon-link"></span></a>Views</h3>
+
+<ul>
+<li>Nomenclatura:
+
+<ul>
+<li>Pasta física: app\[module]\features\[submodule]\[feature]\</li>
+<li>Nome página: [feature].html</li>
+</ul>
+</li>
+<li>Sempre construído com html puro, seguindo os padrões estruturais do twitter bootstrap, sem javascript e usando apenas diretivas angular</li>
+<li>ng-repeat deve sempre ser declarado com track by, para evitar problemas de performance</li>
+<li>Utilizar componentes <a href="https://github.com/ng-jedi/layout">layout</a>, em especial o app-input na declaração dos campos da tela, para mantr todos no mesmo padrão visual</li>
+<li>Em tabelas de consultas, usar por padrão a diretiva <a href="https://github.com/mateusmcg/angular-table-restful">at-table</a> com paginação via api rest</li>
+<li>Na declaração do controller da tela, usar alias em formato camelCase, ex:</li>
+</ul>
+
+<div class="highlight highlight-html"><pre>ng-controller="app.framework.imports.importfiles.ImportFilesCtrl as importFilesCtrl"</pre></div>
+
+<ul>
+<li>Não declarar styles nos elementos html, em vez disso usar classe dos css de terceiros ou os declarados no arquivo assets\css\app.css</li>
+<li>Todo texto em html deverá fazer uso da diretiva jd-i18n</li>
+</ul>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">jd</span><span class="pl-e">-i18n</span>&gt;Texto qualquer&lt;<span class="pl-ent">jd</span><span class="pl-e">-i18n</span>&gt;
+
+Ou
+
+&lt;<span class="pl-ent">a</span> <span class="pl-e">jd-i18n</span>&gt;Texto qualquer&lt;\a&gt;</pre></div>
+
+<h3>
+<a id="directives" class="anchor" href="#directives" aria-hidden="true"><span class="octicon octicon-link"></span></a>Directives</h3>
+
+<ul>
+<li>Utilizar mecanismo <a href="https://github.com/ng-jedi/factory">factory</a>, método factory.newDirective</li>
+<li>Diretivas sempre declaradas com o nome do módulo e submódulo, para evitar duplicidade e sobreposição em caso de projetos grandes e distribuídos</li>
+<li>Nomenclatura:
+
+<ul>
+<li><strong>Se geral para o módulo</strong></li>
+<li>Arquivo: app\[module]\components\[component]\[component]-directive.js</li>
+<li>Nome diretiva: app-[module]-[component]-[diretiva]</li>
+<li><strong>Se for de uma feature</strong></li>
+<li>Arquivo: app\[module]\features\[feature]\[feature]-directive.js</li>
+<li>Nome diretiva: app-[module]-[submodule]-[feature]-[diretiva]</li>
+</ul>
+</li>
+</ul>
+
+<h3>
+<a id="filters" class="anchor" href="#filters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Filters</h3>
+
+<ul>
+<li>Utilizar mecanismo <a href="https://github.com/ng-jedi/factory">factory</a>, método factory.newFilter</li>
+<li>Nomenclatura:
+
+<ul>
+<li><strong>Se geral para o módulo</strong></li>
+<li>Arquivo: app\[module]\components\[component]\[component]-filter.js</li>
+<li>Nome diretiva: app[module][component][filter]</li>
+<li><strong>Se for de uma feature</strong></li>
+<li>Arquivo: app\[module]\features\[feature]\[feature]-filter.js</li>
+<li>Nome diretiva: app[module][submodule][feature][filter]</li>
+</ul>
+</li>
+</ul>
+
+<h3>
+<a id="modais" class="anchor" href="#modais" aria-hidden="true"><span class="octicon octicon-link"></span></a>Modais</h3>
+
+<ul>
+<li>Utilizar mecanismo <a href="https://github.com/ng-jedi/factory">factory</a>, método factory.newModal</li>
+<li>Seguir mesmas regras do controller + directive, modal utiliza os dois tipos de definição juntas.</li>
+</ul>
+
+<h2>
+<a id="referências" class="anchor" href="#refer%C3%AAncias" aria-hidden="true"><span class="octicon octicon-link"></span></a>Referências:</h2>
+
+<h3>
+<a id="ng-jedi-scaffold" class="anchor" href="#ng-jedi-scaffold" aria-hidden="true"><span class="octicon octicon-link"></span></a>ng-jedi scaffold:</h3>
+
+<ul>
+<li><a href="https://github.com/ng-jedi/generator/tree/master/generator-ng-jedi-ref-arch">https://github.com/ng-jedi/generator/tree/master/generator-ng-jedi-ref-arch</a></li>
+</ul>
+
+<h3>
+<a id="ng-jedi-components" class="anchor" href="#ng-jedi-components" aria-hidden="true"><span class="octicon octicon-link"></span></a>ng-jedi components:</h3>
+
+<ul>
+<li><a href="https://github.com/ng-jedi/breadcrumb">https://github.com/ng-jedi/breadcrumb</a></li>
+<li><a href="https://github.com/ng-jedi/dialogs">https://github.com/ng-jedi/dialogs</a></li>
+<li><a href="https://github.com/ng-jedi/factory">https://github.com/ng-jedi/factory</a></li>
+<li><a href="https://github.com/ng-jedi/i18n">https://github.com/ng-jedi/i18n</a></li>
+<li><a href="https://github.com/ng-jedi/layout">https://github.com/ng-jedi/layout</a></li>
+<li><a href="https://github.com/ng-jedi/loading">https://github.com/ng-jedi/loading</a></li>
+<li><a href="https://github.com/ng-jedi/utilities">https://github.com/ng-jedi/utilities</a></li>
+</ul>
+
+<h3>
+<a id="fontes-externas-de-pesquisa" class="anchor" href="#fontes-externas-de-pesquisa" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fontes externas de pesquisa:</h3>
+
+<ul>
+<li><a href="https://scotch.io/tutorials/angularjs-best-practices-directory-structure">https://scotch.io/tutorials/angularjs-best-practices-directory-structure</a></li>
+<li><a href="https://github.com/johnpapa/angular-styleguide">https://github.com/johnpapa/angular-styleguide</a></li>
+</ul>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/ng-jedi/generator">Angular Jedi Project</a> is maintained by <a href="https://github.com/ng-jedi">ng-jedi</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
+
