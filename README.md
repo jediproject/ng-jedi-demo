@@ -183,7 +183,7 @@ Ou
 ## Referências:
 
 ### ng-jedi scaffold:
-- https://github.com/ng-jedi/generator/tree/master/generator-ng-jedi-ref-arch
+- https://github.com/ng-jedi/generator-ng-jedi-ref-arch
 
 ### ng-jedi components:
 - https://github.com/ng-jedi/breadcrumb
