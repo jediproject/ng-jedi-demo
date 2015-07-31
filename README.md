@@ -1,4 +1,4 @@
-# Arquitetura de Referência CI&T para Projetos AngularJs
+# Angular Jedi Project :: Arquitetura de Referência para Projetos AngularJs
 
 ## Estrutura base
 
@@ -49,7 +49,7 @@
 
 - Utilizar requirejs para controlar carregamento sob demanda dos arquivos javascripts
 - Utilizar mecanismo de hash nos nomes dos arquivos para evitar cache do browser. Recomenda-se utilizar o componente [grunt-filerev](https://www.npmjs.com/package/grunt-filerev)
-- Utilizar mecanismo [factory](https://github.com/fabiohsv-cit/ciandt-components-factory) para declarar controllers, services, filters, directives, modais, etc.
+- Utilizar mecanismo [factory](https://github.com/ng-jedi/factory) para declarar controllers, services, filters, directives, modais, etc.
 - Sempre incluir dependências externas pelo bower, incluindo no main.js e na configuração shim
 ```bash
 bower install [nome_dep] --save
@@ -69,7 +69,7 @@ app\[module]\componentes\[component]\[recursos do componente]
 ```bash
 envSettings[.module].[variable]
 ```
-- Todos os textos dos htmls devem fazer uso da diretiva [i18n](https://github.com/fabiohsv-cit/ciandt-components-i18n), para possibilitar a internacionalização posterior ou mesmo durante o projeto.
+- Todos os textos dos htmls devem fazer uso da diretiva [i18n](https://github.com/ng-jedi/i18n), para possibilitar a internacionalização posterior ou mesmo durante o projeto.
 - Métodos, classes, variáveis, etc... sempre escritos em inglês.
 - Métodos, parâmetros de métodos e variáveis sempre no formato camelCase.
 - Nome do recurso (controller, modal, service, etc.) sempre no formato PascalCase.
@@ -81,12 +81,12 @@ app.[module].[submodule].[feature*].[component], ex: app.security.auth.userprofi
 - Nomes de pastas e arquivos devem ser tudo em minúsculo.
 - Todos os componentes angular devem ter dependencias injetadas pelo nome, evitar declarar apenas no construtor do componente, uma vez que a minificação encurtará os nomes dos parâmetros.
 - Fazer uso de logs atravez do componente $log em vez do console.log
-- Não usar a function “alert” nativa do js, em vez disso usar o componente [dialogs](https://github.com/fabiohsv-cit/ciandt-components-dialogs)
+- Não usar a function “alert” nativa do js, em vez disso usar o componente [dialogs](https://github.com/ng-jedi/dialogs)
 - Para camada de serviço, utilizar componente de abstração [Restangular](https://github.com/mgonto/restangular)
 
 ### Controllers
 
-- Utilizar mecanismo [factory](https://github.com/fabiohsv-cit/ciandt-components-factory), método factory.newController
+- Utilizar mecanismo [factory](https://github.com/ng-jedi/factory), método factory.newController
 - Utilizar padrão VM para declaração dos atributos e métodos do controlador
 - Nomenclatura:
 	- Pasta física: app\\[module]\features\\[submodule]\\[feature]\
@@ -139,24 +139,24 @@ vm.featureRegistrationModel = { id: 1, name: 'teste 1' };
 	- Nome página: [feature].html
 - Sempre construído com html puro, seguindo os padrões estruturais do twitter bootstrap, sem javascript e usando apenas diretivas angular
 - ng-repeat deve sempre ser declarado com track by, para evitar problemas de performance
-- Utilizar componentes [layout](https://github.com/fabiohsv-cit/ciandt-components-layout), em especial o app-input na declaração dos campos da tela, para mantr todos no mesmo padrão visual
+- Utilizar componentes [layout](https://github.com/ng-jedi/layout), em especial o app-input na declaração dos campos da tela, para mantr todos no mesmo padrão visual
 - Em tabelas de consultas, usar por padrão a diretiva [at-table](https://github.com/mateusmcg/angular-table-restful) com paginação via api rest
 - Na declaração do controller da tela, usar alias em formato camelCase, ex:
 ```html
 ng-controller="app.framework.imports.importfiles.ImportFilesCtrl as importFilesCtrl"
 ```
 - Não declarar styles nos elementos html, em vez disso usar classe dos css de terceiros ou os declarados no arquivo assets\css\app.css
-- Todo texto em html deverá fazer uso da diretiva i18n
+- Todo texto em html deverá fazer uso da diretiva jd-i18n
 ```html
-<i18n>Texto qualquer<i18n>
+<jd-i18n>Texto qualquer<jd-i18n>
 
 Ou
 
-<a i18n>Texto qualquer<\a>
+<a jd-i18n>Texto qualquer<\a>
 ```
 
 ### Directives
-- Utilizar mecanismo [factory](https://github.com/fabiohsv-cit/ciandt-components-factory), método factory.newDirective
+- Utilizar mecanismo [factory](https://github.com/ng-jedi/factory), método factory.newDirective
 - Diretivas sempre declaradas com o nome do módulo e submódulo, para evitar duplicidade e sobreposição em caso de projetos grandes e distribuídos
 - Nomenclatura:
 	- **Se geral para o módulo**
@@ -167,7 +167,7 @@ Ou
 	- Nome diretiva: app-[module]-[submodule]-[feature]-[diretiva]
 
 ### Filters
-- Utilizar mecanismo [factory](https://github.com/fabiohsv-cit/ciandt-components-factory), método factory.newFilter
+- Utilizar mecanismo [factory](https://github.com/ng-jedi/factory), método factory.newFilter
 - Nomenclatura:
 	- **Se geral para o módulo**
 	- Arquivo: app\\[module]\components\\[component]\\[component]-filter.js
@@ -177,22 +177,22 @@ Ou
 	- Nome diretiva: app[module][submodule][feature][filter]
 
 ### Modais
-- Utilizar mecanismo [factory](https://github.com/fabiohsv-cit/ciandt-components-factory), método factory.newModal
+- Utilizar mecanismo [factory](https://github.com/ng-jedi/factory), método factory.newModal
 - Seguir mesmas regras do controller + directive, modal utiliza os dois tipos de definição juntas.
 
 ## Referências:
 
-### Scaffold CI&T:
-- https://github.com/fabiohsv-cit/ciandt-angularjs-ref-arch/tree/master/generator-ciandt-angularjs-ref-arch
+### ng-jedi scaffold:
+- https://github.com/ng-jedi/generator/tree/master/generator-ng-jedi-ref-arch
 
-### ciandt components:
-- https://github.com/fabiohsv-cit/ciandt-components-breadcrumb
-- https://github.com/fabiohsv-cit/ciandt-components-dialogs
-- https://github.com/fabiohsv-cit/ciandt-components-factory
-- https://github.com/fabiohsv-cit/ciandt-components-i18n
-- https://github.com/fabiohsv-cit/ciandt-components-layout
-- https://github.com/fabiohsv-cit/ciandt-components-loading
-- https://github.com/fabiohsv-cit/ciandt-components-utilities
+### ng-jedi components:
+- https://github.com/ng-jedi/breadcrumb
+- https://github.com/ng-jedi/dialogs
+- https://github.com/ng-jedi/factory
+- https://github.com/ng-jedi/i18n
+- https://github.com/ng-jedi/layout
+- https://github.com/ng-jedi/loading
+- https://github.com/ng-jedi/utilities
 
 ### Fontes externas de pesquisa:
 - https://scotch.io/tutorials/angularjs-best-practices-directory-structure
