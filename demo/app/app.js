@@ -105,7 +105,7 @@ define([
                     })).otherwise({
                         breadcrumb: ['Principal'],
                         redirectTo: '/'
-                    });;
+                    });
                 
                 $route.reload();
             });
