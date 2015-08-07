@@ -15,3 +15,7 @@ npm run start
 ```
 
 * Comando irá carregar todas as dependências do projeto, startar as mocks e subir a aplicação no endereço: http://localhost:8080
+
+* Logue com os usuários
+	- admin/pass
+	- user/pass
