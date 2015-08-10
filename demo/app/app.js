@@ -102,7 +102,13 @@ define([
                         breadcrumb: ['Core', 'Quero Doar'],
                         templateUrl: jd.factory.getFileVersion('app/core/features/donate/donate.html'),
                         controllerUrl: jd.factory.getFileVersion('app/core/features/donate/donate-ctrl.js')
-                    })).otherwise({
+                    })).
+                    when('/common/components', angularAMD.route({
+                        breadcrumb: ['Comum', 'Componentes'],
+                        templateUrl: jd.factory.getFileVersion('app/common/features/components/components.html'),
+                        controllerUrl: jd.factory.getFileVersion('app/common/features/components/components-ctrl.js')
+                    })).
+                    otherwise({
                         breadcrumb: ['Principal'],
                         redirectTo: '/'
                     });

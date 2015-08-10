@@ -23,7 +23,9 @@
 		"ocorreu algum erro inesperado durante sua requisição. tente novamente mais tarde ou contacte o suporte técnico.": "Internal server error",
 		"ocorreu algum erro não identificado durante sua requisição. tente novamente mais tarde ou contacte o suporte técnico.": "Internal server error",
 		"ocorreu algum erro desconhecido durante carregamento da página.": "Internal client error",
-		"principal": "Home"
+		"principal": "Home",
+		"comum": "Common",
+		"componentes": "Components"
 	},
 	"regexResources": {
 	}

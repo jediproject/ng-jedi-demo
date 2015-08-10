@@ -1,0 +1,54 @@
+<form jd-panel ng-controller="app.common.components.ComponentsCtrl as componentsCtrl" jd-title="Components">
+
+	<div class="row">
+		<select jd-input jd-label="Select 1" ng-model="componentsCtrl.componentsModel.data.select1" required>
+			<option ng-repeat="item in componentsCtrl.componentsModel.list track by item.id" value="{{item.id}}">{{item.value}}</option>
+		</select>
+		<div jd-input jd-label="select 1">={{componentsCtrl.componentsModel.data.select1 | json}}</div>
+
+		<select jd-input jd-label="Select 2" ng-model="componentsCtrl.componentsModel.data.select2" required jd-options="item.id as item.value for item in componentsCtrl.componentsModel.list">
+			<option value="" jd-i18n>Selecione</option>
+		</select>
+		<div jd-input jd-label="select 2">={{componentsCtrl.componentsModel.data.select2 | json}}</div>
+
+		<input jd-input jd-label="Input" ng-model="componentsCtrl.componentsModel.data.input" type="text" required />
+		<div jd-input jd-label="input">={{componentsCtrl.componentsModel.data.input | json}} </div>
+	</div>
+
+	<div class="row">
+		<input jd-input jd-grouplabel="Radios" jd-lg-size="6" jd-label="{{item.value}}" ng-model="componentsCtrl.componentsModel.data.radios" 
+		type="radio" required jd-repeat="item in componentsCtrl.componentsModel.list" ng-value="item" />
+		<div jd-input jd-label="radios" jd-lg-size="2">={{componentsCtrl.componentsModel.data.radios | json}} </div>
+
+		<input jd-input jd-label="Radio" jd-lg-size="2" ng-model="componentsCtrl.componentsModel.data.radio" 
+		type="radio" required ng-value="true" />
+		<div jd-input jd-label="radio" jd-lg-size="2">={{componentsCtrl.componentsModel.data.radio | json}} </div>
+	</div>
+
+	<div class="row">
+		<input jd-input jd-grouplabel="Checks" jd-lg-size="6" jd-label="{{item.value}}" ng-model="componentsCtrl.componentsModel.data.checks[$index]" 
+		type="checkbox" required jd-repeat="item in componentsCtrl.componentsModel.list" ng-value="true" />
+		<div jd-input jd-label="checks" jd-lg-size="2">={{componentsCtrl.componentsModel.data.checks | json}} </div>
+
+		<input jd-input jd-label="Check" jd-lg-size="2" ng-model="componentsCtrl.componentsModel.data.check" 
+		type="checkbox" required ng-value="true" />
+		<div jd-input jd-label="check" jd-lg-size="2">={{componentsCtrl.componentsModel.data.check | json}} </div>
+	</div>
+
+	<div class="row">
+		<textarea jd-input jd-label="Textarea" jd-lg-size="10" ng-model="componentsCtrl.componentsModel.data.textarea" required></textarea>
+		<div jd-input jd-label="textarea">={{componentsCtrl.componentsModel.data.textarea | json}} </div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-12">
+			<p>{{componentsCtrl.componentsModel.data | json}}</p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-12">
+			<button class="btn btn-primary" ng-click="componentsCtrl.method2()">Button</button>
+		</div>
+	</div>
+</form>
