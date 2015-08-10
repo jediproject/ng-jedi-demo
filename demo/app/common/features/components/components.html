@@ -39,6 +39,20 @@
 		<textarea jd-input jd-label="Textarea" jd-lg-size="10" ng-model="componentsCtrl.componentsModel.data.textarea" required></textarea>
 		<div jd-input jd-label="textarea">={{componentsCtrl.componentsModel.data.textarea | json}} </div>
 	</div>
+	
+	<div class="row">
+		<input required jd-max-date="componentsCtrl.componentsModel.data.datepickermax" jd-input jd-label="Datepicker Min Date" ng-model="componentsCtrl.componentsModel.data.datepickermin" type="text" jd-datepicker>
+		<div jd-input jd-label="min date">= {{componentsCtrl.componentsModel.data.datepickermin}}</div>
+		<input required jd-min-date="componentsCtrl.componentsModel.data.datepickermin" jd-input jd-label="Datepicker Max Date" ng-model="componentsCtrl.componentsModel.data.datepickermax" type="text" jd-datepicker>
+		<div jd-input jd-label="max date">= {{componentsCtrl.componentsModel.data.datepickermax}}</div>
+	</div>
+	
+	<div class="row">
+		<input jd-input jd-label="Timepicker" ng-model="componentsCtrl.componentsModel.data.timepicker" type="text" jd-datepicker="time">
+		<div jd-input jd-label="time">= {{componentsCtrl.componentsModel.data.timepicker}}</div>
+		<input jd-input jd-lg-size="4" jd-label="DateTimePicker" ng-model="componentsCtrl.componentsModel.data.datetimepicker" type="text" jd-datepicker="date-time">
+		<div jd-input jd-label="datetime">= {{componentsCtrl.componentsModel.data.datetimepicker}}</div>
+	</div>
 
 	<div class="row">
 		<div class="col-xs-12">
