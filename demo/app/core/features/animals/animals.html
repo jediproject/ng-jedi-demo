@@ -1,5 +1,7 @@
 <form jd-panel jd-title="Lista de Animais" ng-controller="app.core.animals.AnimalsCtrl as animalsCtrl" name="animalsForm">
-    <input jd-input type="search" placeholder="Pesquisar" ng-model="animalsCtrl.animalsModel.searchText">
+    <div class="row">
+  	    <input jd-input type="search" placeholder="Pesquisar" ng-model="animalsCtrl.animalsModel.searchText">
+	</div>
     <div id="products" class="row list-group">
 	    <div class="item  col-xs-4 col-lg-4" ng-repeat="animal in animalsCtrl.animalsModel.animalList | filter:animalsCtrl.animalsModel.searchText">
 	        <div class="thumbnail">

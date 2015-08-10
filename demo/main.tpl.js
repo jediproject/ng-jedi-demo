@@ -29,6 +29,7 @@ require.config({
         'ng-jedi-layout-modal': 'assets/libs/ng-jedi-layout/modal.js',
         'ng-jedi-layout-panel': 'assets/libs/ng-jedi-layout/panel.js',
         'ng-jedi-layout-treeview': 'assets/libs/ng-jedi-layout/treeview.js',
+        'ng-jedi-layout-validationtooltip': 'assets/libs/ng-jedi-layout/validationtooltip.js',
 
         // ## common components
         'app-common': 'app/common/common-app.js',

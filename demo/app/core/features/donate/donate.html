@@ -1,23 +1,31 @@
 <form jd-panel ng-controller="app.core.animals.DonateCtrl as donateCtrl" name="donateForm" jd-title="Preenche as informações no animal para doação">
-    <input jd-input jd-label="Nome do animal" required type="text" class="form-control" ng:model="donateCtrl.donateModel.name" placeholder="Ex: Batatinha">
+    <div class="row">
+        <div jd-panel="6" jd-title="Dados do animal">
+            <input jd-input jd-label="Nome do animal" jd-sm-size="12" jd-md-size="12" jd-lg-size="12" jd-sm-label-size="12" required type="text" ng-model="donateCtrl.donateModel.name" placeholder="Ex: Batatinha">
 
-    <input jd-input jd-label="Animal" required type="text" class="form-control" ng:model="donateCtrl.donateModel.type" placeholder="Ex: Cachorro, gato, tartaruga, etc">
+            <input jd-input jd-label="Animal" jd-sm-size="12" jd-md-size="12" jd-lg-size="12" jd-sm-label-size="12" required type="text" ng-model="donateCtrl.donateModel.type" placeholder="Ex: Cachorro, gato, tartaruga, etc">
 
-	<input jd-input jd-label="Raça" required type="text" class="form-control" ng:model="donateCtrl.donateModel.spitz" placeholder="Ex: Pastor Alemão">
+        	<input jd-input jd-label="Raça" jd-sm-size="12" jd-md-size="12" jd-lg-size="12" jd-sm-label-size="12" required type="text" ng-model="donateCtrl.donateModel.spitz" placeholder="Ex: Pastor Alemão">
 
-	<input jd-input jd-label="Idade" mask="int" required type="text" class="form-control" ng:model="donateCtrl.donateModel.age" placeholder="Ex: 0 a 6 meses">
+        	<input jd-input jd-label="Idade" mask="int" jd-sm-size="12" jd-md-size="12" jd-lg-size="12" jd-sm-label-size="12" required type="text" ng-model="donateCtrl.donateModel.age" placeholder="Ex: 0 a 6 meses">
 
-	<input jd-input jd-label="Descrição" required type="text" class="form-control" ng:model="donateCtrl.donateModel.description" placeholder="Ex: Uma breve descrição sobre o animal">
+        	<input jd-input jd-label="Descrição" jd-sm-size="12" jd-md-size="12" jd-lg-size="12" jd-sm-label-size="12" required type="text" ng-model="donateCtrl.donateModel.description" placeholder="Ex: Uma breve descrição sobre o animal">
 
-	<input jd-input jd-label="Escolha uma foto do animal" required type="text" placeholder="Ex: assets/img/dogs/dog8.jpg"  class="form-control" ng:model="donateCtrl.donateModel.img" >
+        	<input jd-input jd-label="Escolha uma foto do animal" jd-sm-size="12" jd-md-size="12" jd-lg-size="12" jd-sm-label-size="12" required type="text" placeholder="Ex: assets/img/dogs/dog8.jpg"  ng-model="donateCtrl.donateModel.img" >
+        </div>
+        <div jd-panel="6" jd-title="Contato">
+            <input jd-input jd-label="Contato para doação" jd-sm-size="12" jd-md-size="12" jd-lg-size="12" jd-sm-label-size="12" required type="text" ng-model="donateCtrl.donateModel.owner.name" placeholder="Nome da pessoa de contato">
 
-    <input jd-input jd-label="Contato para doação" required type="text" class="form-control" ng:model="donateCtrl.donateModel.owner.name" placeholder="Nome da pessoa de contato">
+            <input jd-input jd-label="Endereço" jd-sm-size="12" jd-md-size="12" jd-lg-size="12" jd-sm-label-size="12" required type="text" ng-model="donateCtrl.donateModel.owner.city" placeholder="Ex: rua x, número 1, bairro xyz">
 
-    <input jd-input jd-label="Endereço" required type="text" class="form-control" ng:model="donateCtrl.donateModel.owner.city" placeholder="Ex: rua x, número 1, bairro xyz">
+            <input jd-input jd-label="Telefone" mask="tel" jd-sm-size="12" jd-md-size="12" jd-lg-size="12" jd-sm-label-size="12" required type="text" ng-model="donateCtrl.donateModel.owner.tel" placeholder="Ex: (31) 3333-3333">
 
-    <input jd-input jd-label="Telefone" mask="tel" required type="text" class="form-control" ng:model="donateCtrl.donateModel.owner.tel" placeholder="Ex: (31) 3333-3333">
-
-    <input jd-input jd-label="Email" required type="email" class="form-control" ng:model="donateCtrl.donateModel.owner.email" placeholder="">
-
-	<button type="submit" class="btn btn-primary btn-w-md" ng-click="donateCtrl.save()" jd-i18n>Salvar</button>
+            <input jd-input jd-label="Email" jd-sm-size="12" jd-md-size="12" jd-lg-size="12" jd-sm-label-size="12" required type="email" ng-model="donateCtrl.donateModel.owner.email">
+        </div>
+    </div>
+    <div class="row">
+	   <div class="col-xs-12">
+            <button type="submit" class="btn btn-primary btn-w-md" ng-click="donateCtrl.save()" jd-i18n>Salvar</button>
+       </div>
+    </div>
 </form>

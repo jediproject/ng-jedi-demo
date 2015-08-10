@@ -13,7 +13,7 @@
                         </div>
                         <input type="email"
                                class="form-control input-lg input-round text-center"
-                               jd-input
+                               jd-validation-tooltip
                                required
                                ng-maxlength="100"
                                ng-model="signupCtrl.signupModel.email"
@@ -25,7 +25,7 @@
                         </div>
                         <input type="text"
                                class="form-control input-lg input-round text-center"
-                               jd-input
+                               jd-validation-tooltip
                                required
                                ng-maxlength="100"
                                ng-model="signupCtrl.signupModel.name"
@@ -40,7 +40,7 @@
                                mask="cpf"
                                clean="true"
                                class="form-control input-lg input-round text-center"
-                               jd-input
+                               jd-validation-tooltip
                                required
                                ng-model="signupCtrl.signupModel.cpf"
                                jd-i18n placeholder="CPF">
@@ -51,7 +51,7 @@
                         </div>
                         <input type="password"
                                class="form-control input-lg input-round text-center"
-                               jd-input
+                               jd-validation-tooltip
                                required
                                ng-model="signinCtrl.signinModel.password"
                                jd-i18n placeholder="Senha">
@@ -62,7 +62,7 @@
                         </div>
                         <input type="password"
                                class="form-control input-lg input-round text-center"
-                               jd-input
+                               jd-validation-tooltip
                                required
                                jd-validate-equals="signinCtrl.signinModel.password"
                                ng-model="signinCtrl.signinModel.confirmPassword"

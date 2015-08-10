@@ -19,3 +19,9 @@ npm run start
 * Logue com os usuários
 	- admin/pass
 	- user/pass
+
+* Problemas com instalação de componentes bower:
+	- caso dê problema no clone dos componentes no git, rodar comando abaixo:
+	```bash
+	git config --global url."https://".insteadOf "git://"
+	```

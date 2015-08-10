@@ -275,6 +275,22 @@
 		{
 			"src": "bower_components/ng-jedi-layout/input.js",
 			"dest": "assets/libs/ng-jedi-layout/input.js"
+		},
+		{
+			"src": "bower_components/ng-jedi-layout/input-multipleinput.html",
+			"dest": "assets/libs/ng-jedi-layout/input-multipleinput.html"
+		},
+		{
+			"src": "bower_components/ng-jedi-layout/input-oneinput.html",
+			"dest": "assets/libs/ng-jedi-layout/input-oneinput.html"
+		},
+		{
+			"src": "bower_components/ng-jedi-layout/input-single.html",
+			"dest": "assets/libs/ng-jedi-layout/input-single.html"
+		},
+		{
+			"src": "bower_components/ng-jedi-layout/validationtooltip.js",
+			"dest": "assets/libs/ng-jedi-layout/validationtooltip.js"
 		}
 	]
 }
