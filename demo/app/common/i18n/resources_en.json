@@ -25,7 +25,8 @@
 		"ocorreu algum erro desconhecido durante carregamento da página.": "Internal client error",
 		"principal": "Home",
 		"comum": "Common",
-		"componentes": "Components"
+		"componentes": "Components",
+		"componente de ajuda utilizando jd-help": "Textarea component help text with jd-help"
 	},
 	"regexResources": {
 	}
