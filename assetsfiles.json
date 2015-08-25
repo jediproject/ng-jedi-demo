@@ -133,11 +133,11 @@
 			"dest": "assets/libs/angular-table/angular-table.js"
 		},
 		{
-			"src": "bower_components/angularAMD-multiscript/dist/angularAMD.js",
+			"src": "bower_components/angularAMD/angularAMD.js",
 			"dest": "assets/libs/angularAMD/angularAMD.js"
 		},
 		{
-			"src": "bower_components/ng-mask-currency/dist/ng-currency-mask.js",
+			"src": "bower_components/ng-currency-mask/dist/ng-currency-mask.js",
 			"dest": "assets/libs/ng-currency-mask/ng-currency-mask.js"
 		},
 		{
@@ -269,6 +269,10 @@
 			"dest": "assets/libs/ng-jedi-layout/modal.js"
 		},
 		{
+			"src": "bower_components/ng-jedi-layout/modal.html",
+			"dest": "assets/libs/ng-jedi-layout/modal.html"
+		},
+		{
 			"src": "bower_components/ng-jedi-layout/treeview.js",
 			"dest": "assets/libs/ng-jedi-layout/treeview.js"
 		},
@@ -291,6 +295,14 @@
 		{
 			"src": "bower_components/ng-jedi-layout/validationtooltip.js",
 			"dest": "assets/libs/ng-jedi-layout/validationtooltip.js"
+		},
+        {
+            "src": "bower_components/angular-toastr/dist/angular-toastr.tpls.js",
+            "dest": "assets/libs/angular-toastr/angular-toastr.tpls.js"
+        },
+		{
+			"src": "bower_components/angular-toastr/dist/angular-toastr.css",
+			"dest": "assets/css/angular-toastr.css"
 		}
 	]
 }

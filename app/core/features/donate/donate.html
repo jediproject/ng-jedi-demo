@@ -1,0 +1,31 @@
+<form jd-panel ng-controller="app.core.animals.DonateCtrl as donateCtrl" name="donateForm" jd-title="Preenche as informações no animal para doação">
+    <div class="row">
+        <div jd-panel="6" jd-title="Dados do animal">
+            <input jd-input="12" jd-label="Nome do animal" required type="text" ng-model="donateCtrl.donateModel.name" placeholder="Ex: Batatinha">
+
+            <input jd-input="12" jd-label="Animal" required type="text" ng-model="donateCtrl.donateModel.type" placeholder="Ex: Cachorro, gato, tartaruga, etc">
+
+        	<input jd-input="12" jd-label="Raça" required type="text" ng-model="donateCtrl.donateModel.spitz" placeholder="Ex: Pastor Alemão">
+
+        	<input jd-input="12" jd-label="Idade" mask="int" required type="text" ng-model="donateCtrl.donateModel.age" placeholder="Ex: 0 a 6 meses">
+
+        	<input jd-input="12" jd-label="Descrição" required type="text" ng-model="donateCtrl.donateModel.description" placeholder="Ex: Uma breve descrição sobre o animal">
+
+        	<input jd-input="12" jd-label="Escolha uma foto do animal" required type="text" placeholder="Ex: assets/img/dogs/dog8.jpg"  ng-model="donateCtrl.donateModel.img" >
+        </div>
+        <div jd-panel="6" jd-title="Contato">
+            <input jd-input="12" jd-label="Contato para doação" required type="text" ng-model="donateCtrl.donateModel.owner.name" placeholder="Nome da pessoa de contato">
+
+            <input jd-input="12" jd-label="Endereço" required type="text" ng-model="donateCtrl.donateModel.owner.city" placeholder="Ex: rua x, número 1, bairro xyz">
+
+            <input jd-input="12" jd-label="Telefone" mask="tel" required type="text" ng-model="donateCtrl.donateModel.owner.tel" placeholder="Ex: (31) 3333-3333">
+
+            <input jd-input="12" jd-label="Email" required type="email" ng-model="donateCtrl.donateModel.owner.email">
+        </div>
+    </div>
+    <div class="row">
+	   <div class="col-xs-12">
+            <button type="submit" class="btn btn-primary btn-w-md" ng-click="donateCtrl.save()" jd-i18n>Salvar</button>
+       </div>
+    </div>
+</form>

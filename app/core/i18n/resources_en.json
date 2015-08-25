@@ -26,7 +26,8 @@
 		"animal removido com sucesso!": "Animal removed!",
 		"remover": "Remove",
 		"dados do animal": "Animal informations",
-		"pesquisar": "Search"
+		"pesquisar": "Search",
+		"lista de animais": "Animals list"
 	},
 	"regexResources": {
 		"Gostaria de remover o animal ([^(?)]+)?": "Would you like to remove the animal $1?"

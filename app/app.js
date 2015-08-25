@@ -52,14 +52,12 @@ define([
             handleTokenResponse: function (response, identity) {
                 // complements for a identify
                 identity.name = response.name;
-                //identity.email = response.email;
-                //identity.cpf = response.cpf;
                 return identity;
             }
         });
     }]);
 
-    app.run(['$http', '$route', '$rootScope', '$location', 'authService', 'jedi.dialogs.AlertHelper', '$timeout', '$injector', '$log', 'jedi.i18n.Localize', function ($http, $route, $rootScope, $location, authService, alertHelper, $timeout, $injector, $log, localize) {
+    app.run(['$http', '$route', '$rootScope', '$location', 'jedi.dialogs.AlertHelper', '$timeout', '$injector', '$log', 'jedi.i18n.Localize', function ($http, $route, $rootScope, $location, alertHelper, $timeout, $injector, $log, localize) {
         $log.info('Configure i18n');
         localize.addResource('app/common/i18n/resources_{lang}.json');
 
@@ -93,6 +91,7 @@ define([
                 $log.info('Load routes');
 
                 $routeProviderReference
+                    //#===== yeoman route hook =====#
                     .when('/core/animals', angularAMD.route({
                         breadcrumb: ['Core', 'Animais'],
                         templateUrl: jd.factory.getFileVersion('app/core/features/animals/animals.html'),
@@ -107,11 +106,7 @@ define([
                         breadcrumb: ['Comum', 'Componentes'],
                         templateUrl: jd.factory.getFileVersion('app/common/features/components/components.html'),
                         controllerUrl: jd.factory.getFileVersion('app/common/features/components/components-ctrl.js')
-                    })).
-                    otherwise({
-                        breadcrumb: ['Principal'],
-                        redirectTo: '/'
-                    });
+                    }));
                 
                 $route.reload();
             });
@@ -149,12 +144,7 @@ define([
         $rootScope.$on('auth:logout-success', resetUserProfile);
         $rootScope.$on('auth:logout-error', resetUserProfile);
         $rootScope.$on('auth:invalid', resetUserProfile);
-
         ////-------
-
-        // initialize authService
-        $log.info('Initializing authService');
-        authService.initialize();
     }]);
 
     // AppCtrl: possui controles gerais da aplicação, como a parte de locale e também de deslogar

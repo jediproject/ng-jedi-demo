@@ -1,5 +1,9 @@
 <form jd-panel ng-controller="app.common.components.ComponentsCtrl as componentsCtrl" jd-title="Components">
 
+	<div jd-panel jd-title="Componentes básicos">
+		
+	</div>
+
 	<div class="row">
 		<select jd-input jd-label="Select 1" ng-model="componentsCtrl.componentsModel.data.select1" required>
 			<option ng-repeat="item in componentsCtrl.componentsModel.list track by item.id" value="{{item.id}}">{{item.value}}</option>
@@ -52,9 +56,6 @@
 		<div jd-input jd-label="time">= {{componentsCtrl.componentsModel.data.timepicker}}</div>
 		<input jd-input jd-lg-size="4" jd-label="DateTimePicker" ng-model="componentsCtrl.componentsModel.data.datetimepicker" type="text" jd-datepicker="date-time">
 		<div jd-input jd-label="datetime">= {{componentsCtrl.componentsModel.data.datetimepicker}}</div>
-	</div>
-
-	<div class="row">
 		<div class="col-xs-12">
 			<p>{{componentsCtrl.componentsModel.data | json}}</p>
 		</div>

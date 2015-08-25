@@ -3,7 +3,7 @@
 /*
     Controller for the feature Donate
 */
-jd.factory.newController('app.core.animals.DonateCtrl', ['coreRestService', 'jedi.dialogs.AlertHelper', '$location', function (CoreRestService, AlertHelper, $location) {
+jd.factory.newController('app.core.animals.DonateCtrl', ['coreRestService', 'toastr', '$location', function (CoreRestService, toastr, $location) {
 
     //#region Service initialize
     var service = CoreRestService.all('animals');
@@ -21,7 +21,7 @@ jd.factory.newController('app.core.animals.DonateCtrl', ['coreRestService', 'jed
     //#region Events definitions
     function save() {
         vm.donateModel.post().then(function () {
-            AlertHelper.addInfo('Animal cadastrado com sucesso.');
+            toastr.success('Animal cadastrado com sucesso.');
             $location.path('/core/animals');
         });
     }

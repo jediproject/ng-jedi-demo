@@ -8,6 +8,7 @@ assets/css/bootstrap-datetimepicker.css
 assets/css/loading-bar.css
 assets/css/font-awesome.css
 assets/css/weather-icons.css
+assets/css/angular-toastr.css
 **/env/*-env.json
 main.js
 version.json

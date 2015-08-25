@@ -1,7 +1,7 @@
 'use strict';
 
 /*
-    Controlador da tela de complemento do cadastro do usu·rio
+    Controlador da tela de complemento do cadastro do usu√°rio
 */
 jd.factory.newController('app.common.auth.signin.SigninCtrl', ['authService', function (authService) {
     var vm = this;
