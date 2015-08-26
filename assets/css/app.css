@@ -35,3 +35,21 @@
         text-align: left;
     }
 }
+
+.btn-control {
+    margin-top: 0px;
+}
+
+.btn-control-label {
+    margin-top: 20px;
+}
+
+@media (max-width: 767px) {
+    .btn-control {
+        margin-top: 0px;
+    }
+
+    .btn-control-label {
+        margin-top: 0px;
+    }
+}

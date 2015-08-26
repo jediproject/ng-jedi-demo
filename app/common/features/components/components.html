@@ -1,69 +1,119 @@
 <form jd-panel ng-controller="app.common.components.ComponentsCtrl as componentsCtrl" jd-title="Components">
 
-	<div jd-panel jd-title="Componentes básicos">
-		
-	</div>
+	<p class="text-warning">
+		<strong jd-i18n>Campos básicos</strong>
+		<hr>
+	</p>
 
 	<div class="row">
-		<select jd-input jd-label="Select 1" ng-model="componentsCtrl.componentsModel.data.select1" required>
+		<select jd-input jd-label="Select 1" jd-help="Valor: {{componentsCtrl.componentsModel.data.select1 | json}}" ng-model="componentsCtrl.componentsModel.data.select1" required>
 			<option ng-repeat="item in componentsCtrl.componentsModel.list track by item.id" value="{{item.id}}">{{item.value}}</option>
 		</select>
-		<div jd-input jd-label="select 1">={{componentsCtrl.componentsModel.data.select1 | json}}</div>
 
-		<select jd-input jd-label="Select 2" ng-model="componentsCtrl.componentsModel.data.select2" required jd-options="item.id as item.value for item in componentsCtrl.componentsModel.list">
+		<select jd-input jd-label="Select 2" jd-help="Valor: {{componentsCtrl.componentsModel.data.select2 | json}}" ng-model="componentsCtrl.componentsModel.data.select2" required jd-options="item.id as item.value for item in componentsCtrl.componentsModel.list">
 			<option value="" jd-i18n>Selecione</option>
 		</select>
-		<div jd-input jd-label="select 2">={{componentsCtrl.componentsModel.data.select2 | json}}</div>
 
-		<input jd-input jd-label="Input" ng-model="componentsCtrl.componentsModel.data.input" type="text" required />
-		<div jd-input jd-label="input">={{componentsCtrl.componentsModel.data.input | json}} </div>
+		<div class="col-xs-3">
+            <button class="btn btn-primary btn-icon-sm btn-control-label" title="Adicionar" ng-click="componentsCtrl.method2()">
+                <i class="glyphicon glyphicon-plus"></i>
+            </button>
+        </div>
 	</div>
 
 	<div class="row">
-		<input jd-input jd-grouplabel="Radios" jd-lg-size="6" jd-label="{{item.value}}" ng-model="componentsCtrl.componentsModel.data.radios" 
+		<input jd-input="2" jd-label="Input" jd-help="Valor: {{componentsCtrl.componentsModel.data.input | json}}" ng-model="componentsCtrl.componentsModel.data.input" type="text" required />
+
+		<input jd-input="3" jd-label="Input" jd-help="Valor: {{componentsCtrl.componentsModel.data.input | json}}" ng-model="componentsCtrl.componentsModel.data.input" type="text" required />
+
+		<input jd-input="4" jd-label="Input" jd-help="Valor: {{componentsCtrl.componentsModel.data.input | json}}" ng-model="componentsCtrl.componentsModel.data.input" type="text" required />
+
+		<div jd-input jd-label="Texto estático">Valor qualquer...</div>
+	</div>
+
+	<div class="row">
+		<input jd-input="6" jd-grouplabel="Radios" jd-label="{{item.value}}" jd-help="Valor: {{componentsCtrl.componentsModel.data.radios | json}}" ng-model="componentsCtrl.componentsModel.data.radios" 
 		type="radio" required jd-repeat="item in componentsCtrl.componentsModel.list" ng-value="item" />
-		<div jd-input jd-label="radios" jd-lg-size="2">={{componentsCtrl.componentsModel.data.radios | json}} </div>
 
-		<input jd-input jd-label="Radio" jd-lg-size="2" ng-model="componentsCtrl.componentsModel.data.radio" 
+		<input jd-input="4" jd-label="Radio" jd-help="Valor: {{componentsCtrl.componentsModel.data.radio | json}}" ng-model="componentsCtrl.componentsModel.data.radio" 
 		type="radio" required ng-value="true" />
-		<div jd-input jd-label="radio" jd-lg-size="2">={{componentsCtrl.componentsModel.data.radio | json}} </div>
 	</div>
 
 	<div class="row">
-		<input jd-input jd-grouplabel="Checks" jd-lg-size="6" jd-label="{{item.value}}" ng-model="componentsCtrl.componentsModel.data.checks[$index]" 
+		<input jd-input="6" jd-grouplabel="Checks" jd-label="{{item.value}}" jd-help="Valor: {{componentsCtrl.componentsModel.data.checks | json}}" ng-model="componentsCtrl.componentsModel.data.checks[$index]" 
 		type="checkbox" required jd-repeat="item in componentsCtrl.componentsModel.list" ng-value="true" />
-		<div jd-input jd-label="checks" jd-lg-size="2">={{componentsCtrl.componentsModel.data.checks | json}} </div>
 
-		<input jd-input jd-label="Check" jd-lg-size="2" ng-model="componentsCtrl.componentsModel.data.check" 
+		<input jd-input="4" jd-label="Check" jd-help="Valor: {{componentsCtrl.componentsModel.data.check | json}}" ng-model="componentsCtrl.componentsModel.data.check" 
 		type="checkbox" required ng-value="true" />
-		<div jd-input jd-label="check" jd-lg-size="2">={{componentsCtrl.componentsModel.data.check | json}} </div>
 	</div>
 
 	<div class="row">
-		<textarea jd-input jd-label="Textarea" jd-lg-size="10" ng-model="componentsCtrl.componentsModel.data.textarea" required rows="5" jd-help="Componente de ajuda utilizando jd-help"></textarea>
-		<div jd-input jd-label="textarea">={{componentsCtrl.componentsModel.data.textarea | json}} </div>
+		<textarea jd-input="12" jd-label="Textarea" ng-model="componentsCtrl.componentsModel.data.textarea" required rows="5" jd-help="Valor: {{componentsCtrl.componentsModel.data.textarea | json}}"></textarea>
+	</div>
+	
+	<p class="text-warning">
+		<strong jd-i18n>Data / Horas</strong>
+		<hr>
+	</p>
+
+	<div class="row">
+		<input required jd-max-date="componentsCtrl.componentsModel.data.datepickermax" jd-input jd-label="Datepicker Min Date" jd-help="Valor: {{componentsCtrl.componentsModel.data.datepickermin | date:'shortDate'}}" ng-model="componentsCtrl.componentsModel.data.datepickermin" type="text" jd-datepicker>
+
+		<input required jd-min-date="componentsCtrl.componentsModel.data.datepickermin" jd-input jd-label="Datepicker Max Date" jd-help="Valor: {{componentsCtrl.componentsModel.data.datepickermax | date:'shortDate'}}" ng-model="componentsCtrl.componentsModel.data.datepickermax" type="text" jd-datepicker>
 	</div>
 	
 	<div class="row">
-		<input required jd-max-date="componentsCtrl.componentsModel.data.datepickermax" jd-input jd-label="Datepicker Min Date" ng-model="componentsCtrl.componentsModel.data.datepickermin" type="text" jd-datepicker>
-		<div jd-input jd-label="min date">= {{componentsCtrl.componentsModel.data.datepickermin}}</div>
-		<input required jd-min-date="componentsCtrl.componentsModel.data.datepickermin" jd-input jd-label="Datepicker Max Date" ng-model="componentsCtrl.componentsModel.data.datepickermax" type="text" jd-datepicker>
-		<div jd-input jd-label="max date">= {{componentsCtrl.componentsModel.data.datepickermax}}</div>
+		<input jd-input jd-label="Timepicker" jd-help="Valor: {{componentsCtrl.componentsModel.data.timepicker | date:'shortTime'}}" ng-model="componentsCtrl.componentsModel.data.timepicker" type="text" jd-datepicker="time">
+
+		<input jd-input jd-label="DateTimePicker" jd-help="Valor: {{componentsCtrl.componentsModel.data.datetimepicker | date:'short'}}" ng-model="componentsCtrl.componentsModel.data.datetimepicker" type="text" jd-datepicker="date-time">
 	</div>
-	
+
+	<p class="text-warning">
+		<strong jd-i18n>Máscaras</strong>
+		<hr>
+	</p>
+
 	<div class="row">
-		<input jd-input jd-label="Timepicker" ng-model="componentsCtrl.componentsModel.data.timepicker" type="text" jd-datepicker="time">
-		<div jd-input jd-label="time">= {{componentsCtrl.componentsModel.data.timepicker}}</div>
-		<input jd-input jd-lg-size="4" jd-label="DateTimePicker" ng-model="componentsCtrl.componentsModel.data.datetimepicker" type="text" jd-datepicker="date-time">
-		<div jd-input jd-label="datetime">= {{componentsCtrl.componentsModel.data.datetimepicker}}</div>
-		<div class="col-xs-12">
-			<p>{{componentsCtrl.componentsModel.data | json}}</p>
-		</div>
+		<input jd-input jd-label="CPF" jd-help="Valor: {{componentsCtrl.componentsModel.data.cpf | json}}" ng-model="componentsCtrl.componentsModel.data.cpf" type="text" required mask="cpf" />
+
+		<input jd-input jd-label="CNPJ" jd-help="Valor: {{componentsCtrl.componentsModel.data.cnpj | json}}" ng-model="componentsCtrl.componentsModel.data.cnpj" type="text" required mask="cnpj" />
+
+		<input jd-input jd-label="CEP" jd-help="Valor: {{componentsCtrl.componentsModel.data.cep | json}}" ng-model="componentsCtrl.componentsModel.data.cep" type="text" required mask="cep" />
+
+		<input jd-input jd-label="Inteiro" jd-help="Valor: {{componentsCtrl.componentsModel.data.int | json}}" ng-model="componentsCtrl.componentsModel.data.int" type="text" required mask="int" />
+
+		<input jd-input jd-label="Telefone" jd-help="Valor: {{componentsCtrl.componentsModel.data.tel | json}}" ng-model="componentsCtrl.componentsModel.data.tel" type="text" required mask="tel" />
+
+		<input jd-input jd-label="Decimal" jd-help="Valor: {{componentsCtrl.componentsModel.data.decimal | json}}" ng-model="componentsCtrl.componentsModel.data.decimal" type="text" required ng-currency-mask currency="" />
 	</div>
+
+	<p class="text-warning">
+		<strong jd-i18n>Grid</strong>
+		<hr>
+	</p>
+
+	<table at-table="componentsCtrl.componentsModel.list" at-paginated>
+		<tbody>
+			<tr>
+				<td at-sortable at-attribute="id" at-title="Código"></td>
+				<td at-sortable at-attribute="value" at-title="Nome"></td>
+				<td at-sortable at-attribute="date" at-title="Data" at-filter="date:'short'"></td>
+				<td at-sortable at-attribute="number" at-title="Número" at-filter="currency"></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<p class="text-warning">
+		<strong jd-i18n>Alertas</strong>
+		<hr>
+	</p>
 
 	<div class="row">
 		<div class="col-xs-12">
-			<button class="btn btn-primary" ng-click="componentsCtrl.method2()">Button</button>
+			<button class="btn btn-primary" ng-click="componentsCtrl.method3()">Alert Info</button>
+			<button class="btn btn-info" ng-click="componentsCtrl.method4()">Alert Error</button>
+			<button class="btn btn-info" ng-click="componentsCtrl.method5()">Toastr Info</button>
+			<button class="btn btn-info" ng-click="componentsCtrl.method6()">Toastr Error</button>
 		</div>
 	</div>
 </form>

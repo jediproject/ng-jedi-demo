@@ -26,8 +26,19 @@
 		"principal": "Home",
 		"comum": "Common",
 		"componentes": "Components",
-		"componente de ajuda utilizando jd-help": "Textarea component help text with jd-help"
+		"componente de ajuda utilizando jd-help": "Textarea component help text with jd-help",
+		"texto estático": "Static text",
+		"selecione": "Select",
+		"valor qualquer...": "Any value...",
+		"campos básicos": "Basic fields",
+		"data / horas": "Date / Hour",
+		"máscaras": "Masks",
+		"Inteiro": "Integer",
+		"Telefone": "Phone",
+		"adicionar": "Add",
+		"alertas": "Alerts"
 	},
 	"regexResources": {
+		"Valor: (.*)": "Value: $1"
 	}
 }
