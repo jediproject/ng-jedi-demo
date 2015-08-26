@@ -225,8 +225,8 @@
 			"dest": "assets/libs/ng-jedi-loading/loading.html"
 		},
 		{
-			"src": "bower_components/ng-jedi-loading/loading.gif",
-			"dest": "assets/libs/ng-jedi-loading/loading.gif"
+			"src": "bower_components/ng-jedi-loading/loading.css",
+			"dest": "assets/css/loading.css"
 		},
 		{
 			"src": "bower_components/ng-jedi-utilities/utilities.js",
