@@ -37,7 +37,9 @@
 		"Telefone": "Phone",
 		"adicionar": "Add",
 		"alertas": "Alerts",
-		"outro": "Other"
+		"outro": "Other",
+		"Modal externa": "External modal",
+		"Modal interna": "Internal modal"
 	},
 	"regexResources": {
 		"Valor: (.*)": "Value: $1"

@@ -3,7 +3,7 @@
 /*
     Controller for the feature Components
 */
-jd.factory.newController('app.common.components.ComponentsCtrl', ['$log', 'jedi.dialogs.AlertHelper', 'toastr', function ($log, AlertHelper, toastr) {
+jd.factory.newController(['app/common/features/modalexample/modalexample-ctrl.js'], 'app.common.components.ComponentsCtrl', ['$log', 'jedi.dialogs.AlertHelper', 'toastr', 'jedi.dialogs.ModalHelper', function ($log, AlertHelper, toastr, ModalHelper) {
 
     //#region Service initialize
     var service;// = ... e.g: restangular instance
@@ -39,6 +39,7 @@ jd.factory.newController('app.common.components.ComponentsCtrl', ['$log', 'jedi.
     vm.method4 = method4;
     vm.method5 = method5;
     vm.method6 = method6;
+    vm.method7 = method7;
     //#endregion
 
     //#region Load controller
@@ -78,6 +79,11 @@ jd.factory.newController('app.common.components.ComponentsCtrl', ['$log', 'jedi.
     function method6() {
         $log.info(vm.componentsModel);
         toastr.error('error');
+    }
+
+    function method7() {
+        $log.info(vm.componentsModel);
+        ModalHelper.open('internalModalExample.html', {param: vm.componentsModel.data});
     }
     //#endregion
 

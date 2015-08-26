@@ -1,0 +1,10 @@
+<form jd-modal name="modalexampleForm" jd-title="Modal externa">
+    <div class="row">
+    	<div jd-input="12" jd-label="Param">{{modalexampleCtrl.modalexampleModel.param | json}}</div>
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="modalexampleCtrl.method1()" jd-i18n>Method 1</button>
+        <button class="btn btn-info" ng-click="modalexampleCtrl.method2()" jd-i18n>Method 2</button>
+    </div>
+</form>

@@ -118,4 +118,24 @@
 			<button class="btn btn-info" ng-click="componentsCtrl.method6()">Toastr Error</button>
 		</div>
 	</div>
+
+	<p class="text-warning">
+		<strong jd-i18n>Modais</strong>
+		<hr>
+	</p>
+
+	<div class="row">
+		<div class="col-xs-12">
+			<button class="btn btn-info" app-common-modalexample param="componentsCtrl.componentsModel.data">Modal externa</button>
+			<button class="btn btn-info" ng-click="componentsCtrl.method7()">Modal interna</button>
+		</div>
+	</div>
+
+	<script type="text/ng-template" id="internalModalExample.html">
+		<div jd-modal jd-title="Modal interna">
+		    <div class="row">
+		    	<div jd-input="12" jd-label="Param">{{param | json}}</div>
+		    </div>
+		</div>
+	</script>
 </form>
