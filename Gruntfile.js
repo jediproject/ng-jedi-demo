@@ -210,8 +210,29 @@ module.exports = function (grunt) {
                     src: ['**/*.{html,css,js}'],
                     dest: 'build',
                 }
+        },
+
+        protractor: {
+          options: {
+            configFile: "test/e2e/protractor-conf.js", //your protractor config file
+            keepAlive: true, // If false, the grunt process stops when the test fails.
+            noColor: false, // If true, protractor will not use colors in its output.
+            args: {
+                // Arguments passed to the command
+            }
+          },
+          e2e:{
+            options:{
+              args:{}
+            }
+          }
         }
     });
+
+    grunt.loadNpmTasks('grunt-protractor-runner');
+
+    // Test tasks
+    grunt.registerTask('e2e', ['protractor:e2e']);
 
     // Main tasks for each environment
     grunt.registerTask('develop', ['execute:develop']);
@@ -232,7 +253,7 @@ module.exports = function (grunt) {
         grunt.task.run('assets'); // Copy needed Eassets from bower
         grunt.task.run('set-environment:' + env);
 
-        // Build version 
+        // Build version
         if (env == 'develop') {
             grunt.task.run('build-develop');
         } else

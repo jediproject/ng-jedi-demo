@@ -9,6 +9,7 @@ assets/css/loading-bar.css
 assets/css/font-awesome.css
 assets/css/weather-icons.css
 assets/css/angular-toastr.css
+test/e2e/protractor-result
 **/env/*-env.json
 main.js
 version.json
