@@ -36,7 +36,8 @@
 		"Inteiro": "Integer",
 		"Telefone": "Phone",
 		"adicionar": "Add",
-		"alertas": "Alerts"
+		"alertas": "Alerts",
+		"outro": "Other"
 	},
 	"regexResources": {
 		"Valor: (.*)": "Value: $1"
