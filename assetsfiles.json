@@ -93,6 +93,10 @@
 			"dest": "assets/libs/angular-authService/authService.js"
 		},
 		{
+			"src": "bower_components/cryptojslib/rollups/md5.js",
+			"dest": "assets/libs/cryptojslib/md5.js"
+		},
+		{
 			"src": "bower_components/angular-bootstrap/ui-bootstrap-tpls.js",
 			"dest": "assets/libs/angular-bootstrap/ui-bootstrap-tpls.js"
 		},

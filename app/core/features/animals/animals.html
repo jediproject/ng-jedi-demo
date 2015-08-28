@@ -13,10 +13,11 @@
 	                    </div>
 	                </div>
 	                <p class="group inner list-group-item-text">{{animal.desciption}}</p>
+	                <div class="divider"></div>
 	                <div class="row">
-	                    <div class="col-xs-12 col-md-6">
+	                    <div class="col-xs-12">
 	                        <a class="btn btn-success" ng-click="animalsCtrl.animalDetail(animal)" jd-i18n>Quero adotar</a>
-	                        <a class="btn btn-success" ng-click="animalsCtrl.removeAnimal(animal)" as-roles-to-show="ADMIN" jd-i18n>Remover</a>
+	                        <a class="btn btn-danger" ng-click="animalsCtrl.removeAnimal(animal)" as-roles-to-show="ADMIN" jd-i18n>Remover</a>
 	                    </div>
 	                </div>
 	            </div>

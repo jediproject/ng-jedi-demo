@@ -43,6 +43,7 @@ require.config({
         'angular': 'assets/libs/angular/angular.js',
         'angular-animate': 'assets/libs/angular-animate/angular-animate.js',
         'angular-authService': 'assets/libs/angular-authService/authService.js',
+        'cryptojslib': 'assets/libs/cryptojslib/md5.js',
         'angular-bootstrap': 'assets/libs/angular-bootstrap/ui-bootstrap-tpls.js',
         'angular-cookie': 'assets/libs/angular-cookie/angular-cookie.js',
         'angular-file-upload': 'assets/libs/angular-file-upload/angular-file-upload.js',
