@@ -9,15 +9,18 @@ exports.config = {
     // chromeDriver: '../node_modules/protractor/selenium/chromedriver',
 
     // location of your E2E test specs
-    specs: ['./*-spec.js'],
+    //specs: ['./*-spec.js'],
+
+    // organize tests as suites
+    suites:{
+        loginpage: './loginpage/*-spec.js',
+        donatepage: './donatepage/*-spec.js'
+    },
 
     // configure multiple browsers to run tests
-    multiCapabilities: [
-      {
-        'browserName': 'chrome'
-      }, {
-        'browserName': 'firefox' }
-    ],
+    capabilities: {
+        'browserName': 'firefox'
+    },    
 
     // url where your app is running, relative URLs are prepending with this URL
     baseUrl: 'http://localhost:9000/',
@@ -47,9 +50,10 @@ exports.config = {
     rootElement: 'body',
 
     onPrepare: function() {
-      // Add a reporter and store screenshots to `screnshots`:
-      jasmine.getEnv().addReporter(new HtmlReporter({
-         baseDirectory: 'test/e2e/protractor-result'
-      }));
+        
+        // Add a reporter and store screenshots to `screnshots`:
+        jasmine.getEnv().addReporter(new HtmlReporter({
+            baseDirectory: 'test/e2e/protractor-result'
+        }));
     },
 };
