@@ -12,6 +12,7 @@
   ],
   "dependencies": {
 	"requirejs": "~2.1.15",
+	"angular": "=1.4.4",
 	"angular-route": "~1.4.0",
 	"angular-animate": "~1.4.0",
 	"angular-i18n": "~1.4.0",
@@ -44,7 +45,7 @@
     "angular-toastr": "~1.4.1"
   },
   "resolutions": {
-	"angular": "1.4.3"
+	"angular": "=1.4.4"
   },
   "devDependencies": {}
 }

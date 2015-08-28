@@ -25,11 +25,11 @@ jd.factory.newModal('appCommonModalexample', 'app/common/features/modalexample/m
 
     //#region Events definitions
     function method1() {
-        alertHelper.addInfo('Method1 called');
+        alertHelper.addInfo('Method1 chamado');
     }
 
     function method2() {
-        toastr.success('Method2 called');
+        toastr.success('Method2 chamado');
     }
     //#endregion
 

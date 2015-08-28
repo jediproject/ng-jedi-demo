@@ -63,22 +63,22 @@ jd.factory.newController(['app/common/features/modalexample/modalexample-ctrl.js
 
     function method3() {
         $log.info(vm.componentsModel);
-        AlertHelper.addInfo('success');
+        AlertHelper.addInfo('Sucesso');
     }
 
     function method4() {
         $log.info(vm.componentsModel);
-        AlertHelper.addError('error');
+        AlertHelper.addError('Erro');
     }
 
     function method5() {
         $log.info(vm.componentsModel);
-        toastr.success('success');
+        toastr.success('Sucesso');
     }
 
     function method6() {
         $log.info(vm.componentsModel);
-        toastr.error('error');
+        toastr.error('Erro');
     }
 
     function method7() {
