@@ -1,4 +1,4 @@
-# Angular Jedi Project :: Arquitetura de Referência para Projetos AngularJs :: DEMO
+# Angular Jedi Project :: Arquitetura de ReferÃªncia para Projetos AngularJs :: DEMO
 
 ## Prerequisitos
 
@@ -14,14 +14,20 @@
 npm run start
 ```
 
-* Comando irá carregar todas as dependências do projeto, startar as mocks e subir a aplicação no endereço: http://localhost:8080
+* Comando irÃ¡ carregar todas as dependÃªncias do projeto, startar as mocks e subir a aplicaÃ§Ã£o no endereÃ§o: http://localhost:8080
 
-* Logue com os usuários
+* Logue com os usuÃ¡rios
 	- admin/pass
 	- user/pass
 
-* Problemas com instalação de componentes bower:
-	- caso dê problema no clone dos componentes no git, rodar comando abaixo:
+* Problemas com instalaÃ§Ã£o de componentes bower:
+	- caso dÃª problema no clone dos componentes no git, rodar comando abaixo:
 	```bash
 	git config --global url."https://".insteadOf "git://"
+	```
+
+* Testes:
+	- Com a aplicaÃ§Ã£o executando, use o seguinte comando para executar testes e2e:
+	```bash
+	grunt e2e
 	```
