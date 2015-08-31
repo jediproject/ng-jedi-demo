@@ -30,6 +30,6 @@
 		"lista de animais": "Animals list"
 	},
 	"regexResources": {
-		"Gostaria de remover o animal ([^(?)]+)?": "Would you like to remove the animal $1?"
+		"Gostaria de remover o animal ([^(?)]+)?": "Would you like to remove the animal $1"
 	}
 }
