@@ -23,8 +23,9 @@ describe('angularjs homepage', function () {
     var loginURL = browser.getCurrentUrl();
     loginPage.setUserName('admin');
     loginPage.setPassword('pass');
-    loginPage.clickEnterButton();
+    loginPage.SignIn();
     expect(browser.getCurrentUrl()).not.toEqual(loginURL);
     expect(browser.getCurrentUrl()).toEqual('http://localhost:8080/#/');
+    loginPage.SignOut();
   });
 });

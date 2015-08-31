@@ -9,16 +9,19 @@ describe('Donate page', function () {
 
   beforeEach(function () {
     loginPage.get();
-  });
-
-  it('should fill the form and save', function () {    
-    
     loginPage.setUserName('admin');
     loginPage.setPassword('pass');
-    loginPage.clickEnterButton();
-
+    loginPage.SignIn();
     donatePage.get();
+  });
 
+  afterEach(function(){
+    loginPage.SignOut();
+  });
+
+  it('should fill the form, save and redirect to animals list', function () {
+    
+    // fill the form
     donatePage.setAnimalName('teste');
     donatePage.setAnimal('teste');
     donatePage.setSpitz('teste');
@@ -30,6 +33,7 @@ describe('Donate page', function () {
     donatePage.setOwnertel('88888888888');
     donatePage.setOwneremail('teste@teste.com');
 
+    // expectations
     expect(donatePage.getAnimalName()).toEqual('teste');
     expect(donatePage.getAnimal()).toEqual('teste');
     expect(donatePage.getSpitz()).toEqual('teste');
@@ -40,10 +44,12 @@ describe('Donate page', function () {
     expect(donatePage.getOwnercity()).toEqual('teste');
     expect(donatePage.getOwnertel()).toEqual('(88) 88888-8888');
     expect(donatePage.getOwneremail()).toEqual('teste@teste.com');
+    
+    // save
+    donatePage.Save();
 
-    donatePage.clickEnterButton();
-
+    // expect redirect to animals list
     expect(browser.getCurrentUrl()).toEqual('http://localhost:8080/#/core/animals');
-  });
-  
+
+  });  
 });

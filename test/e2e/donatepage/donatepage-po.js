@@ -10,7 +10,7 @@ var DonatePage = function () {
     this.ownercity   = element(by.xpath('/html/body/div[2]/section/form/div[1]/div[2]/section/div[2]/div[2]/div/div/ng-transclude/input'));
     this.ownertel    = element(by.xpath('/html/body/div[2]/section/form/div[1]/div[2]/section/div[2]/div[3]/div/div/ng-transclude/input'));
     this.owneremail  = element(by.xpath('/html/body/div[2]/section/form/div[1]/div[2]/section/div[2]/div[4]/div/div/ng-transclude/input'));    
-    this.saveButton  = element(by.buttonText("Salvar"));
+    this.saveButton  = element(by.xpath('/html/body/div[2]/section/form/div[2]/div/button'));
 
 
     this.get = function () {
@@ -96,8 +96,7 @@ var DonatePage = function () {
       return this.owneremail.getAttribute('value');
     };
 
-
-    this.clickEnterButton = function () {
+    this.Save = function () {
       this.saveButton.click();
     };
   };
