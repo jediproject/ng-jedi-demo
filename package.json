@@ -5,7 +5,7 @@
   "description": "Adote-me",
   "repository": "",
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "apimocker": "^0.4.4",
     "bower": "^1.4.1",
     "chalk": "^1.1.0",
@@ -35,6 +35,7 @@
     "release": "npm install && node.exe node_modules/bower/bin/bower update && node.exe node_modules/grunt-cli/bin/grunt release",
     "master": "npm install && node.exe node_modules/bower/bin/bower update && node.exe node_modules/grunt-cli/bin/grunt master",
     "start": "npm install && node.exe node_modules/bower/bin/bower update && node.exe node_modules/grunt-cli/bin/grunt develop && start node.exe node_modules/apimocker/bin/apimocker.js -c mocks/config.json && start node.exe node_modules/json-server/bin/index.js mocks/animals/animals.json -p 3001 && node.exe node_modules/http-server/bin/http-server -a localhost -p 8080",
-    "heroku": "npm install && ./node_modules/bower/bin/bower update && ./node_modules/grunt-cli/bin/grunt develop"
+    "heroku": "npm install && ./node_modules/bower/bin/bower update && ./node_modules/grunt-cli/bin/grunt develop",
+    "heroku1": "npm install && bower update && grunt develop"
   }
 }
