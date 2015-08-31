@@ -6,7 +6,6 @@
   "repository": "",
   "license": "MIT",
   "dependencies": {
-    "apimocker": "^0.4.4",
     "bower": "^1.4.1",
     "chalk": "^1.1.0",
     "grunt": "^0.4.5",
@@ -23,19 +22,23 @@
     "grunt-protractor-webdriver": "^0.2.0",
     "grunt-replace": "^0.9.2",
     "grunt-shell-spawn": "^0.3.8",
+    "load-grunt-tasks": "^3.2.0",
+    "lodash": "^3.10.0"
+  },
+  "devDependencies": {
+    "apimocker": "^0.4.4",
     "http-server": "^0.8.0",
     "json-server": "^0.7.20",
-    "load-grunt-tasks": "^3.2.0",
-    "lodash": "^3.10.0",
     "protractor": "^2.2.0",
     "protractor-html-screenshot-reporter": "0.0.21"
   },
   "scripts": {
-    "develop": "npm install && node.exe node_modules/bower/bin/bower update && node.exe node_modules/grunt-cli/bin/grunt develop",
-    "release": "npm install && node.exe node_modules/bower/bin/bower update && node.exe node_modules/grunt-cli/bin/grunt release",
-    "master": "npm install && node.exe node_modules/bower/bin/bower update && node.exe node_modules/grunt-cli/bin/grunt master",
-    "start": "npm install && node.exe node_modules/bower/bin/bower install && node.exe node_modules/bower/bin/bower update && node.exe node_modules/grunt-cli/bin/grunt install && node.exe node_modules/grunt-cli/bin/grunt develop && start node.exe node_modules/apimocker/bin/apimocker.js -c mocks/config.json && start node.exe node_modules/json-server/bin/index.js mocks/animals/animals.json -p 3001 && node.exe node_modules/http-server/bin/http-server -a localhost -p 8080",
-    "heroku": "npm install && ./node_modules/bower/bin/bower update && ./node_modules/grunt-cli/bin/grunt develop",
-    "heroku1": "npm install && bower update && grunt develop"
+    "develop": "npm install && node node_modules/bower/bin/bower install && node node_modules/bower/bin/bower update && node node_modules/grunt-cli/bin/grunt develop",
+    "release": "npm install && node node_modules/bower/bin/bower install && node node_modules/bower/bin/bower update && node node_modules/grunt-cli/bin/grunt release",
+    "master": "npm install && node node_modules/bower/bin/bower install && node node_modules/bower/bin/bower update && node node_modules/grunt-cli/bin/grunt master",
+    "start": "npm install && node node_modules/bower/bin/bower install && node node_modules/bower/bin/bower update && node node_modules/grunt-cli/bin/grunt install && node node_modules/grunt-cli/bin/grunt develop && start node node_modules/apimocker/bin/apimocker.js -c mocks/config.json && start node node_modules/json-server/bin/index.js mocks/animals/animals.json -p 3001 && node node_modules/http-server/bin/http-server -a localhost -p 8080",
+    "heroku1": "npm install && ./node_modules/bower/bin/bower update && ./node_modules/grunt-cli/bin/grunt develop",
+    "heroku2": "./node_modules/bower/bin/bower update && ./node_modules/grunt-cli/bin/grunt develop",
+    "heroku": "bower update && grunt develop"
   }
 }
