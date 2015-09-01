@@ -1,6 +1,6 @@
 <form jd-panel ng-controller="app.core.animals.DonateCtrl as donateCtrl" name="donateForm" jd-title="Preenche as informações no animal para doação">
     <div class="row">
-        <div jd-panel="6" jd-title="Dados do animal">
+        <div jd-panel="6" jd-title="Dados do animal" jd-toggle>
             <input jd-input="12" jd-label="Nome do animal" required type="text" ng-model="donateCtrl.donateModel.name" placeholder="Ex: Batatinha">
 
             <input jd-input="12" jd-label="Animal" required type="text" ng-model="donateCtrl.donateModel.type" placeholder="Ex: Cachorro, gato, tartaruga, etc">
@@ -13,7 +13,7 @@
 
         	<input jd-input="12" jd-label="Escolha uma foto do animal" required type="text" placeholder="Ex: assets/img/dogs/dog8.jpg"  ng-model="donateCtrl.donateModel.img" >
         </div>
-        <div jd-panel="6" jd-title="Contato">
+        <div jd-panel="6" jd-title="Contato" jd-toggle>
             <input jd-input="12" jd-label="Contato para doação" required type="text" ng-model="donateCtrl.donateModel.owner.name" placeholder="Nome da pessoa de contato">
 
             <input jd-input="12" jd-label="Endereço" required type="text" ng-model="donateCtrl.donateModel.owner.city" placeholder="Ex: rua x, número 1, bairro xyz">
@@ -23,9 +23,8 @@
             <input jd-input="12" jd-label="Email" required type="email" ng-model="donateCtrl.donateModel.owner.email">
         </div>
     </div>
-    <div class="row">
-	   <div class="col-xs-12">
-            <button type="submit" class="btn btn-primary btn-w-md" ng-click="donateCtrl.save()" jd-i18n>Salvar</button>
-       </div>
+
+    <div class="panel-footer">
+        <button type="button" class="btn btn-primary btn-w-md" ng-click="donateCtrl.save()" jd-i18n>Salvar</button>
     </div>
 </form>
