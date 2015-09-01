@@ -15,12 +15,43 @@ module.exports = function(config) {
         // list of files / patterns to load in the browser
         files: [
             'test/unit/test-main.js',
+            //'assets/libs/angular-i18n/angular-locale_pt.js',
+            //'assets/libs/angular-i18n/angular-locale_en.js',
+            //'app/common/features/auth/signin/signin-ctrl.js',
+            //{
+            //    pattern: 'app/common/features/auth/signin/*.*', 
+            //    included: false
+            //},
+            //{
+            //    pattern: 'assets/libs/angular-i18n/angular-locale_*.*', 
+            //    included: false
+            //},
             {
-                pattern: 'app/**/*', 
+                pattern: 'app/**/*.*', 
                 included: false
-            },    
+            },
             {
-                pattern: 'assets/**/*', 
+                pattern: 'app/**/**/*.*', 
+                included: false
+            },
+            {
+                pattern: 'app/**/**/**/*.*', 
+                included: false
+            },
+            {
+                pattern: 'app/**/**/**/**/*.*', 
+                included: false
+            },
+            {
+                pattern: 'assets/**/*.*', 
+                included: false
+            },
+            {
+                pattern: 'assets/**/**/*.*', 
+                included: false
+            },
+            {
+                pattern: 'assets/**/**/**/*.*', 
                 included: false
             },
             {

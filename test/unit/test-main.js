@@ -110,7 +110,10 @@ require.config({
         "angular-file-upload": ["angular"],
         "restangular": ["lodash", "angular"],
         "angular-loading-bar": ["angular"],
-        'angular-dynamic-locale': ["angular"]
+        'angular-dynamic-locale': ["angular"],
+
+        // ## trecho exclusivo para os testes
+        'app/common/features/auth/signin/signin-ctrl.js': ['ng-jedi-factory']
     },
 
 
