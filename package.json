@@ -29,9 +29,18 @@
   "devDependencies": {
     "apimocker": "^0.4.4",
     "http-server": "^0.8.0",
+    "jasmine-core": "^2.3.4",
     "json-server": "^0.7.20",
+    "karma": "^0.13.9",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-firefox-launcher": "^0.1.6",
+    "karma-jasmine": "^0.3.6",
+    "karma-phantomjs-launcher": "^0.2.1",
+    "karma-requirejs": "^0.2.2",
+    "phantomjs": "^1.9.18",
     "protractor": "^2.2.0",
-    "protractor-html-screenshot-reporter": "0.0.21"
+    "protractor-html-screenshot-reporter": "0.0.21",
+    "requirejs": "^2.1.20"
   },
   "scripts": {
     "develop": "npm install && node node_modules/bower/bin/bower install && node node_modules/bower/bin/bower update && node node_modules/grunt-cli/bin/grunt develop",
