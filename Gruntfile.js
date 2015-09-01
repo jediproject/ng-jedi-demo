@@ -156,7 +156,7 @@
                             replacement: "<%= grunt.task.current.args.length ? grunt.task.current.args[0] : pkg.version %>" // ToDo Versioning
                         }]
                     },
-                    files: [{ src: ['version.tpl.json'], dest: 'build/version.json' }]
+                    files: [{ src: ['version.tpl.json'], dest: "<%= grunt.filerev.summary['build\\\\version\\\.json'].replace(/\\\\/g, '\/') %>" }]
                 },
                 versiondevelop: {
                     options: {
