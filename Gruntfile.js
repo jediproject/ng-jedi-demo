@@ -37,7 +37,7 @@
                     },
                     {
                         expand: true,
-                        src: ['favicon.ico', 'index.html', 'main.tpl.js', 'version.json'],
+                        src: ['favicon.ico', 'index.html', 'main.tpl.js', 'version.tpl.json'],
                         dest: 'build/',
                         rename: function (dest, src) {
                             return dest + src.replace('.tpl', '');
@@ -59,7 +59,7 @@
                     },
                     {
                         expand: true,
-                        src: ['favicon.ico', 'index.html', 'main.tpl.js', 'version.json'], //Copy necessary files from root
+                        src: ['favicon.ico', 'index.html', 'main.tpl.js', 'version.tpl.json'], //Copy necessary files from root
                         dest: 'build/',
                         rename: function (dest, src) {
                             return dest + src.replace('.tpl', '');
