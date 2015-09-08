@@ -132,9 +132,13 @@
 			"src": "bower_components/angular-route/angular-route.js",
 			"dest": "assets/libs/angular-route/angular-route.js"
 		},
+        {
+            "src": "bower_components/angular-table-restful/angular-table-restful.js",
+            "dest": "assets/libs/angular-table-restful/angular-table-restful.js"
+        },
 		{
-			"src": "bower_components/angular-table-restful/angular-table-restful.js",
-			"dest": "assets/libs/angular-table/angular-table.js"
+			"src": "bower_components/angular-table-restful/angular-table-restful.css",
+			"dest": "assets/css/angular-table-restful.css"
 		},
 		{
 			"src": "bower_components/angularAMD/angularAMD.js",

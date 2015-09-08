@@ -51,7 +51,7 @@ require.config({
         'angular-loading-bar': 'assets/libs/angular-loading-bar/loading-bar.js',
         'angular-ngMask': 'assets/libs/angular-ngMask/ngMask.js',
         'angular-route': 'assets/libs/angular-route/angular-route.js',
-        'angular-table': 'assets/libs/angular-table/angular-table.js',
+        'angular-table': 'assets/libs/angular-table-restful/angular-table-restful.js',
         'angularAMD': 'assets/libs/angularAMD/angularAMD.js',
         'ng-currency-mask': 'assets/libs/ng-currency-mask/ng-currency-mask.js',
         'restangular': 'assets/libs/restangular/restangular.js',
