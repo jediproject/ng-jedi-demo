@@ -111,7 +111,7 @@ define([
                 $route.reload();
             });
 
-            if ($location.$$path == '/common/auth/signin' || $location.$$path == '/common/auth/signup') {
+            if ($location.$$path === '/common/auth/signin' || $location.$$path === '/common/auth/signup') {
                 $location.path("/");
             }
         }
@@ -162,7 +162,7 @@ define([
         vm.signout = function () {
             authService.signOut();
         };
-    }])
+    }]);
 
     return angularAMD.bootstrap(app);
 });

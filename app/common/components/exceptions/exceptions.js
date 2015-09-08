@@ -42,7 +42,7 @@ define(['ng-jedi-dialogs', 'ng-jedi-utilities'], function () {
 
                 return $q.reject(rejection);
             }
-        }
+        };
     }]).config(['$httpProvider', 'jedi.utilities.UtilitiesProvider', function ($httpProvider, Utilities) {
         var $log = angular.injector(['ng']).get('$log');
         // configura interceptor para capturar erros de requisição http
