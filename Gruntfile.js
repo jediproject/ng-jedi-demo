@@ -9,18 +9,14 @@ module.exports = function (grunt) {
     // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        assets: grunt.file.readJSON('assetsfiles.json'),
         clean: {
             build: ['build/*'],
-            assets: ['assets/assets/libs', 'assets/assets/css/*', 'assets/assets/fonts', '!assets/assets/css/app.css']
+            assets: ['assets/libs', 'assets/css/*', 'assets/fonts', '!assets/css/app.css']
         },
         copy: {
             assets: {
-                files: [
-                    {
-                        src: "<%= grunt.option('file.' + grunt.task.current.args[0] + '.src') %>",
-                        dest: "<%= grunt.option('file.' + grunt.task.current.args[0] + '.dest') %>"
-                    }
-                ]
+                files: '<%= assets.files %>'
             },
             buildmin: {
                 files: [{
@@ -330,7 +326,7 @@ module.exports = function (grunt) {
     grunt.registerTask('build-min', ['clean:build', 'uglify', 'cssmin', 'copy:buildmin', 'cache-bust']);
 
     // Task responsible for create assets folder
-    grunt.registerTask('assets', ['clean:assets', 'copy-assets']);
+    grunt.registerTask('assets', ['clean:assets', 'copy:assets']);
 
     // Task responsible for set configurations of environments
     grunt.registerTask('set-environment', 'Set configurations for environment', function (env) {
@@ -347,19 +343,6 @@ module.exports = function (grunt) {
 
             grunt.option(modules[i] + 'JSON', JSON.stringify(json));
             grunt.task.run('replace:environment:' + modules[i]);
-        }
-    });
-
-    grunt.registerTask('copy-assets', 'Copy specified files in assetsfiles.json from bower_components to assets directory', function () {
-
-        var list = grunt.file.readJSON('assetsfiles.json');
-
-        grunt.log.writeln('Copying ' + Object.keys(list.files).length + ' files.');
-
-        for (var i = 0; i < Object.keys(list.files).length; i++) {
-            grunt.option('file.' + i + '.src', list.files[i].src);
-            grunt.option('file.' + i + '.dest', list.files[i].dest);
-            grunt.task.run('copy:assets:' + i);
         }
     });
 
