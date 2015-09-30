@@ -57,3 +57,8 @@
 div.divider {
     margin: 20px;
 }
+
+a[disabled] img, img[disabled] {
+    filter: alpha(opacity=60);
+    opacity: .6;
+}
