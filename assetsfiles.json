@@ -89,8 +89,8 @@
 			"dest": "assets/libs/angular-animate/angular-animate.js"
 		},
 		{
-			"src": "bower_components/angular-authService/authService.js",
-			"dest": "assets/libs/angular-authService/authService.js"
+			"src": "bower_components/ng-jedi-security/security.js",
+			"dest": "assets/libs/ng-jedi-security/security.js"
 		},
 		{
 			"src": "bower_components/cryptojslib/rollups/md5.js",

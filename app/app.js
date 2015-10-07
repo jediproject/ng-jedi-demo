@@ -25,7 +25,7 @@ define([
     // store envSettings as a constant
     app.constant('envSettings', envSettings);
 
-    app.config(['$routeProvider', '$httpProvider', 'authServiceProvider', 'RestangularProvider', '$provide', 'ngMaskConfig', 'jedi.utilities.UtilitiesProvider', 'jedi.i18n.LocalizeConfig', function ($routeProvider, $httpProvider, authServiceProvider, RestangularProvider, $provide, ngMaskConfig, Utilities, LocalizeConfig) {
+    app.config(['$routeProvider', '$httpProvider', 'jedi.security.SecurityServiceProvider', 'RestangularProvider', '$provide', 'ngMaskConfig', 'jedi.utilities.UtilitiesProvider', 'jedi.i18n.LocalizeConfig', function ($routeProvider, $httpProvider, authServiceProvider, RestangularProvider, $provide, ngMaskConfig, Utilities, LocalizeConfig) {
         var $log = angular.injector(['ng']).get('$log');
 
         // store local $routeProviderReference to be used during run, if it work with dynamic route mapping
@@ -46,10 +46,9 @@ define([
         // configure authService
         authServiceProvider.config({
             authUrlBase: envSettings.authUrlBase,
-            storageKey: 'authData',
             signInUrl: '/auth',
             signOutUrl: '/auth/signout',
-            handleTokenResponse: function (response, identity) {
+            onCreateIdentity: function (response, identity) {
                 // complements for a identify
                 identity.name = response.name;
                 return identity;
@@ -134,21 +133,21 @@ define([
         }
 
         // authenticate events
-        $rootScope.$on('auth:login-success', loadUserProfile);
-        $rootScope.$on('auth:validation-success', loadUserProfile);
+        $rootScope.$on('jedi.security:login-success', loadUserProfile);
+        $rootScope.$on('jedi.security:validation-success', loadUserProfile);
 
         // unauthenticate events
-        $rootScope.$on('auth:login-error', resetUserProfile);
-        $rootScope.$on('auth:session-expired', resetUserProfile);
-        $rootScope.$on('auth:validation-error', resetUserProfile);
-        $rootScope.$on('auth:logout-success', resetUserProfile);
-        $rootScope.$on('auth:logout-error', resetUserProfile);
-        $rootScope.$on('auth:invalid', resetUserProfile);
+        $rootScope.$on('jedi.security:login-error', resetUserProfile);
+        $rootScope.$on('jedi.security:session-expired', resetUserProfile);
+        $rootScope.$on('jedi.security:validation-error', resetUserProfile);
+        $rootScope.$on('jedi.security:logout-success', resetUserProfile);
+        $rootScope.$on('jedi.security:logout-error', resetUserProfile);
+        $rootScope.$on('jedi.security:invalid', resetUserProfile);
         ////-------
     }]);
 
     // AppCtrl: possui controles gerais da aplicação, como a parte de locale e também de deslogar
-    app.controller("app.common.AppCtrl", ["jedi.i18n.Localize", 'authService', function (localize, authService) {
+    app.controller("app.common.AppCtrl", ["jedi.i18n.Localize", 'jedi.security.SecurityService', function (localize, authService) {
         var vm = this;
 
         vm.setLanguage = function (language) {

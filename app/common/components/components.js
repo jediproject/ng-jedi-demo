@@ -6,6 +6,7 @@ define(['ng-jedi-i18n',
         'ng-jedi-loading',
         'ng-jedi-breadcrumb',
         'ng-jedi-layout',
+        'ng-jedi-security',
         'app-common-components-exceptions'], function () {
 
     angular.module('app.common.components', ['jedi.i18n',
@@ -14,6 +15,7 @@ define(['ng-jedi-i18n',
                                              'jedi.loading',
                                              'jedi.breadcrumb',
                                              'jedi.layout',
+                                             'jedi.security',
                                              'app.common.components.exceptions']);
 
 });

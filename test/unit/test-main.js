@@ -46,6 +46,7 @@ require.config({
         'ng-jedi-layout-panel': 'assets/libs/ng-jedi-layout/panel',
         'ng-jedi-layout-treeview': 'assets/libs/ng-jedi-layout/treeview',
         'ng-jedi-layout-validationtooltip': 'assets/libs/ng-jedi-layout/validationtooltip',
+        'ng-jedi-security': 'assets/libs/ng-jedi-security/security',
 
         // ## common components
         'app-common': 'app/common/common-app',
@@ -56,7 +57,6 @@ require.config({
         //## 3rd party angular scripts
         'angular': 'assets/libs/angular/angular',
         'angular-animate': 'assets/libs/angular-animate/angular-animate',
-        'angular-authService': 'assets/libs/angular-authService/authService',
         'cryptojslib': 'assets/libs/cryptojslib/md5',
         'angular-bootstrap': 'assets/libs/angular-bootstrap/ui-bootstrap-tpls',
         'angular-cookie': 'assets/libs/angular-cookie/angular-cookie',
@@ -103,7 +103,6 @@ require.config({
         "angularAMD": ["angular"],
         "angular-bootstrap": ["bootstrap", "angular"],
         "angular-table": ["angular"],
-        "angular-authService": ["angular"],
         "ng-currency-mask": ["angular"],
         "angular-ngMask": ["angular"],
         "angular-toastr": ["angular"],

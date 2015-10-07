@@ -3,7 +3,7 @@
 /*
     Controller to signup
 */
-jd.factory.newController('app.common.auth.signup.SignupCtrl', ['authService', 'jedi.dialogs.AlertHelper', '$location', function (authService, AlertHelper, $location) {
+jd.factory.newController('app.common.auth.signup.SignupCtrl', ['jedi.security.SecurityService', 'jedi.dialogs.AlertHelper', '$location', function (authService, AlertHelper, $location) {
 
     //#region View/Model initialize
     var vm = this;
