@@ -132,14 +132,6 @@
 			"src": "bower_components/angular-route/angular-route.js",
 			"dest": "assets/libs/angular-route/angular-route.js"
 		},
-        {
-            "src": "bower_components/angular-table-restful/angular-table-restful.js",
-            "dest": "assets/libs/angular-table-restful/angular-table-restful.js"
-        },
-		{
-			"src": "bower_components/angular-table-restful/angular-table-restful.css",
-			"dest": "assets/css/angular-table-restful.css"
-		},
 		{
 			"src": "bower_components/angularAMD/angularAMD.js",
 			"dest": "assets/libs/angularAMD/angularAMD.js"
@@ -303,6 +295,14 @@
 		{
 			"src": "bower_components/ng-jedi-layout/validationtooltip.js",
 			"dest": "assets/libs/ng-jedi-layout/validationtooltip.js"
+		},
+        {
+            "src": "bower_components/ng-jedi-table/table.js",
+            "dest": "assets/libs/ng-jedi-table/table.js"
+        },
+		{
+			"src": "bower_components/ng-jedi-table/table.css",
+			"dest": "assets/css/table.css"
 		},
         {
             "src": "bower_components/angular-toastr/dist/angular-toastr.tpls.js",

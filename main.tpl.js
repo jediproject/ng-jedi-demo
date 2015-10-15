@@ -33,6 +33,7 @@ require.config({
         'ng-jedi-layout-treeview': 'assets/libs/ng-jedi-layout/treeview.js',
         'ng-jedi-layout-validationtooltip': 'assets/libs/ng-jedi-layout/validationtooltip.js',
         'ng-jedi-security': 'assets/libs/ng-jedi-security/security.js',
+        'ng-jedi-table': 'assets/libs/ng-jedi-table/table.js',
 
         // ## common components
         'app-common': 'app/common/common-app.js',
@@ -50,8 +51,7 @@ require.config({
         'angular-dynamic-locale': 'assets/libs/angular-dynamic-locale/tmhDynamicLocale.js',
         'angular-loading-bar': 'assets/libs/angular-loading-bar/loading-bar.js',
         'angular-ngMask': 'assets/libs/angular-ngMask/ngMask.js',
-        'angular-route': 'assets/libs/angular-route/angular-route.js',
-        'angular-table': 'assets/libs/angular-table-restful/angular-table-restful.js',
+        'angular-route': 'assets/libs/angular-route/angular-route.js',        
         'angularAMD': 'assets/libs/angularAMD/angularAMD.js',
         'ng-currency-mask': 'assets/libs/ng-currency-mask/ng-currency-mask.js',
         'restangular': 'assets/libs/restangular/restangular.js',
