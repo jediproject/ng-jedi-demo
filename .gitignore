@@ -10,7 +10,7 @@ assets/css/font-awesome.css
 assets/css/weather-icons.css
 assets/css/angular-toastr.css
 assets/css/loading.css
-assets/css/angular-table-restful.css
+assets/css/table.css
 test/e2e/protractor-result
 **/env/*-env.json
 main.js
