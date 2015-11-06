@@ -15,8 +15,6 @@ require.config({
 
         // ## ng-jedi components
         'ng-jedi-utilities': 'assets/libs/ng-jedi-utilities/utilities.js',
-        'ng-jedi-utilities-directives': 'assets/libs/ng-jedi-utilities/utilities-directives.js',
-        'ng-jedi-utilities-filters': 'assets/libs/ng-jedi-utilities/utilities-filters.js',
         'ng-jedi-i18n': 'assets/libs/ng-jedi-i18n/i18n.js',
         'ng-jedi-dialogs': 'assets/libs/ng-jedi-dialogs/dialogs.js',
         'ng-jedi-dialogs-ctrls': 'assets/libs/ng-jedi-dialogs/dialogs-ctrls.js',
@@ -32,6 +30,7 @@ require.config({
         'ng-jedi-layout-panel': 'assets/libs/ng-jedi-layout/panel.js',
         'ng-jedi-layout-treeview': 'assets/libs/ng-jedi-layout/treeview.js',
         'ng-jedi-layout-validationtooltip': 'assets/libs/ng-jedi-layout/validationtooltip.js',
+        'ng-jedi-activities': 'assets/libs/ng-jedi-activities/activities.js',
         'ng-jedi-security': 'assets/libs/ng-jedi-security/security.js',
         'ng-jedi-table': 'assets/libs/ng-jedi-table/table.js',
 
@@ -88,7 +87,6 @@ require.config({
         "angular-i18n": ["angular"],
         "angularAMD": ["angular"],
         "angular-bootstrap": ["bootstrap", "angular"],
-        "angular-table": ["angular"],
         "ng-currency-mask": ["angular"],
         "angular-ngMask": ["angular"],
         "angular-toastr": ["angular"],

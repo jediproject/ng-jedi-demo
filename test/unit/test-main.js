@@ -46,7 +46,9 @@ require.config({
         'ng-jedi-layout-panel': 'assets/libs/ng-jedi-layout/panel',
         'ng-jedi-layout-treeview': 'assets/libs/ng-jedi-layout/treeview',
         'ng-jedi-layout-validationtooltip': 'assets/libs/ng-jedi-layout/validationtooltip',
+        'ng-jedi-activities': 'assets/libs/ng-jedi-activities/activities',
         'ng-jedi-security': 'assets/libs/ng-jedi-security/security',
+        'ng-jedi-table': 'assets/libs/ng-jedi-table/table',
 
         // ## common components
         'app-common': 'app/common/common-app',
@@ -65,7 +67,6 @@ require.config({
         'angular-loading-bar': 'assets/libs/angular-loading-bar/loading-bar',
         'angular-ngMask': 'assets/libs/angular-ngMask/ngMask',
         'angular-route': 'assets/libs/angular-route/angular-route',
-        'angular-table': 'assets/libs/angular-table/angular-table',
         'angularAMD': 'assets/libs/angularAMD/angularAMD',
         'ng-currency-mask': 'assets/libs/ng-currency-mask/ng-currency-mask',
         'restangular': 'assets/libs/restangular/restangular',
@@ -102,7 +103,6 @@ require.config({
         "angular-i18n": ["angular"],
         "angularAMD": ["angular"],
         "angular-bootstrap": ["bootstrap", "angular"],
-        "angular-table": ["angular"],
         "ng-currency-mask": ["angular"],
         "angular-ngMask": ["angular"],
         "angular-toastr": ["angular"],

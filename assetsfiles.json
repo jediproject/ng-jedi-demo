@@ -189,10 +189,6 @@
 			"dest": "assets/libs/requirejs-plugins/text.js"
 		},
 		{
-			"src": "bower_components/ng-jedi-breadcrumb/breadcrumb.html",
-			"dest": "assets/libs/ng-jedi-breadcrumb/breadcrumb.html"
-		},
-		{
 			"src": "bower_components/ng-jedi-breadcrumb/breadcrumb.js",
 			"dest": "assets/libs/ng-jedi-breadcrumb/breadcrumb.js"
 		},
@@ -231,14 +227,6 @@
 		{
 			"src": "bower_components/ng-jedi-utilities/utilities.js",
 			"dest": "assets/libs/ng-jedi-utilities/utilities.js"
-		},
-		{
-			"src": "bower_components/ng-jedi-utilities/utilities-directives.js",
-			"dest": "assets/libs/ng-jedi-utilities/utilities-directives.js"
-		},
-		{
-			"src": "bower_components/ng-jedi-utilities/utilities-filters.js",
-			"dest": "assets/libs/ng-jedi-utilities/utilities-filters.js"
 		},
 		{
 			"src": "bower_components/ng-jedi-factory/factory.js",
@@ -311,6 +299,18 @@
 		{
 			"src": "bower_components/angular-toastr/dist/angular-toastr.css",
 			"dest": "assets/css/angular-toastr.css"
-		}
+		},
+		{
+            "src": "bower_components/ng-jedi-activities/activities.html",
+            "dest": "assets/libs/ng-jedi-activities/activities.html"
+        },
+        {
+            "src": "bower_components/ng-jedi-activities/activities.js",
+            "dest": "assets/libs/ng-jedi-activities/activities.js"
+        },
+        {
+            "src": "bower_components/ng-jedi-activities/activities.css",
+            "dest": "assets/css/activities.css"
+        }
 	]
 }

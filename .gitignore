@@ -16,3 +16,4 @@ test/e2e/protractor-result
 main.js
 version.json
 *.log
+assets/css/activities.css
