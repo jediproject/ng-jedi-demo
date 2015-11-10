@@ -40,6 +40,7 @@ jd.factory.newController(['app/common/features/modalexample/modalexample-ctrl.js
     vm.method5 = method5;
     vm.method6 = method6;
     vm.method7 = method7;
+    vm.method8 = method8;
     //#endregion
 
     //#region Load controller
@@ -84,6 +85,15 @@ jd.factory.newController(['app/common/features/modalexample/modalexample-ctrl.js
     function method7() {
         $log.info(vm.componentsModel);
         ModalHelper.open('internalModalExample.html', {param: vm.componentsModel.data});
+    }
+
+    function method8() {
+        $log.info(vm.componentsModel);
+        AlertHelper.confirm("Teste de confirmação?", function() {
+           toastr.success('Sucesso'); 
+        }, function() {
+            toastr.error('Erro');
+        });
     }
     //#endregion
 

@@ -197,18 +197,6 @@
 			"dest": "assets/libs/ng-jedi-dialogs/dialogs.js"
 		},
 		{
-			"src": "bower_components/ng-jedi-dialogs/dialogs-ctrls.js",
-			"dest": "assets/libs/ng-jedi-dialogs/dialogs-ctrls.js"
-		},
-		{
-			"src": "bower_components/ng-jedi-dialogs/dialogs-alert.html",
-			"dest": "assets/libs/ng-jedi-dialogs/dialogs-alert.html"
-		},
-		{
-			"src": "bower_components/ng-jedi-dialogs/dialogs-confirm.html",
-			"dest": "assets/libs/ng-jedi-dialogs/dialogs-confirm.html"
-		},
-		{
 			"src": "bower_components/ng-jedi-loading/loading.js",
 			"dest": "assets/libs/ng-jedi-loading/loading.js"
 		},

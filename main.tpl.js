@@ -17,7 +17,6 @@ require.config({
         'ng-jedi-utilities': 'assets/libs/ng-jedi-utilities/utilities.js',
         'ng-jedi-i18n': 'assets/libs/ng-jedi-i18n/i18n.js',
         'ng-jedi-dialogs': 'assets/libs/ng-jedi-dialogs/dialogs.js',
-        'ng-jedi-dialogs-ctrls': 'assets/libs/ng-jedi-dialogs/dialogs-ctrls.js',
         'ng-jedi-factory': 'assets/libs/ng-jedi-factory/factory.js',
         'jdver': 'assets/libs/ng-jedi-factory/version.js',
         'ng-jedi-loading': 'assets/libs/ng-jedi-loading/loading.js',

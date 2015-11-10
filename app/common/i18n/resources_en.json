@@ -51,7 +51,9 @@
 		"sucesso": "Success",
 		"erro": "Error",
 		"method1 chamado": "Method1 called",
-		"method2 chamado": "Method2 called"
+		"method2 chamado": "Method2 called",
+		"confirmação": "Confirmation",
+		"teste de confirmação?": "Confirmation test?"
 	},
 	"regexResources": {
 		"Valor: (.*)": "Value: $1"

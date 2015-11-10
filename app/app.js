@@ -25,7 +25,7 @@ define([
     // store envSettings as a constant
     app.constant('envSettings', envSettings);
 
-    app.config(['$routeProvider', '$httpProvider', 'jedi.security.SecurityServiceProvider', 'RestangularProvider', '$provide', 'ngMaskConfig', 'jedi.utilities.UtilitiesProvider', 'jedi.i18n.LocalizeConfig', function ($routeProvider, $httpProvider, authServiceProvider, RestangularProvider, $provide, ngMaskConfig, Utilities, LocalizeConfig) {
+    app.config(['$routeProvider', '$httpProvider', 'jedi.security.SecurityServiceProvider', 'RestangularProvider', '$provide', 'ngMaskConfig', 'jedi.utilities.UtilitiesProvider', 'jedi.i18n.LocalizeConfig', 'jedi.dialogs.DialogsConfig', function ($routeProvider, $httpProvider, authServiceProvider, RestangularProvider, $provide, ngMaskConfig, Utilities, LocalizeConfig, DialogsConfig) {
         var $log = angular.injector(['ng']).get('$log');
 
         // store local $routeProviderReference to be used during run, if it work with dynamic route mapping
@@ -41,6 +41,10 @@ define([
         Utilities.configureRestangular(RestangularProvider);
 
         // configure language
+        DialogsConfig.confirmYesLabel = 'Sim';
+        DialogsConfig.confirmNoLabel = 'Não';
+        DialogsConfig.confirmTitle = 'Atenção!';
+        DialogsConfig.alertTitle = 'Atenção!';
         LocalizeConfig.defaultLanguage = 'pt';
 
         // configure authService
