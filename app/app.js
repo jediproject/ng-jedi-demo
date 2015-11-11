@@ -25,7 +25,7 @@ define([
     // store envSettings as a constant
     app.constant('envSettings', envSettings);
 
-    app.config(['$routeProvider', '$httpProvider', 'jedi.security.SecurityServiceProvider', 'RestangularProvider', '$provide', 'ngMaskConfig', 'jedi.utilities.UtilitiesProvider', 'jedi.i18n.LocalizeConfig', 'jedi.dialogs.DialogsConfig', function ($routeProvider, $httpProvider, authServiceProvider, RestangularProvider, $provide, ngMaskConfig, Utilities, LocalizeConfig, DialogsConfig) {
+    app.config(['$routeProvider', '$httpProvider', 'jedi.security.SecurityServiceProvider', 'RestangularProvider', '$provide', 'ngMaskConfig', 'jedi.utilities.UtilitiesProvider', 'jedi.i18n.LocalizeConfig', 'jedi.dialogs.DialogsConfig', 'jedi.layout.validationtooltip.ValidationTooltipConfig', 'jedi.layout.treeview.TreeviewConfig', 'jedi.utilities.UtilitiesConfig', 'jedi.activities.ActivitiesConfig', function ($routeProvider, $httpProvider, authServiceProvider, RestangularProvider, $provide, ngMaskConfig, Utilities, LocalizeConfig, DialogsConfig, ValidationTooltipConfig, TreeviewConfig, UtilitiesConfig, ActivitiesConfig) {
         var $log = angular.injector(['ng']).get('$log');
 
         // store local $routeProviderReference to be used during run, if it work with dynamic route mapping
@@ -40,11 +40,44 @@ define([
         // configure Restangular
         Utilities.configureRestangular(RestangularProvider);
 
-        // configure language
+        // configure default texts to pt-BR
+        TreeviewConfig.emptyMsgLabel = 'Nenhum item encontrado.';
+
         DialogsConfig.confirmYesLabel = 'Sim';
         DialogsConfig.confirmNoLabel = 'Não';
         DialogsConfig.confirmTitle = 'Atenção!';
         DialogsConfig.alertTitle = 'Atenção!';
+
+        ValidationTooltipConfig.messages = {
+            'required': 'Preenchimento obrigatório.',
+            'minlength': 'Informe pelo menos {{minLength}} caracteres.',
+            'maxlength': 'Informe até {{maxLength}} caracteres.',
+            'pattern': 'Valor preenchido é inválido.',
+            'equal': 'Valor informado não é igual ao campo anterior.',
+            'email': 'Email informado é inválido.',
+            'url': 'Url informada é inválida.',
+            'number': 'Informe um número válido.',
+            'datepicker': 'Informe uma data válida.',
+            'date': 'Informe uma data válida.',
+            'min': 'Informe um número a partir de {{min}}.',
+            'max': 'Informe um número até {{max}}.',
+            'cpf': 'CPF informado é inválido.',
+            'cnpj': 'CNPJ informado é inválido.',
+            'default': 'Conteúdo do campo é inválido.'
+        };
+
+        UtilitiesConfig.noLabel = 'Não';
+        UtilitiesConfig.yesLabel = 'Sim';
+
+        ActivitiesConfig.inProgressWarning = 'Ao realizar esta ação você perderá {{count}} atividade(s) pendentes.';
+        ActivitiesConfig.title = 'Atividades';
+        ActivitiesConfig.minimizeLabel = 'Minimizar';
+        ActivitiesConfig.closeLabel = 'Fechar';
+        ActivitiesConfig.successLabel = 'Concluído';
+        ActivitiesConfig.errorLabel = 'Erro';
+        ActivitiesConfig.saveLabel = 'Salvar';
+        ActivitiesConfig.removeLabel = 'Excluir';
+
         LocalizeConfig.defaultLanguage = 'pt';
 
         // configure authService
