@@ -239,6 +239,18 @@
 		{
 			"src": "bower_components/angular-toastr/dist/angular-toastr.css",
 			"dest": "assets/css/angular-toastr.css"
-		}
+		},
+        {
+            "src": "bower_components/ng-jedi-activities/activities.js",
+            "dest": "assets/libs/ng-jedi-activities/activities.js"
+        },
+        {
+            "src": "bower_components/ng-jedi-activities/activities.css",
+            "dest": "assets/css/activities.css"
+        },
+        {
+            "src": "bower_components/angular-indexed-db/angular-indexed-db.js",
+            "dest": "assets/libs/angular-indexed-db/angular-indexed-db.js"
+        }
 	]
 }

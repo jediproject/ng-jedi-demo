@@ -47,6 +47,7 @@ require.config({
         'ng-currency-mask': 'assets/libs/ng-currency-mask/ng-currency-mask.js',
         'restangular': 'assets/libs/restangular/restangular.js',
         'angular-toastr': 'assets/libs/angular-toastr/angular-toastr.tpls.js',
+        'angular-indexed-db': 'assets/libs/angular-indexed-db/angular-indexed-db.js',
 
         //## 3rd party non angular scripts
         'bootstrap': 'assets/libs/bootstrap/bootstrap.js',
@@ -85,7 +86,8 @@ require.config({
         "angular-file-upload": ["angular"],
         "restangular": ["lodash", "angular"],
         "angular-loading-bar": ["angular"],
-        'angular-dynamic-locale': ["angular"]
+        'angular-dynamic-locale': ["angular"],
+        'angular-indexed-db': ['angular']
     },
 
     // kick start application

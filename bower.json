@@ -37,6 +37,7 @@
     "ng-jedi-security": "0.0.1",
     "ng-jedi-table": "0.0.1",
     "ng-jedi-utilities": "0.0.1",
+    "ng-jedi-activities": "0.0.1",
     "requirejs": "~2.1.15",
     "requirejs-plugins": "~1.0.3",
     "restangular": "~1.5.1",
