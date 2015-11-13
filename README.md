@@ -1,4 +1,4 @@
-# [Angular Jedi Project :: Arquitetura de Referência para Projetos AngularJs :: DEMO](https://github.com/jediproject/ng-jedi-demo)
+# [ng-jedi-demo](https://github.com/jediproject/ng-jedi-demo)
 
 ## Prerequisitos
 
