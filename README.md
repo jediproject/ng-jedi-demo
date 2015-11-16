@@ -1,10 +1,14 @@
 # [ng-jedi-demo](https://github.com/jediproject/ng-jedi-demo)
 
-## Prerequisitos
+## Pré requisitos
 
 * Instalar as seguintes ferramentas:
 	- [Node.JS](https://nodejs.org/download)
 	- [Git Bash](https://git-scm.com/downloads)
+
+* Baixar o demo:
+	- [Clone](https://github.com/jediproject/generator-jedi.git)
+	- [Download](https://github.com/jediproject/generator-jedi/archive/master.zip)
 
 ## Executando
 
