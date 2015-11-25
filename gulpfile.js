@@ -24,17 +24,21 @@ gulp.task('clean', function () {
 })
 
 gulp.task('assets', function () {
+    var filterJSMin = gulpFilter(['**/*', '!.min.*'], { restore: true });
     var libs = gulp.src(assets.libs.src, { base: 'bower_components/' })
-        .pipe(flatten({ includeParents: 1 }))
         .pipe(gulpif(isProduction, uglify()))
+        .pipe(filterJSMin)
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(filterJSMin.restore)
+        .pipe(flatten({ includeParents: 1 }))
         .pipe(gulp.dest("build/" + assets.libs.dest));
 
-    var filterMin = gulpFilter(['*', '!.min.*'], { restore: true });
+    var filterCssMin = gulpFilter(['**/*', '!.min.*'], { restore: true });
     var css = gulp.src(assets.css.src)
         .pipe(gulpif(isProduction, minifyCss()))
-        .pipe(filterMin)
+        .pipe(filterCssMin)
         .pipe(rename({ suffix: '.min' }))
-        .pipe(filterMin.restore)
+        .pipe(filterCssMin.restore)
         .pipe(gulp.dest("build/" + assets.css.dest));
 
     var fonts = gulp.src(assets.fonts.src)
