@@ -57,7 +57,7 @@
     "develop": "npm install && node node_modules/bower/bin/bower install && node node_modules/grunt-cli/bin/grunt develop",
     "release": "npm install && node node_modules/bower/bin/bower install && node node_modules/grunt-cli/bin/grunt release",
     "master": "npm install && node node_modules/bower/bin/bower install && node node_modules/grunt-cli/bin/grunt master",
-    "start": "npm install && node node_modules/bower/bin/bower install && node node_modules/bower/bin/bower update && node node_modules/grunt-cli/bin/grunt install && node node_modules/grunt-cli/bin/grunt develop && start node node_modules/apimocker/bin/apimocker.js -c mocks/config.json && start node node_modules/json-server/bin/index.js mocks/animals/animals.json -p 3001 && node node_modules/http-server/bin/http-server -a localhost -p 8080",
+    "start": "npm install && node node_modules/bower/bin/bower install && node node_modules/grunt-cli/bin/grunt develop && start node node_modules/apimocker/bin/apimocker.js -c mocks/config.json && start node node_modules/json-server/bin/index.js mocks/animals/animals.json -p 3001 && node node_modules/http-server/bin/http-server -a localhost -p 8080",
     "heroku": "bower install && bower update && grunt develop"
   }
 }

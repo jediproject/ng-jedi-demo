@@ -1,245 +1,245 @@
 {
-    "files": [
-        {
-            "src": "bower_components/bootstrap/fonts/glyphicons-halflings-regular.eot",
-            "dest": "assets/fonts/glyphicons-halflings-regular.eot"
-        },
-        {
-            "src": "bower_components/bootstrap/fonts/glyphicons-halflings-regular.svg",
-            "dest": "assets/fonts/glyphicons-halflings-regular.svg"
-        },
-        {
-            "src": "bower_components/bootstrap/fonts/glyphicons-halflings-regular.ttf",
-            "dest": "assets/fonts/glyphicons-halflings-regular.ttf"
-        },
-        {
-            "src": "bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff",
-            "dest": "assets/fonts/glyphicons-halflings-regular.woff"
-        },
-        {
-            "src": "bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff2",
-            "dest": "assets/fonts/glyphicons-halflings-regular.woff2"
-        },
-        {
-            "src": "bower_components/fontawesome/fonts/fontawesome-webfont.eot",
-            "dest": "assets/fonts/fontawesome-webfont.eot"
-        },
-        {
-            "src": "bower_components/fontawesome/fonts/fontawesome-webfont.svg",
-            "dest": "assets/fonts/fontawesome-webfont.svg"
-        },
-        {
-            "src": "bower_components/fontawesome/fonts/fontawesome-webfont.ttf",
-            "dest": "assets/fonts/fontawesome-webfont.ttf"
-        },
-        {
-            "src": "bower_components/fontawesome/fonts/fontawesome-webfont.woff",
-            "dest": "assets/fonts/fontawesome-webfont.woff"
-        },
-        {
-            "src": "bower_components/fontawesome/fonts/fontawesome-webfont.woff2",
-            "dest": "assets/fonts/fontawesome-webfont.woff2"
-        },
-        {
-            "src": "bower_components/fontawesome/fonts/FontAwesome.otf",
-            "dest": "assets/fonts/FontAwesome.otf"
-        },
-        {
-            "src": "bower_components/weather-icons/font/weathericons-regular-webfont.eot",
-            "dest": "assets/fonts/weathericons-regular-webfont.eot"
-        },
-        {
-            "src": "bower_components/weather-icons/font/weathericons-regular-webfont.svg",
-            "dest": "assets/fonts/weathericons-regular-webfont.svg"
-        },
-        {
-            "src": "bower_components/weather-icons/font/weathericons-regular-webfont.ttf",
-            "dest": "assets/fonts/weathericons-regular-webfont.ttf"
-        },
-        {
-            "src": "bower_components/weather-icons/font/weathericons-regular-webfont.woff",
-            "dest": "assets/fonts/weathericons-regular-webfont.woff"
-        },
-        {
-            "src": "bower_components/bootstrap/dist/css/bootstrap.css",
-            "dest": "assets/css/bootstrap.css"
-        },
-        {
-            "src": "bower_components/fontawesome/css/font-awesome.css",
-            "dest": "assets/css/font-awesome.css"
-        },
-        {
-            "src": "bower_components/weather-icons/css/weather-icons.css",
-            "dest": "assets/css/weather-icons.css"
-        },
-        {
-            "src": "bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css",
-            "dest": "assets/css/bootstrap-datetimepicker.css"
-        },
-        {
-            "src": "bower_components/angular-loading-bar/build/loading-bar.css",
-            "dest": "assets/css/loading-bar.css"
-        },
-        {
-            "src": "bower_components/angular/angular.js",
-            "dest": "assets/libs/angular/angular.js"
-        },
-        {
-            "src": "bower_components/angular-animate/angular-animate.js",
-            "dest": "assets/libs/angular-animate/angular-animate.js"
-        },
-        {
-            "src": "bower_components/ng-jedi-security/security.js",
-            "dest": "assets/libs/ng-jedi-security/security.js"
-        },
-        {
-            "src": "bower_components/cryptojslib/rollups/md5.js",
-            "dest": "assets/libs/cryptojslib/md5.js"
-        },
-        {
-            "src": "bower_components/angular-bootstrap/ui-bootstrap-tpls.js",
-            "dest": "assets/libs/angular-bootstrap/ui-bootstrap-tpls.js"
-        },
-        {
-            "src": "bower_components/angular-cookie/angular-cookie.js",
-            "dest": "assets/libs/angular-cookie/angular-cookie.js"
-        },
-        {
-            "src": "bower_components/angular-file-upload-interceptor/angular-file-upload-interceptor.js",
-            "dest": "assets/libs/angular-file-upload/angular-file-upload.js"
-        },
-        {
-            "src": "bower_components/angular-i18n/angular-locale_en.js",
-            "dest": "assets/libs/angular-i18n/angular-locale_en.js"
-        },
-        {
-            "src": "bower_components/angular-i18n/angular-locale_pt.js",
-            "dest": "assets/libs/angular-i18n/angular-locale_pt.js"
-        },
-        {
-            "src": "bower_components/angular-dynamic-locale/dist/tmhDynamicLocale.js",
-            "dest": "assets/libs/angular-dynamic-locale/tmhDynamicLocale.js"
-        },
-        {
-            "src": "bower_components/angular-loading-bar/build/loading-bar.js",
-            "dest": "assets/libs/angular-loading-bar/loading-bar.js"
-        },
-        {
-            "src": "bower_components/angular-ngMask-alias/dist/ngMask.js",
-            "dest": "assets/libs/angular-ngMask/ngMask.js"
-        },
-        {
-            "src": "bower_components/angular-route/angular-route.js",
-            "dest": "assets/libs/angular-route/angular-route.js"
-        },
-        {
-            "src": "bower_components/angularAMD/angularAMD.js",
-            "dest": "assets/libs/angularAMD/angularAMD.js"
-        },
-        {
-            "src": "bower_components/ng-currency-mask/dist/ng-currency-mask.js",
-            "dest": "assets/libs/ng-currency-mask/ng-currency-mask.js"
-        },
-        {
-            "src": "bower_components/restangular/dist/restangular.js",
-            "dest": "assets/libs/restangular/restangular.js"
-        },
-        {
-            "src": "bower_components/bootstrap/dist/js/bootstrap.js",
-            "dest": "assets/libs/bootstrap/bootstrap.js"
-        },
-        {
-            "src": "bower_components/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js",
-            "dest": "assets/libs/eonasdan-bootstrap-datetimepicker/bootstrap-datetimepicker.js"
-        },
-        {
-            "src": "bower_components/file-saver-saveas-js/FileSaver.js",
-            "dest": "assets/libs/file-saver-saveas-js/FileSaver.js"
-        },
-        {
-            "src": "bower_components/jquery/dist/jquery.js",
-            "dest": "assets/libs/jquery/jquery.js"
-        },
-        {
-            "src": "bower_components/lodash/lodash.js",
-            "dest": "assets/libs/lodash/lodash.js"
-        },
-        {
-            "src": "bower_components/moment/moment.js",
-            "dest": "assets/libs/moment/moment.js"
-        },
-        {
-            "src": "bower_components/moment/locale/pt.js",
-            "dest": "assets/libs/moment/pt.js"
-        },
-        {
-            "src": "bower_components/slimscroll/jquery.slimscroll.js",
-            "dest": "assets/libs/slimscroll/jquery.slimscroll.js"
-        },
-        {
-            "src": "bower_components/requirejs/require.js",
-            "dest": "assets/libs/requirejs/require.js"
-        },
-        {
-            "src": "bower_components/requirejs-plugins/src/json.js",
-            "dest": "assets/libs/requirejs-plugins/json.js"
-        },
-        {
-            "src": "bower_components/requirejs-plugins/lib/text.js",
-            "dest": "assets/libs/requirejs-plugins/text.js"
-        },
-        {
-            "src": "../ng-jedi-breadcrumb/breadcrumb.js",
-            "dest": "assets/libs/ng-jedi-breadcrumb/breadcrumb.js"
-        },
-        {
-            "src": "../ng-jedi-dialogs/dialogs.js",
-            "dest": "assets/libs/ng-jedi-dialogs/dialogs.js"
-        },
-        {
-            "src": "bower_components/ng-jedi-loading/loading.js",
-            "dest": "assets/libs/ng-jedi-loading/loading.js"
-        },
-        {
-            "src": "bower_components/ng-jedi-loading/loading.css",
-            "dest": "assets/css/loading.css"
-        },
-        {
-            "src": "../ng-jedi-utilities/utilities.js",
-            "dest": "assets/libs/ng-jedi-utilities/utilities.js"
-        },
-        {
-            "src": "bower_components/ng-jedi-factory/factory.js",
-            "dest": "assets/libs/ng-jedi-factory/factory.js"
-        },
-        {
-            "src": "bower_components/ng-jedi-factory/version.js",
-            "dest": "assets/libs/ng-jedi-factory/version.js"
-        },
-        {
-            "src": "bower_components/ng-jedi-i18n/i18n.js",
-            "dest": "assets/libs/ng-jedi-i18n/i18n.js"
-        },
-        {
-            "src": "../ng-jedi-layout/layout.js",
-            "dest": "assets/libs/ng-jedi-layout/layout.js"
-        },
+	"files": [
+		{
+			"src": "bower_components/bootstrap/fonts/glyphicons-halflings-regular.eot",
+			"dest": "assets/fonts/glyphicons-halflings-regular.eot"
+		},
+		{
+			"src": "bower_components/bootstrap/fonts/glyphicons-halflings-regular.svg",
+			"dest": "assets/fonts/glyphicons-halflings-regular.svg"
+		},
+		{
+			"src": "bower_components/bootstrap/fonts/glyphicons-halflings-regular.ttf",
+			"dest": "assets/fonts/glyphicons-halflings-regular.ttf"
+		},
+		{
+			"src": "bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff",
+			"dest": "assets/fonts/glyphicons-halflings-regular.woff"
+		},
+		{
+			"src": "bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff2",
+			"dest": "assets/fonts/glyphicons-halflings-regular.woff2"
+		},
+		{
+			"src": "bower_components/fontawesome/fonts/fontawesome-webfont.eot",
+			"dest": "assets/fonts/fontawesome-webfont.eot"
+		},
+		{
+			"src": "bower_components/fontawesome/fonts/fontawesome-webfont.svg",
+			"dest": "assets/fonts/fontawesome-webfont.svg"
+		},
+		{
+			"src": "bower_components/fontawesome/fonts/fontawesome-webfont.ttf",
+			"dest": "assets/fonts/fontawesome-webfont.ttf"
+		},
+		{
+			"src": "bower_components/fontawesome/fonts/fontawesome-webfont.woff",
+			"dest": "assets/fonts/fontawesome-webfont.woff"
+		},
+		{
+			"src": "bower_components/fontawesome/fonts/fontawesome-webfont.woff2",
+			"dest": "assets/fonts/fontawesome-webfont.woff2"
+		},
+		{
+			"src": "bower_components/fontawesome/fonts/FontAwesome.otf",
+			"dest": "assets/fonts/FontAwesome.otf"
+		},
+		{
+			"src": "bower_components/weather-icons/font/weathericons-regular-webfont.eot",
+			"dest": "assets/fonts/weathericons-regular-webfont.eot"
+		},
+		{
+			"src": "bower_components/weather-icons/font/weathericons-regular-webfont.svg",
+			"dest": "assets/fonts/weathericons-regular-webfont.svg"
+		},
+		{
+			"src": "bower_components/weather-icons/font/weathericons-regular-webfont.ttf",
+			"dest": "assets/fonts/weathericons-regular-webfont.ttf"
+		},
+		{
+			"src": "bower_components/weather-icons/font/weathericons-regular-webfont.woff",
+			"dest": "assets/fonts/weathericons-regular-webfont.woff"
+		},
+		{
+			"src": "bower_components/bootstrap/dist/css/bootstrap.css",
+			"dest": "assets/css/bootstrap.css"
+		},
+		{
+			"src": "bower_components/fontawesome/css/font-awesome.css",
+			"dest": "assets/css/font-awesome.css"
+		},
+		{
+			"src": "bower_components/weather-icons/css/weather-icons.css",
+			"dest": "assets/css/weather-icons.css"
+		},
+		{
+			"src": "bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css",
+			"dest": "assets/css/bootstrap-datetimepicker.css"
+		},
+		{
+			"src": "bower_components/angular-loading-bar/build/loading-bar.css",
+			"dest": "assets/css/loading-bar.css"
+		},
+		{
+			"src": "bower_components/angular/angular.js",
+			"dest": "assets/libs/angular/angular.js"
+		},
+		{
+			"src": "bower_components/angular-animate/angular-animate.js",
+			"dest": "assets/libs/angular-animate/angular-animate.js"
+		},
+		{
+			"src": "bower_components/ng-jedi-security/security.js",
+			"dest": "assets/libs/ng-jedi-security/security.js"
+		},
+		{
+			"src": "bower_components/cryptojslib/rollups/md5.js",
+			"dest": "assets/libs/cryptojslib/md5.js"
+		},
+		{
+			"src": "bower_components/angular-bootstrap/ui-bootstrap-tpls.js",
+			"dest": "assets/libs/angular-bootstrap/ui-bootstrap-tpls.js"
+		},
+		{
+			"src": "bower_components/angular-cookie/angular-cookie.js",
+			"dest": "assets/libs/angular-cookie/angular-cookie.js"
+		},
+		{
+			"src": "bower_components/angular-file-upload-interceptor/angular-file-upload-interceptor.js",
+			"dest": "assets/libs/angular-file-upload/angular-file-upload.js"
+		},
+		{
+			"src": "bower_components/angular-i18n/angular-locale_en.js",
+			"dest": "assets/libs/angular-i18n/angular-locale_en.js"
+		},
+		{
+			"src": "bower_components/angular-i18n/angular-locale_pt.js",
+			"dest": "assets/libs/angular-i18n/angular-locale_pt.js"
+		},
+		{
+			"src": "bower_components/angular-dynamic-locale/dist/tmhDynamicLocale.js",
+			"dest": "assets/libs/angular-dynamic-locale/tmhDynamicLocale.js"
+		},
+		{
+			"src": "bower_components/angular-loading-bar/build/loading-bar.js",
+			"dest": "assets/libs/angular-loading-bar/loading-bar.js"
+		},
+		{
+			"src": "bower_components/angular-ngMask-alias/dist/ngMask.js",
+			"dest": "assets/libs/angular-ngMask/ngMask.js"
+		},
+		{
+			"src": "bower_components/angular-route/angular-route.js",
+			"dest": "assets/libs/angular-route/angular-route.js"
+		},
+		{
+			"src": "bower_components/angularAMD/angularAMD.js",
+			"dest": "assets/libs/angularAMD/angularAMD.js"
+		},
+		{
+			"src": "bower_components/ng-currency-mask/dist/ng-currency-mask.js",
+			"dest": "assets/libs/ng-currency-mask/ng-currency-mask.js"
+		},
+		{
+			"src": "bower_components/restangular/dist/restangular.js",
+			"dest": "assets/libs/restangular/restangular.js"
+		},
+		{
+			"src": "bower_components/bootstrap/dist/js/bootstrap.js",
+			"dest": "assets/libs/bootstrap/bootstrap.js"
+		},
+		{
+			"src": "bower_components/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js",
+			"dest": "assets/libs/eonasdan-bootstrap-datetimepicker/bootstrap-datetimepicker.js"
+		},
+		{
+			"src": "bower_components/file-saver-saveas-js/FileSaver.js",
+			"dest": "assets/libs/file-saver-saveas-js/FileSaver.js"
+		},
+		{
+			"src": "bower_components/jquery/dist/jquery.js",
+			"dest": "assets/libs/jquery/jquery.js"
+		},
+		{
+			"src": "bower_components/lodash/lodash.js",
+			"dest": "assets/libs/lodash/lodash.js"
+		},
+		{
+			"src": "bower_components/moment/moment.js",
+			"dest": "assets/libs/moment/moment.js"
+		},
+		{
+			"src": "bower_components/moment/locale/pt.js",
+			"dest": "assets/libs/moment/pt.js"
+		},
+		{
+			"src": "bower_components/slimscroll/jquery.slimscroll.js",
+			"dest": "assets/libs/slimscroll/jquery.slimscroll.js"
+		},
+		{
+			"src": "bower_components/requirejs/require.js",
+			"dest": "assets/libs/requirejs/require.js"
+		},
+		{
+			"src": "bower_components/requirejs-plugins/src/json.js",
+			"dest": "assets/libs/requirejs-plugins/json.js"
+		},
+		{
+			"src": "bower_components/requirejs-plugins/lib/text.js",
+			"dest": "assets/libs/requirejs-plugins/text.js"
+		},
+		{
+			"src": "bower_components/ng-jedi-breadcrumb/breadcrumb.js",
+			"dest": "assets/libs/ng-jedi-breadcrumb/breadcrumb.js"
+		},
+		{
+			"src": "bower_components/ng-jedi-dialogs/dialogs.js",
+			"dest": "assets/libs/ng-jedi-dialogs/dialogs.js"
+		},
+		{
+			"src": "bower_components/ng-jedi-loading/loading.js",
+			"dest": "assets/libs/ng-jedi-loading/loading.js"
+		},
+		{
+			"src": "bower_components/ng-jedi-loading/loading.css",
+			"dest": "assets/css/loading.css"
+		},
+		{
+			"src": "bower_components/ng-jedi-utilities/utilities.js",
+			"dest": "assets/libs/ng-jedi-utilities/utilities.js"
+		},
+		{
+			"src": "bower_components/ng-jedi-factory/factory.js",
+			"dest": "assets/libs/ng-jedi-factory/factory.js"
+		},
+		{
+			"src": "bower_components/ng-jedi-factory/version.js",
+			"dest": "assets/libs/ng-jedi-factory/version.js"
+		},
+		{
+			"src": "bower_components/ng-jedi-i18n/i18n.js",
+			"dest": "assets/libs/ng-jedi-i18n/i18n.js"
+		},
+		{
+			"src": "bower_components/ng-jedi-layout/layout.js",
+			"dest": "assets/libs/ng-jedi-layout/layout.js"
+		},
         {
             "src": "bower_components/ng-jedi-table/table.js",
             "dest": "assets/libs/ng-jedi-table/table.js"
         },
-        {
-            "src": "bower_components/ng-jedi-table/table.css",
-            "dest": "assets/css/table.css"
-        },
+		{
+			"src": "bower_components/ng-jedi-table/table.css",
+			"dest": "assets/css/table.css"
+		},
         {
             "src": "bower_components/angular-toastr/dist/angular-toastr.tpls.js",
             "dest": "assets/libs/angular-toastr/angular-toastr.tpls.js"
         },
-        {
-            "src": "bower_components/angular-toastr/dist/angular-toastr.css",
-            "dest": "assets/css/angular-toastr.css"
-        },
+		{
+			"src": "bower_components/angular-toastr/dist/angular-toastr.css",
+			"dest": "assets/css/angular-toastr.css"
+		},
         {
             "src": "bower_components/ng-jedi-activities/activities.js",
             "dest": "assets/libs/ng-jedi-activities/activities.js"
@@ -252,5 +252,5 @@
             "src": "bower_components/angular-indexed-db/angular-indexed-db.js",
             "dest": "assets/libs/angular-indexed-db/angular-indexed-db.js"
         }
-    ]
+	]
 }
