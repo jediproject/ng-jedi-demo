@@ -189,11 +189,11 @@
 			"dest": "assets/libs/requirejs-plugins/text.js"
 		},
 		{
-			"src": "../ng-jedi-breadcrumb/breadcrumb.js",
+			"src": "bower_components/ng-jedi-breadcrumb/breadcrumb.js",
 			"dest": "assets/libs/ng-jedi-breadcrumb/breadcrumb.js"
 		},
 		{
-			"src": "../ng-jedi-dialogs/dialogs.js",
+			"src": "bower_components/ng-jedi-dialogs/dialogs.js",
 			"dest": "assets/libs/ng-jedi-dialogs/dialogs.js"
 		},
 		{
@@ -205,7 +205,7 @@
 			"dest": "assets/css/loading.css"
 		},
 		{
-			"src": "../ng-jedi-utilities/utilities.js",
+			"src": "bower_components/ng-jedi-utilities/utilities.js",
 			"dest": "assets/libs/ng-jedi-utilities/utilities.js"
 		},
 		{
@@ -221,7 +221,7 @@
 			"dest": "assets/libs/ng-jedi-i18n/i18n.js"
 		},
 		{
-			"src": "../ng-jedi-layout/layout.js",
+			"src": "bower_components/ng-jedi-layout/layout.js",
 			"dest": "assets/libs/ng-jedi-layout/layout.js"
 		},
         {
