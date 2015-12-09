@@ -8,14 +8,33 @@ var gulp = require('gulp'),
     gulpif = require('gulp-if'),
     minifyCss = require('gulp-minify-css'),
     filter = require('gulp-filter'),
-    rename = require('gulp-rename');
+    rename = require('gulp-rename'),
+    lazypipe = require('lazypipe'),
+    rev = require('gulp-rev'),
+    revReplace = require('gulp-rev-replace'),
+    jshint = require('gulp-jshint');
 
 var isProduction = argv.env === 'master' || argv.env === 'mirror';
 
-
-gulp.task('default', ['assets'], function () {
-    var a = 1;// place code for your default task here
-});
+var jshintConfig = {
+    globalstrict: true,
+    curly: true,
+    eqeqeq: true,
+    eqnull: true,
+    browser: true,
+    strict: true,
+    newcap: false,
+    globals: {
+        jQuery: true,
+        angular: false,
+        "$": false,
+        "_": false,
+        "jd": false,
+        "define": false,
+        "console": false,
+        "moment": false
+    }
+};
 
 // Clean Build
 gulp.task('clean', function () {
@@ -45,45 +64,52 @@ gulp.task('assets', ['clean'], function () {
 });
 
 // Run Build / Buildmin
-gulp.task('build', ['cleanbuild', 'assets'], function () {
+gulp.task('appBuild', ['cleanbuild', 'assets'], function () {
 
-    var app = gulp.src(['**/*.*', '!**/*.tpl.*', '!**/env/*.json', '**/env/*-env.json'], { cwd: 'app/' })
-    if (isProduction) {
-        var filterAppCss = filter(['**/*.css', '!.min.*'], { restore: true });
-        app.pipe(filterAppCss)
-            .pipe(minifyCss())
-            .pipe(rename({ suffix: '.min' }))
-            .pipe(filterAppCss.restore);
+    var app = gulp.src(['**/*.*', '!**/*.js', '!**/*.css', '!**/*.tpl.*', '!**/env/*.json', '**/env/*-env.json'], { cwd: 'app/' });
 
-        var filterAppJs = filter(['**/*.js', '!.min.*'], { restore: true });
-        app.pipe(filterAppJs)
-            .pipe(uglify())
-            .pipe(rename({ suffix: '.min' }))
-            .pipe(filterAppJs.restore);
-    }
-    app.pipe(gulp.dest('build/app/'));
+    var appJs = gulp.src(['**/*.js', '!**/*.tpl.*'], { cwd: 'app/' })
+        .pipe(gulpif(isProduction, uglify()))
+        .pipe(jshint(jshintConfig));
 
-    var assets = gulp.src(['**/*.*'], { cwd: 'assets/' })
-    if (isProduction) {
-        var filterAssetsCss = filter(['**/*.css', '!.min.*'], { restore: true });
-        assets.pipe(filterAssetsCss)
-            .pipe(minifyCss())
-            .pipe(rename({ suffix: '.min' }))
-            .pipe(filterAssetsCss.restore)
+    var appCss = gulp.src(['**/*.css'], { cwd: 'app/' })
+        .pipe(gulpif(isProduction, minifyCss()));
 
-        var filterAssetsJs = filter(['**/*.js', '!.min.*'], { restore: true });
-        assets.pipe(filterAssetsJs)
-            .pipe(uglify())
-            .pipe(rename({ suffix: '.min' }))
-            .pipe(filterAssetsJs.restore)
-    }
-    assets.pipe(gulp.dest('build/assets/'));
+    return merge(app, appJs, appCss)
+        .pipe(rev())
+        .pipe(revReplace())
+        .pipe(gulp.dest('build/app'))
+        .pipe(rev.manifest('version.json', {
+            base: 'build',
+            merge: true
+        }))
+        .pipe(gulp.dest('build/app'));
+});
 
-    var build = gulp.src(['favicon.ico', 'index.html', 'main.tpl.js', 'version.tpl.json'])
+// Run Build / Buildmin
+gulp.task('assetsBuild', ['cleanbuild', 'assets'], function () {
+    var assets = gulp.src(['**/*.*', '!*.js', '!*.css'], { cwd: 'assets/' });
+
+    var assetsJs = gulp.src(['**/*.*', '!*.js', '!*.css'], { cwd: 'assets/' })
+        .pipe(gulpif(isProduction, uglify()));
+
+    var assetsCss = gulp.src(['**/*.*', '!*.js', '!*.css'], { cwd: 'assets/' })
+        .pipe(gulpif(isProduction, minifyCss()));
+
+    return merge(assets, assetsJs, assetsCss)
+        .pipe(rev())
+        .pipe(revReplace())
+        .pipe(gulp.dest('build/assets'))
+        .pipe(rev.manifest('version.json', {
+            base: 'build',
+            merge: true
+        }))
+        .pipe(gulp.dest('build/assets'));
+});
+
+gulp.task('build', ['appBuild', 'assetsBuild'], function () {
+    return gulp.src(['favicon.ico', 'index.html', 'main.tpl.js', 'version.tpl.json'])
         .pipe(rename(function (path) {
             path.basename = path.basename.replace('.tpl', '');
-        }))
-        .pipe(gulp.dest('build/'));
-
-    return merge(app, assets, build);
+        }));
 });
