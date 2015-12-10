@@ -6,41 +6,32 @@ var gulp = require('gulp'),
     clean = require('gulp-clean'),
     uglify = require('gulp-uglify'),
     gulpif = require('gulp-if'),
+    gutil = require('gulp-util'),
     minifyCss = require('gulp-minify-css'),
     filter = require('gulp-filter'),
     rename = require('gulp-rename'),
+    replaceTask = require('gulp-replace-task'),
     lazypipe = require('lazypipe'),
     rev = require('gulp-rev'),
     revReplace = require('gulp-rev-replace'),
     jshint = require('gulp-jshint');
 
-var isProduction = argv.env === 'master' || argv.env === 'mirror';
+var packageJSON = require('./package');
+var jshintConfig = packageJSON.jshintConfig;
 
-var jshintConfig = {
-    globalstrict: true,
-    curly: true,
-    eqeqeq: true,
-    eqnull: true,
-    browser: true,
-    strict: true,
-    newcap: false,
-    globals: {
-        jQuery: true,
-        angular: false,
-        "$": false,
-        "_": false,
-        "jd": false,
-        "define": false,
-        "console": false,
-        "moment": false
-    }
-};
+var isProduction = argv.env === 'master' || argv.env === 'mirror';
 
 // Clean Build
 gulp.task('clean', function () {
     return gulp.src(['assets/libs', 'assets/css/*', 'assets/fonts', '!assets/css/app.css'])
         .pipe(clean());
 })
+
+gulp.task('default', ['assets'], function () {
+    if (!argv.env)
+        argv.env = "develop";
+    // content
+});
 
 // Clean Build
 gulp.task('cleanbuild', function () {
@@ -113,3 +104,36 @@ gulp.task('build', ['appBuild', 'assetsBuild'], function () {
             path.basename = path.basename.replace('.tpl', '');
         }));
 });
+
+gulp.task('setEnvironment', function () {
+    if (!argv.env) {
+        gutil.log(gutil.colors.bold.red('[ERROR:] A environment parameter like "--env=master" is needed for the setEnvironment task'));
+        return;
+    }
+    
+    // Get modules from folders inside "./app/"
+    var modules = getModules();
+
+    //Set environment for each module
+    for (var i = 0; i < Object.keys(modules).length; i++) {
+
+        // Read Environment specific Settings
+        var jsonEnv = require('./app/' + modules[i] + '/env/' + modules[i] + '-env.' + argv.env + '.json');
+
+        // Replace Settings in template
+        gulp.src('app/' + modules[i] + '/env/' + modules[i] + '-env.tpl.json')
+            .pipe(replaceTask({
+                patterns: [{ json: jsonEnv }]
+            }))
+            .pipe(rename(modules[i] + '-env.json'))
+            .pipe(gulp.dest('app/' + modules[i] + '/env/'));
+    }
+});
+
+// Get modules from directories inside ./app/ folder
+function getModules() {
+    var fs = require('fs'), path = require('path');
+    return fs.readdirSync('./app').filter(function (file) {
+        return fs.statSync(path.join('./app', file)).isDirectory();
+    });
+}
