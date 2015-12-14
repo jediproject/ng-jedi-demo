@@ -1,27 +1,29 @@
 var gulp = require('gulp');
-var path = require('path');
+var addsrc = require('gulp-add-src');
 var argv = require('yargs').argv;
-var flatten = require('gulp-flatten');
-var merge = require('merge-stream');
+var change = require('gulp-change');
 var clean = require('gulp-clean');
-var uglify = require('gulp-uglify');
+var filelog = require('gulp-filelog');
+var filter = require('gulp-filter');
+var flatten = require('gulp-flatten');
+var fs = require('fs');
+var glob = require("glob");
 var gulpif = require('gulp-if');
 var gutil = require('gulp-util');
-var minifyCss = require('gulp-minify-css');
-var filter = require('gulp-filter');
-var rename = require('gulp-rename');
-var replaceTask = require('gulp-replace-task');
-var lazypipe = require('lazypipe');
-var rev = require('gulp-rev');
-var revReplace = require('gulp-rev-replace');
 var jshint = require('gulp-jshint');
-var addsrc = require('gulp-add-src');
-var filelog = require('gulp-filelog');
-var fs = require('fs');
+var lazypipe = require('lazypipe');
+var merge = require('merge-stream');
+var minifyCss = require('gulp-minify-css');
 var path = require('path');
-var glob = require("glob");
 var print = require('gulp-print');
-var change = require('gulp-change');
+var rename = require('gulp-rename');
+var replace = require('gulp-replace');
+var replaceTask = require('gulp-replace-task');
+var revReplace = require('gulp-rev-replace');
+var rev = require('gulp-rev');
+var stylish = require('jshint-stylish');
+var uglify = require('gulp-uglify');
+var watch = require('gulp-watch');
 
 var assets = require('./assetsfilesgulp.json');
 var packageJSON = require('./package');
@@ -34,32 +36,29 @@ argv.env = argv.env ? argv.env : 'develop'
 //     // content
 // });
 
-
-gulp.task('default', function () {
-    // place code for your default task here
-
-});
+// Clean Build
 gulp.task('clean', function () {
-    return gulp.src('build')
+    return gulp.src(['assets/libs', 'assets/css/*', 'assets/fonts', '!assets/css/app.css'])
         .pipe(clean());
 });
 
-gulp.task('assets', function () {
+// Clean Build
+gulp.task('cleanBuild', function () {
+    return gulp.src(['build/*'])
+        .pipe(clean());
+});
+
+// Copy needed assets files before build
+gulp.task('assets', ['clean'], function () {
     var libs = gulp.src(assets.libs.src, { base: 'bower_components/' })
         .pipe(flatten({ includeParents: 1 }))
-        .pipe(gulpif(isProduction, uglify()))
-        .pipe(gulp.dest("build/" + assets.libs.dest));
+        .pipe(gulp.dest(assets.libs.dest));
 
-    var filterMin = gulpFilter(['*', '!.min.*'], { restore: true });
     var css = gulp.src(assets.css.src)
-        .pipe(gulpif(isProduction, minifyCss()))
-        .pipe(filterMin)
-        .pipe(rename({ suffix: '.min' }))
-        .pipe(filterMin.restore)
-        .pipe(gulp.dest("build/" + assets.css.dest));
+        .pipe(gulp.dest(assets.css.dest));
 
     var fonts = gulp.src(assets.fonts.src)
-        .pipe(gulp.dest("build/" + assets.fonts.dest));
+        .pipe(gulp.dest(assets.fonts.dest));
 
     return merge(libs, css, fonts);
 });
@@ -84,21 +83,36 @@ gulp.task('setEnvironment', function () {
 });
 
 // Run App files Build / Buildmin
-gulp.task('build', ['cleanBuild'], function () {
+gulp.task('build', ['cleanBuild', 'assets', 'setEnvironment'], function () {
+    // Random version file for each build
+    var versionName = 'version-' + Math.random().toString(36).substring(8) + '.json';
+    var regx = new RegExp(versionName, "g");
+
     return gulp.src(['**/*.*', '!**/*.tpl.*', '!**/env/*.*'], { cwd: 'app/', base: './' })
-        .pipe(gulpif(/\.js$/, jshint(jshintConfig)))
-        .pipe(addsrc('**/*.*', { cwd: 'assets/', base: './' }))
-        .pipe(addsrc(['favicon.ico', 'main.tpl.js']))
-        .pipe(rename(function (file) { file.basename = file.basename.replace('.tpl', ''); }))
-        .pipe(gulpif(/\.js$/, gulpif(isProduction, uglify())))
-        .pipe(gulpif(/\.css$/, gulpif(isProduction, minifyCss())))
-        .pipe(rev())
-        .pipe(addsrc(['index.html', 'version.json']))
-        .pipe(revReplace())
-        .pipe(gulp.dest('build/'))
-        .pipe(rev.manifest('version.json', { merge: true }))
-        .pipe(gulpif(/version.json/, change(performChange)))
-        .pipe(gulp.dest('build/'));
+        .pipe(gulpif(/\.js$/, jshint(jshintConfig)))                                // JSHint only JS files from project
+        .pipe(jshint.reporter(stylish))                                             // Better output for lint errors
+        .pipe(jshint.reporter('fail'))                                              // Raise exception on lint error
+        .pipe(addsrc(['favicon.ico', 'main.tpl.js', '**/env/*-env.json']))          // Add root project folder files
+        .pipe(rename(removeTplExtensions))                                          // Remove template extensions
+        .pipe(addsrc(['**/*.*', '!img/dogs/*.*'], { cwd: 'assets/', base: './' }))  // Add assets files
+        .pipe(gulpif(/\.js$/, gulpif(isProduction, uglify())))                      // Uglify all JS files
+        .pipe(gulpif(/\.css$/, gulpif(isProduction, minifyCss())))                  // Minify all CSS files
+        .pipe(rev())                                                                // Versioning for cache bust
+        .pipe(addsrc(['index.html', '**/img/dogs/*.*']))                            // Add files that can't be reved.
+        .pipe(revReplace({ modifyUnreved: trimPath, modifyReved: trimPath }))       // Replace rev references
+        .pipe(gulpif(/main\-[0-9a-z]+\.js$/, replace('version.json', versionName))) // Replace version reference in main-*.js
+        .pipe(gulpif(/main\-[0-9a-z]+\.js$/, replace(".js'", "'")))                 // Remove JS extension of require paths
+        .pipe(gulp.dest('build/'))                                                  // Build output
+        .pipe(rev.manifest(versionName, { merge: true }))                           // Create manifest file
+        .pipe(gulpif(regx, change(modifyManifest)))                                 // Change manifest structure to mach previous version.
+        .pipe(gulp.dest('build/'));                                                 // Manifest output
+});
+
+gulp.task('jshint', function () {
+    return gulp.src('app/**/*.js')
+        .pipe(watch('app/**/*.js'))
+        .pipe(jshint(jshintConfig))
+        .pipe(jshint.reporter(stylish));
 });
 
 // Get modules from directories inside ./app/ folder
@@ -114,10 +128,14 @@ function firstFileOrDefault(pattern) {
     return b;
 }
 
-function performChange(content) {
+function modifyManifest(content) {
     var files = JSON.parse(content);
     var version = { version: '0.0.1', files: files };
     return JSON.stringify(version, null, 4);
+}
+
+function removeTplExtensions(file) {
+    file.basename = file.basename.replace('.tpl', '');
 }
 
 function trimPath(filename) {
