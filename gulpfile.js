@@ -68,24 +68,24 @@ gulp.task('setEnvironment', function () {
     if (!argv.env)
         gutil.log(gutil.colors.bold.red('[ERROR:] A environment parameter like "--env=master" is needed for the setEnvironment task'));
     else {
-    // Get modules from folders inside "./app/"
-    var modules = getModules();
-    for (var i = 0; i < Object.keys(modules).length; i++) {
+        // Get modules from folders inside "./app/"
+        var modules = getModules();
+        for (var i = 0; i < Object.keys(modules).length; i++) {
             // Read environment specific settings
-        var jsonEnv = require('./app/' + modules[i] + '/env/' + modules[i] + '-env.' + argv.env + '.json');
+            var jsonEnv = require('./app/' + modules[i] + '/env/' + modules[i] + '-env.' + argv.env + '.json');
 
             // Replace settings in template
-        gulp.src('app/' + modules[i] + '/env/' + modules[i] + '-env.tpl.json')
+            gulp.src('app/' + modules[i] + '/env/' + modules[i] + '-env.tpl.json')
                 .pipe(replaceTask({ patterns: [{ json: jsonEnv }] }))
-            .pipe(rename(modules[i] + '-env.json'))
-            .pipe(gulp.dest('app/' + modules[i] + '/env/'));
-    }
+                .pipe(rename(modules[i] + '-env.json'))
+                .pipe(gulp.dest('app/' + modules[i] + '/env/'));
+        }
     }
 });
 
 // Run App files Build / Buildmin
 gulp.task('build', ['cleanBuild'], function () {
-    return gulp.src(['**/*.*', '!**/*.tpl.*', '!**/env/*.json', '**/env/*-env.json'], { cwd: 'app/', base: './' })
+    return gulp.src(['**/*.*', '!**/*.tpl.*', '!**/env/*.*'], { cwd: 'app/', base: './' })
         .pipe(gulpif(/\.js$/, jshint(jshintConfig)))
         .pipe(addsrc('**/*.*', { cwd: 'assets/', base: './' }))
         .pipe(addsrc(['favicon.ico', 'main.tpl.js']))
@@ -118,4 +118,8 @@ function performChange(content) {
     var files = JSON.parse(content);
     var version = { version: '0.0.1', files: files };
     return JSON.stringify(version, null, 4);
+}
+
+function trimPath(filename) {
+    return filename.replace('assets', '').replace(/^\/+/g, '');
 }
