@@ -1,27 +1,27 @@
 var gulp = require('gulp');
-var path = require('path');
+var addsrc = require('gulp-add-src');
 var argv = require('yargs').argv;
-var flatten = require('gulp-flatten');
-var merge = require('merge-stream');
+var change = require('gulp-change');
 var clean = require('gulp-clean');
-var uglify = require('gulp-uglify');
+var filelog = require('gulp-filelog');
+var filter = require('gulp-filter');
+var flatten = require('gulp-flatten');
+var fs = require('fs');
+var glob = require("glob");
 var gulpif = require('gulp-if');
 var gutil = require('gulp-util');
-var minifyCss = require('gulp-minify-css');
-var filter = require('gulp-filter');
-var rename = require('gulp-rename');
-var replaceTask = require('gulp-replace-task');
-var lazypipe = require('lazypipe');
-var rev = require('gulp-rev');
-var revReplace = require('gulp-rev-replace');
 var jshint = require('gulp-jshint');
-var addsrc = require('gulp-add-src');
-var filelog = require('gulp-filelog');
-var fs = require('fs');
+var lazypipe = require('lazypipe');
+var merge = require('merge-stream');
+var minifyCss = require('gulp-minify-css');
 var path = require('path');
-var glob = require("glob");
 var print = require('gulp-print');
-var change = require('gulp-change');
+var rename = require('gulp-rename');
+var replace = require('gulp-replace');
+var replaceTask = require('gulp-replace-task');
+var revReplace = require('gulp-rev-replace');
+var rev = require('gulp-rev');
+var uglify = require('gulp-uglify');
 
 var assets = require('./assetsfilesgulp.json');
 var packageJSON = require('./package');
@@ -82,6 +82,10 @@ gulp.task('setEnvironment', function () {
 
 // Run App files Build / Buildmin
 gulp.task('build', ['cleanBuild'], function () {
+    // Random version file for each build
+    var versionName = 'version-' + Math.random().toString(36).substring(8) + '.json';
+    var regx = new RegExp(versionName, "g");
+
     return gulp.src(['**/*.*', '!**/*.tpl.*', '!**/env/*.json', '**/env/*-env.json'], { cwd: 'app/', base: './' })
         .pipe(gulpif(/\.js$/, jshint(jshintConfig)))
         .pipe(addsrc('**/*.*', { cwd: 'assets/', base: './' }))
@@ -90,11 +94,12 @@ gulp.task('build', ['cleanBuild'], function () {
         .pipe(gulpif(/\.js$/, gulpif(isProduction, uglify())))
         .pipe(gulpif(/\.css$/, gulpif(isProduction, minifyCss())))
         .pipe(rev())
-        .pipe(addsrc(['index.html', 'version.json']))
+        .pipe(addsrc(['index.html']))
         .pipe(revReplace())
+        .pipe(replace('version.json', versionName))
         .pipe(gulp.dest('build/'))
-        .pipe(rev.manifest('version.json', { merge: true }))
-        .pipe(gulpif(/version.json/, change(performChange)))
+        .pipe(rev.manifest(versionName, { merge: true }))
+        .pipe(gulpif(regx, change(performChange)))
         .pipe(gulp.dest('build/'));
 });
 
