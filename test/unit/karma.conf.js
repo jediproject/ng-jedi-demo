@@ -5,41 +5,22 @@ module.exports = function(config) {
     config.set({
 
         // base path that will be used to resolve all patterns (eg. files, exclude)
-        basePath: '',
+        basePath: '../../',
 
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
         frameworks: ['jasmine', 'requirejs'],
 
-
         // list of files / patterns to load in the browser
         files: [
             'test/unit/test-main.js',
-            //'assets/libs/angular-i18n/angular-locale_pt.js',
-            //'assets/libs/angular-i18n/angular-locale_en.js',
-            //'app/common/features/auth/signin/signin-ctrl.js',
-            //{
-            //    pattern: 'app/common/features/auth/signin/*.*', 
-            //    included: false
-            //},
-            //{
-            //    pattern: 'assets/libs/angular-i18n/angular-locale_*.*', 
-            //    included: false
-            //},
+            'bower_components/ng-jedi-factory/test-factory.js',
+            {
+                pattern: 'node_modules/angular-mocks/angular-mocks.js', 
+                included: false
+            },
             {
                 pattern: 'app/**/*.*', 
-                included: false
-            },
-            {
-                pattern: 'app/**/**/*.*', 
-                included: false
-            },
-            {
-                pattern: 'app/**/**/**/*.*', 
-                included: false
-            },
-            {
-                pattern: 'app/**/**/**/**/*.*', 
                 included: false
             },
             {
@@ -47,19 +28,11 @@ module.exports = function(config) {
                 included: false
             },
             {
-                pattern: 'assets/**/**/*.*', 
-                included: false
-            },
-            {
-                pattern: 'assets/**/**/**/*.*', 
-                included: false
-            },
-            {
                 pattern: 'version.json',
                 included: false
             },
             {
-                pattern: 'test/**/*.spec.js', 
+                pattern: 'test/unit/**/**/*.spec.js', 
                 included: false
             }
         ],
@@ -72,6 +45,12 @@ module.exports = function(config) {
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
+            //'app/**/*.html': ['ng-html2js']
+        },
+
+        ngHtml2JsPreprocessor: {
+            /*stripPrefix: 'app',
+            prependPrefix: '/assets'*/
         },
 
         // test results reporter to use

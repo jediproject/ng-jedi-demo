@@ -13,13 +13,13 @@ exports.config = {
 
     // organize tests as suites
     suites:{
-        loginpage: './loginpage/*-spec.js',
-        donatepage: './donatepage/*-spec.js'
+        loginpage: './common/loginpage/*-spec.js',
+        donatepage: './core/donatepage/*-spec.js'
     },
 
     // configure multiple browsers to run tests
     capabilities: {
-        'browserName': 'firefox'
+        'browserName': 'chrome'
     },    
 
     // url where your app is running, relative URLs are prepending with this URL

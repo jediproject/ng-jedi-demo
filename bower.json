@@ -22,7 +22,6 @@
     "angular-toastr": "~1.4.1",
     "angularAMD": "~0.2.1",
     "bootstrap": "~3.3.4",
-    "eonasdan-bootstrap-datetimepicker": "~4.7.14",
     "file-saver-saveas-js": "~1.20150507.2",
     "fontawesome": "~4.3.0",
     "moment": "~2.9.0",
@@ -46,7 +45,8 @@
     "jquery": "~2.1.4"
   },
   "resolutions": {
-    "angular": "=1.4.4"
+    "angular": "=1.4.4",
+    "eonasdan-bootstrap-datetimepicker": "=4.14.30"
   },
   "devDependencies": {}
 }

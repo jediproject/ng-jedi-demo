@@ -1,6 +1,6 @@
 
 var DonatePage = require('./donatepage-po.js');
-var LoginPage = require('../loginpage/loginpage-po.js');
+var LoginPage = require('../../common/loginpage/loginpage-po.js');
 
 describe('Donate page', function () {
 
