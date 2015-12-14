@@ -28,6 +28,7 @@
     "lodash": "^3.10.0"
   },
   "devDependencies": {
+    "angular-mocks": "^1.4.8",
     "apimocker": "^0.4.4",
     "glob": "^6.0.1",
     "gulp": "^3.9.0",
@@ -73,6 +74,8 @@
     "release": "npm install && node node_modules/bower/bin/bower install && node node_modules/grunt-cli/bin/grunt release",
     "master": "npm install && node node_modules/bower/bin/bower install && node node_modules/grunt-cli/bin/grunt master",
     "start": "npm install && node node_modules/bower/bin/bower install && node node_modules/grunt-cli/bin/grunt develop && start node node_modules/apimocker/bin/apimocker.js -c mocks/config.json && start node node_modules/json-server/bin/index.js mocks/animals/animals.json -p 3001 && node node_modules/http-server/bin/http-server -a localhost -p 8080",
+    "unit": "npm install && node node_modules/bower/bin/bower install && node node_modules/grunt-cli/bin/grunt develop && start node node_modules/apimocker/bin/apimocker.js -c mocks/config.json && start node node_modules/json-server/bin/index.js mocks/animals/animals.json -p 3001 && karma start test/unit/karma.conf.js",
+    "e2e": "npm install && node node_modules/bower/bin/bower install && node node_modules/grunt-cli/bin/grunt develop && start node node_modules/apimocker/bin/apimocker.js -c mocks/config.json && start node node_modules/json-server/bin/index.js mocks/animals/animals.json -p 3001 && start webdriver-manager start && start node node_modules/http-server/bin/http-server -a localhost -p 8080 && protractor test/e2e/protractor-conf.js",
     "startgulp": "npm install && node node_modules/bower/bin/bower install && node node_modules/gulp/bin/gulp build && start node node_modules/apimocker/bin/apimocker.js -c mocks/config.json && start node node_modules/json-server/bin/index.js mocks/animals/animals.json -p 3001 && node node_modules/http-server/bin/http-server ./build -a localhost -p 8080",
     "heroku": "bower install && bower update && grunt develop"
   },

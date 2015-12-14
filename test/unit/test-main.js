@@ -1,4 +1,4 @@
-var allTestFiles = [];
+var allTestFiles = ['app'];
 var TEST_REGEXP = /(spec|test)\.js$/i;
 
 var pathToModule = function (path) {
@@ -20,44 +20,37 @@ require.config({
     baseUrl: '/base',
 
     paths: {
-        // ## tests
-        'test': 'test',
-
         // ## base
         'app': 'app/app',
         'version': 'version.json',
+        'modules': 'app/modules.json',
 
-        // ## ng-jedi components
+        // main Dependencies
         'ng-jedi-utilities': 'assets/libs/ng-jedi-utilities/utilities',
-        'ng-jedi-utilities-directives': 'assets/libs/ng-jedi-utilities/utilities-directives',
-        'ng-jedi-utilities-filters': 'assets/libs/ng-jedi-utilities/utilities-filters',
         'ng-jedi-i18n': 'assets/libs/ng-jedi-i18n/i18n',
         'ng-jedi-dialogs': 'assets/libs/ng-jedi-dialogs/dialogs',
-        'ng-jedi-dialogs-ctrls': 'assets/libs/ng-jedi-dialogs/dialogs-ctrls',
         'ng-jedi-factory': 'assets/libs/ng-jedi-factory/factory',
         'jdver': 'assets/libs/ng-jedi-factory/version',
         'ng-jedi-loading': 'assets/libs/ng-jedi-loading/loading',
-        'ng-jedi-loading-directives': 'assets/libs/ng-jedi-loading/loading-directives',
         'ng-jedi-breadcrumb': 'assets/libs/ng-jedi-breadcrumb/breadcrumb',
         'ng-jedi-layout': 'assets/libs/ng-jedi-layout/layout',
-        'ng-jedi-layout-datepicker': 'assets/libs/ng-jedi-layout/datepicker',
-        'ng-jedi-layout-input': 'assets/libs/ng-jedi-layout/input',
-        'ng-jedi-layout-modal': 'assets/libs/ng-jedi-layout/modal',
-        'ng-jedi-layout-panel': 'assets/libs/ng-jedi-layout/panel',
-        'ng-jedi-layout-treeview': 'assets/libs/ng-jedi-layout/treeview',
-        'ng-jedi-layout-validationtooltip': 'assets/libs/ng-jedi-layout/validationtooltip',
         'ng-jedi-activities': 'assets/libs/ng-jedi-activities/activities',
         'ng-jedi-security': 'assets/libs/ng-jedi-security/security',
         'ng-jedi-table': 'assets/libs/ng-jedi-table/table',
-
-        // ## common components
+        
+        // ## Common Components
         'app-common': 'app/common/common-app',
         'app-common-env': 'app/common/env/common-env.json',
         'app-common-components': 'app/common/components/components',
         'app-common-components-exceptions': 'app/common/components/exceptions/exceptions',
+        'app-common-components-navigation': 'app/common/components/navigation/navigation',
+        'app-common-components-navigation-directives': 'app/common/components/navigation/navigation-directives',
+        'app-common-components-navigation-filters': 'app/common/components/navigation/navigation-filters',
+        'app-common-components-help': 'app/common/components/help/help-directive',
 
         //## 3rd party angular scripts
         'angular': 'assets/libs/angular/angular',
+        'angular-mocks': 'node_modules/angular-mocks/angular-mocks',
         'angular-animate': 'assets/libs/angular-animate/angular-animate',
         'cryptojslib': 'assets/libs/cryptojslib/md5',
         'angular-bootstrap': 'assets/libs/angular-bootstrap/ui-bootstrap-tpls',
@@ -71,6 +64,7 @@ require.config({
         'ng-currency-mask': 'assets/libs/ng-currency-mask/ng-currency-mask',
         'restangular': 'assets/libs/restangular/restangular',
         'angular-toastr': 'assets/libs/angular-toastr/angular-toastr.tpls',
+        'angular-indexed-db': 'assets/libs/angular-indexed-db/angular-indexed-db',
 
         //## 3rd party non angular scripts
         'bootstrap': 'assets/libs/bootstrap/bootstrap',
@@ -110,11 +104,9 @@ require.config({
         "restangular": ["lodash", "angular"],
         "angular-loading-bar": ["angular"],
         'angular-dynamic-locale': ["angular"],
-
-        // ## trecho exclusivo para os testes
-        'app/common/features/auth/signin/signin-ctrl.js': ['ng-jedi-factory']
+        'angular-mocks': ["angular"],
+        'app': ['angular-mocks', 'ng-jedi-factory']
     },
-
 
     // dynamically load all test files
     deps: allTestFiles,
