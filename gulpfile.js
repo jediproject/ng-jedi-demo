@@ -83,28 +83,29 @@ gulp.task('setEnvironment', function () {
 });
 
 // Run App files Build / Buildmin
-gulp.task('build', ['cleanBuild'], function () {
+gulp.task('build', ['cleanBuild', 'assets', 'setEnvironment'], function () {
     // Random version file for each build
     var versionName = 'version-' + Math.random().toString(36).substring(8) + '.json';
     var regx = new RegExp(versionName, "g");
 
-    return gulp.src(['**/*.*', '!**/*.tpl.*', '!**/env/*.json', '**/env/*-env.json'], { cwd: 'app/', base: './' })
-        .pipe(gulpif(/\.js$/, jshint(jshintConfig)))                    // JSHint only JS files from project
-        .pipe(jshint.reporter(stylish))                                 // Better output for lint errors
-        .pipe(jshint.reporter('fail'))                                  // Raise exception on lint error
-        .pipe(addsrc('**/*.*', { cwd: 'assets/', base: './' }))         // Add assets files
-        .pipe(addsrc(['favicon.ico', 'main.tpl.js']))                   // Add root project folder files
-        .pipe(rename(removeTplExtensions))                              // Remove template extensions
-        .pipe(gulpif(/\.js$/, gulpif(isProduction, uglify())))          // Uglify all JS files
-        .pipe(gulpif(/\.css$/, gulpif(isProduction, minifyCss())))      // Minify all CSS files
-        .pipe(rev())                                                    // Versioning for cache bust
-        .pipe(addsrc(['index.html']))                                   // Add files that can't be reved.
-        .pipe(revReplace())                                             // Replace rev references
-        .pipe(gulpif(/\.js/, replace('version.json', versionName)))     // Replace version reference in main-*.js
-        .pipe(gulp.dest('build/'))                                      // Build output
-        .pipe(rev.manifest(versionName, { merge: true }))               // Create manifest file
-        .pipe(gulpif(regx, change(modifyManifest)))                     // Change manifest structure to mach previous version.
-        .pipe(gulp.dest('build/'));                                     // Manifest output
+    return gulp.src(['**/*.*', '!**/*.tpl.*', '!**/env/*.*'], { cwd: 'app/', base: './' })
+        .pipe(gulpif(/\.js$/, jshint(jshintConfig)))                                // JSHint only JS files from project
+        .pipe(jshint.reporter(stylish))                                             // Better output for lint errors
+        .pipe(jshint.reporter('fail'))                                              // Raise exception on lint error
+        .pipe(addsrc(['favicon.ico', 'main.tpl.js', '**/env/*-env.json']))          // Add root project folder files
+        .pipe(rename(removeTplExtensions))                                          // Remove template extensions
+        .pipe(addsrc(['**/*.*', '!img/dogs/*.*'], { cwd: 'assets/', base: './' }))  // Add assets files
+        .pipe(gulpif(/\.js$/, gulpif(isProduction, uglify())))                      // Uglify all JS files
+        .pipe(gulpif(/\.css$/, gulpif(isProduction, minifyCss())))                  // Minify all CSS files
+        .pipe(rev())                                                                // Versioning for cache bust
+        .pipe(addsrc(['index.html', '**/img/dogs/*.*']))                            // Add files that can't be reved.
+        .pipe(revReplace({ modifyUnreved: trimPath, modifyReved: trimPath }))       // Replace rev references
+        .pipe(gulpif(/main\-[0-9a-z]+\.js$/, replace('version.json', versionName))) // Replace version reference in main-*.js
+        .pipe(gulpif(/main\-[0-9a-z]+\.js$/, replace(".js'", "'")))                 // Remove JS extension of require paths
+        .pipe(gulp.dest('build/'))                                                  // Build output
+        .pipe(rev.manifest(versionName, { merge: true }))                           // Create manifest file
+        .pipe(gulpif(regx, change(modifyManifest)))                                 // Change manifest structure to mach previous version.
+        .pipe(gulp.dest('build/'));                                                 // Manifest output
 });
 
 gulp.task('jshint', function () {
@@ -135,4 +136,8 @@ function modifyManifest(content) {
 
 function removeTplExtensions(file) {
     file.basename = file.basename.replace('.tpl', '');
+}
+
+function trimPath(filename) {
+    return filename.replace('assets', '').replace(/^\/+/g, '');
 }
