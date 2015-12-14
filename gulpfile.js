@@ -21,7 +21,9 @@ var replace = require('gulp-replace');
 var replaceTask = require('gulp-replace-task');
 var revReplace = require('gulp-rev-replace');
 var rev = require('gulp-rev');
+var stylish = require('jshint-stylish');
 var uglify = require('gulp-uglify');
+var watch = require('gulp-watch');
 
 var assets = require('./assetsfilesgulp.json');
 var packageJSON = require('./package');
@@ -87,20 +89,29 @@ gulp.task('build', ['cleanBuild'], function () {
     var regx = new RegExp(versionName, "g");
 
     return gulp.src(['**/*.*', '!**/*.tpl.*', '!**/env/*.json', '**/env/*-env.json'], { cwd: 'app/', base: './' })
-        .pipe(gulpif(/\.js$/, jshint(jshintConfig)))
-        .pipe(addsrc('**/*.*', { cwd: 'assets/', base: './' }))
-        .pipe(addsrc(['favicon.ico', 'main.tpl.js']))
-        .pipe(rename(function (file) { file.basename = file.basename.replace('.tpl', ''); }))
-        .pipe(gulpif(/\.js$/, gulpif(isProduction, uglify())))
-        .pipe(gulpif(/\.css$/, gulpif(isProduction, minifyCss())))
-        .pipe(rev())
-        .pipe(addsrc(['index.html']))
-        .pipe(revReplace())
-        .pipe(replace('version.json', versionName))
-        .pipe(gulp.dest('build/'))
-        .pipe(rev.manifest(versionName, { merge: true }))
-        .pipe(gulpif(regx, change(performChange)))
-        .pipe(gulp.dest('build/'));
+        .pipe(gulpif(/\.js$/, jshint(jshintConfig)))                    // JSHint only JS files from project
+        .pipe(jshint.reporter(stylish))                                 // Better output for lint errors
+        .pipe(jshint.reporter('fail'))                                  // Raise exception on lint error
+        .pipe(addsrc('**/*.*', { cwd: 'assets/', base: './' }))         // Add assets files
+        .pipe(addsrc(['favicon.ico', 'main.tpl.js']))                   // Add root project folder files
+        .pipe(rename(removeTplExtensions))                              // Remove template extensions
+        .pipe(gulpif(/\.js$/, gulpif(isProduction, uglify())))          // Uglify all JS files
+        .pipe(gulpif(/\.css$/, gulpif(isProduction, minifyCss())))      // Minify all CSS files
+        .pipe(rev())                                                    // Versioning for cache bust
+        .pipe(addsrc(['index.html']))                                   // Add files that can't be reved.
+        .pipe(revReplace())                                             // Replace rev references
+        .pipe(gulpif(/\.js/, replace('version.json', versionName)))     // Replace version reference in main-*.js
+        .pipe(gulp.dest('build/'))                                      // Build output
+        .pipe(rev.manifest(versionName, { merge: true }))               // Create manifest file
+        .pipe(gulpif(regx, change(modifyManifest)))                     // Change manifest structure to mach previous version.
+        .pipe(gulp.dest('build/'));                                     // Manifest output
+});
+
+gulp.task('jshint', function () {
+    return gulp.src('app/**/*.js')
+        .pipe(watch('app/**/*.js'))
+        .pipe(jshint(jshintConfig))
+        .pipe(jshint.reporter(stylish));
 });
 
 // Get modules from directories inside ./app/ folder
@@ -116,8 +127,12 @@ function firstFileOrDefault(pattern) {
     return b;
 }
 
-function performChange(content) {
+function modifyManifest(content) {
     var files = JSON.parse(content);
     var version = { version: '0.0.1', files: files };
     return JSON.stringify(version, null, 4);
+}
+
+function removeTplExtensions(file) {
+    file.basename = file.basename.replace('.tpl', '');
 }

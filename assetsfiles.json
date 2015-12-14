@@ -106,7 +106,7 @@
 		},
 		{
 			"src": "bower_components/angular-file-upload-interceptor/angular-file-upload-interceptor.js",
-			"dest": "assets/libs/angular-file-upload/angular-file-upload.js"
+			"dest": "assets/libs/angular-file-upload/angular-file-upload-interceptor.js"
 		},
 		{
 			"src": "bower_components/angular-i18n/angular-locale_en.js",

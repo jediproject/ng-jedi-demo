@@ -53,6 +53,7 @@
             "bower_components/restangular/dist/restangular.js",
             "bower_components/bootstrap/dist/js/bootstrap.js",
             "bower_components/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js",
+            "bower_components/angular-file-upload-interceptor/angular-file-upload-interceptor.js",
             "bower_components/file-saver-saveas-js/FileSaver.js",
             "bower_components/jquery/dist/jquery.js",
             "bower_components/lodash/lodash.js",
