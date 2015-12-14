@@ -7,7 +7,7 @@
 			"request": "launch",
 			"program": "./node_modules/gulp/bin/gulp.js",
 			"stopOnEntry": false,
-			"args": [],
+			"args": ["build"],
 			"cwd": ".",
 			"runtimeExecutable": null,
 			"runtimeArgs": [

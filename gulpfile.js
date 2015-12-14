@@ -1,45 +1,52 @@
-var gulp = require('gulp'),
-    argv = require('yargs').argv,
-    flatten = require('gulp-flatten'),
-    assets = require('./assetsfilesgulp.json'),
-    merge = require('merge-stream'),
-    clean = require('gulp-clean'),
-    uglify = require('gulp-uglify'),
-    gulpif = require('gulp-if'),
-    gutil = require('gulp-util'),
-    minifyCss = require('gulp-minify-css'),
-    filter = require('gulp-filter'),
-    rename = require('gulp-rename'),
-    replaceTask = require('gulp-replace-task'),
-    lazypipe = require('lazypipe'),
-    rev = require('gulp-rev'),
-    revReplace = require('gulp-rev-replace'),
-    jshint = require('gulp-jshint');
+var gulp = require('gulp');
+var path = require('path');
+var argv = require('yargs').argv;
+var flatten = require('gulp-flatten');
+var merge = require('merge-stream');
+var clean = require('gulp-clean');
+var uglify = require('gulp-uglify');
+var gulpif = require('gulp-if');
+var gutil = require('gulp-util');
+var minifyCss = require('gulp-minify-css');
+var filter = require('gulp-filter');
+var rename = require('gulp-rename');
+var replaceTask = require('gulp-replace-task');
+var lazypipe = require('lazypipe');
+var rev = require('gulp-rev');
+var revReplace = require('gulp-rev-replace');
+var jshint = require('gulp-jshint');
+var addsrc = require('gulp-add-src');
+var filelog = require('gulp-filelog');
+var fs = require('fs');
+var path = require('path');
+var glob = require("glob");
+var print = require('gulp-print');
+var change = require('gulp-change');
 
+var assets = require('./assetsfilesgulp.json');
 var packageJSON = require('./package');
 var jshintConfig = packageJSON.jshintConfig;
 
 var isProduction = argv.env === 'master' || argv.env === 'mirror';
+argv.env = argv.env ? argv.env : 'develop'
+
+// gulp.task('default', ['clean', 'assets', 'setEnvironment'], function () {
+//     // content
+// });
 
 // Clean Build
 gulp.task('clean', function () {
     return gulp.src(['assets/libs', 'assets/css/*', 'assets/fonts', '!assets/css/app.css'])
         .pipe(clean());
-})
-
-gulp.task('default', ['assets'], function () {
-    if (!argv.env)
-        argv.env = "develop";
-    // content
 });
 
 // Clean Build
-gulp.task('cleanbuild', function () {
+gulp.task('cleanBuild', function () {
     return gulp.src(['build/*'])
         .pipe(clean());
-})
+});
 
-// Copy Assets
+// Copy needed assets files before build
 gulp.task('assets', ['clean'], function () {
     var libs = gulp.src(assets.libs.src, { base: 'bower_components/' })
         .pipe(flatten({ includeParents: 1 }))
@@ -54,86 +61,58 @@ gulp.task('assets', ['clean'], function () {
     return merge(libs, css, fonts);
 });
 
-// Run Build / Buildmin
-gulp.task('appBuild', ['cleanbuild', 'assets'], function () {
-
-    var app = gulp.src(['**/*.*', '!**/*.js', '!**/*.css', '!**/*.tpl.*', '!**/env/*.json', '**/env/*-env.json'], { cwd: 'app/' });
-
-    var appJs = gulp.src(['**/*.js', '!**/*.tpl.*'], { cwd: 'app/' })
-        .pipe(gulpif(isProduction, uglify()))
-        .pipe(jshint(jshintConfig));
-
-    var appCss = gulp.src(['**/*.css'], { cwd: 'app/' })
-        .pipe(gulpif(isProduction, minifyCss()));
-
-    return merge(app, appJs, appCss)
-        .pipe(rev())
-        .pipe(revReplace())
-        .pipe(gulp.dest('build/app'))
-        .pipe(rev.manifest('version.json', {
-            base: 'build',
-            merge: true
-        }))
-        .pipe(gulp.dest('build/app'));
-});
-
-// Run Build / Buildmin
-gulp.task('assetsBuild', ['cleanbuild', 'assets'], function () {
-    var assets = gulp.src(['**/*.*', '!*.js', '!*.css'], { cwd: 'assets/' });
-
-    var assetsJs = gulp.src(['**/*.*', '!*.js', '!*.css'], { cwd: 'assets/' })
-        .pipe(gulpif(isProduction, uglify()));
-
-    var assetsCss = gulp.src(['**/*.*', '!*.js', '!*.css'], { cwd: 'assets/' })
-        .pipe(gulpif(isProduction, minifyCss()));
-
-    return merge(assets, assetsJs, assetsCss)
-        .pipe(rev())
-        .pipe(revReplace())
-        .pipe(gulp.dest('build/assets'))
-        .pipe(rev.manifest('version.json', {
-            base: 'build',
-            merge: true
-        }))
-        .pipe(gulp.dest('build/assets'));
-});
-
-gulp.task('build', ['appBuild', 'assetsBuild'], function () {
-    return gulp.src(['favicon.ico', 'index.html', 'main.tpl.js', 'version.tpl.json'])
-        .pipe(rename(function (path) {
-            path.basename = path.basename.replace('.tpl', '');
-        }));
-});
-
 gulp.task('setEnvironment', function () {
-    if (!argv.env) {
+    if (!argv.env)
         gutil.log(gutil.colors.bold.red('[ERROR:] A environment parameter like "--env=master" is needed for the setEnvironment task'));
-        return;
+    else {
+        // Get modules from folders inside "./app/"
+        var modules = getModules();
+        for (var i = 0; i < Object.keys(modules).length; i++) {
+            // Read environment specific settings
+            var jsonEnv = require('./app/' + modules[i] + '/env/' + modules[i] + '-env.' + argv.env + '.json');
+
+            // Replace settings in template
+            gulp.src('app/' + modules[i] + '/env/' + modules[i] + '-env.tpl.json')
+                .pipe(replaceTask({ patterns: [{ json: jsonEnv }] }))
+                .pipe(rename(modules[i] + '-env.json'))
+                .pipe(gulp.dest('app/' + modules[i] + '/env/'));
+        }
     }
-    
-    // Get modules from folders inside "./app/"
-    var modules = getModules();
+});
 
-    //Set environment for each module
-    for (var i = 0; i < Object.keys(modules).length; i++) {
-
-        // Read Environment specific Settings
-        var jsonEnv = require('./app/' + modules[i] + '/env/' + modules[i] + '-env.' + argv.env + '.json');
-
-        // Replace Settings in template
-        gulp.src('app/' + modules[i] + '/env/' + modules[i] + '-env.tpl.json')
-            .pipe(replaceTask({
-                patterns: [{ json: jsonEnv }]
-            }))
-            .pipe(rename(modules[i] + '-env.json'))
-            .pipe(gulp.dest('app/' + modules[i] + '/env/'));
-    }
+// Run App files Build / Buildmin
+gulp.task('build', ['cleanBuild'], function () {
+    return gulp.src(['**/*.*', '!**/*.tpl.*', '!**/env/*.json', '**/env/*-env.json'], { cwd: 'app/', base: './' })
+        .pipe(gulpif(/\.js$/, jshint(jshintConfig)))
+        .pipe(addsrc('**/*.*', { cwd: 'assets/', base: './' }))
+        .pipe(addsrc(['favicon.ico', 'main.tpl.js']))
+        .pipe(rename(function (file) { file.basename = file.basename.replace('.tpl', ''); }))
+        .pipe(gulpif(/\.js$/, gulpif(isProduction, uglify())))
+        .pipe(gulpif(/\.css$/, gulpif(isProduction, minifyCss())))
+        .pipe(rev())
+        .pipe(addsrc(['index.html', 'version.json']))
+        .pipe(revReplace())
+        .pipe(gulp.dest('build/'))
+        .pipe(rev.manifest('version.json', { merge: true }))
+        .pipe(gulpif(/version.json/, change(performChange)))
+        .pipe(gulp.dest('build/'));
 });
 
 // Get modules from directories inside ./app/ folder
 function getModules() {
-    var fs = require('fs'), path = require('path');
     return fs.readdirSync('./app').filter(function (file) {
         return fs.statSync(path.join('./app', file)).isDirectory();
     });
+}
+
+// Get modules from directories inside ./app/ folder
+function firstFileOrDefault(pattern) {
+    var b = glob.sync(pattern)[0];
+    return b;
+}
+
+function performChange(content) {
+    var files = JSON.parse(content);
+    var version = { version: '0.0.1', files: files };
+    return JSON.stringify(version, null, 4);
 }
