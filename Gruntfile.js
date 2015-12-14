@@ -191,7 +191,7 @@ module.exports = function (grunt) {
                 length: 16
             },
             sources: {
-                src: ['build/**/*.*', '!build/version.json', '!build/index.html', '!build/**/angular-locale*.js']
+                src: ['build/**/*.*', '!build/index.html', '!build/**/angular-locale*.js']
             }
         },
         filerev_apply_cit: {
