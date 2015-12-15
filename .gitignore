@@ -13,7 +13,6 @@ assets/css/loading.css
 assets/css/table.css
 test/e2e/protractor-result
 **/env/*-env.json
-main.js
 version.json
 *.log
 assets/css/activities.css

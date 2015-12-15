@@ -4,6 +4,9 @@ exports.config = {
 
     seleniumAddress: 'http://localhost:4444/wd/hub',
 
+    seleniumServerJar: 'node_modules/protractor/selenium/selenium-server-standalone-2.39.0.jar',
+    chromeDriver: 'node_modules/protractor/selenium/chromedriver.exe',
+
     // location of the Selenium JAR file and chromedriver, use these if you installed protractor locally
     // seleniumServerJar: '../node_modules/protractor/selenium/selenium-server-standalone-2.40.0.jar',
     // chromeDriver: '../node_modules/protractor/selenium/chromedriver',
@@ -12,7 +15,7 @@ exports.config = {
     //specs: ['./*-spec.js'],
 
     // organize tests as suites
-    suites:{
+    suites: {
         loginpage: './common/loginpage/*-spec.js',
         donatepage: './core/donatepage/*-spec.js'
     },
@@ -49,7 +52,7 @@ exports.config = {
     // body, but is necessary if ng-app is on a descendant of
     rootElement: 'body',
 
-    onPrepare: function() {
+    onPrepare: function () {
         
         // Add a reporter and store screenshots to `screnshots`:
         jasmine.getEnv().addReporter(new HtmlReporter({
