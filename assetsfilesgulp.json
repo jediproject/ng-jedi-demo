@@ -42,6 +42,7 @@
             "bower_components/cryptojslib/rollups/md5.js",
             "bower_components/angular-bootstrap/ui-bootstrap-tpls.js",
             "bower_components/angular-cookie/angular-cookie.js",
+            "bower_components/angular-file-upload-interceptor/angular-file-upload-interceptor.js",
             "bower_components/angular-i18n/angular-locale_en.js",
             "bower_components/angular-i18n/angular-locale_pt.js",
             "bower_components/angular-dynamic-locale/dist/tmhDynamicLocale.js",
