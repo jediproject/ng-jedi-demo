@@ -13,9 +13,15 @@
 ## Runing
 
 * Run the following command on bash
-```bash
-npm run start
-```
+    * Windows:
+        ```bash
+        npm run start
+        ```
+        
+    * Any *nix OS:
+        ```bash
+        npm run start-nix
+        ```
 
 * This command will load all projects dependencies, initialize mocks, and start application on http://localhost:8080
 
@@ -34,4 +40,9 @@ git config --global url."https://".insteadOf "git://"
     - With the application runing you can execute e2e tests:
 	```bash
 	grunt e2e
+	```
+    
+    - Or if you're using Linux or Mac OS:
+    ```bash
+	grunt e2e-nix
 	```
