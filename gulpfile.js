@@ -3,7 +3,6 @@ var addsrc = require('gulp-add-src');
 var argv = require('yargs').argv;
 var change = require('gulp-change');
 var clean = require('gulp-clean');
-var filelog = require('gulp-filelog');
 var filter = require('gulp-filter');
 var flatten = require('gulp-flatten');
 var fs = require('fs');
@@ -27,7 +26,7 @@ var uglify = require('gulp-uglify');
 var watch = require('gulp-watch');
 var protractor = require("gulp-protractor").protractor
 
-var assets = require('./assetsfilesgulp.json');
+var assets = require('./assetsfiles.json');
 var packageJSON = require('./package');
 var jshintConfig = packageJSON.jshintConfig;
 
@@ -83,7 +82,7 @@ gulp.task('setEnvironment', function () {
 });
 
 // Run App files Build / Buildmin
-gulp.task('build', ['cleanBuild', 'assets', 'setEnvironment'], function () {
+gulp.task('build', ['clean', 'cleanBuild', 'assets', 'setEnvironment'], function () {
     // Random version file for each build
     var versionName = 'version-' + Math.random().toString(36).substring(8) + '.json';
     var regx = new RegExp(versionName, "g");
