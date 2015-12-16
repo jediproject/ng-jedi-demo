@@ -3,6 +3,7 @@ node_modules/
 bower_components/
 assets/fonts/
 assets/libs/
+assets/css/app.css
 assets/css/bootstrap.css
 assets/css/bootstrap-datetimepicker.css
 assets/css/loading-bar.css

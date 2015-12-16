@@ -21,6 +21,7 @@ var replace = require('gulp-replace');
 var replaceTask = require('gulp-replace-task');
 var revReplace = require('gulp-rev-replace');
 var rev = require('gulp-rev');
+var sass = require('gulp-sass');
 var stylish = require('jshint-stylish');
 var uglify = require('gulp-uglify');
 var watch = require('gulp-watch');
@@ -59,7 +60,11 @@ gulp.task('assets', ['clean'], function () {
     var fonts = gulp.src(assets.fonts.src)
         .pipe(gulp.dest(assets.fonts.dest));
 
-    return merge(libs, css, fonts);
+    var scss = gulp.src('./assets/sass/**/*.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('./assets/css'));
+
+    return merge(libs, css, fonts, scss);
 });
 
 gulp.task('setEnvironment', function () {
@@ -101,11 +106,15 @@ gulp.task('build', ['cleanBuild', 'assets', 'setEnvironment'], function () {
         .pipe(gulp.dest('build/'));                                                         // Manifest output
 });
 
-gulp.task('jshint', function () {
+gulp.task('jshint:watch', function () {
     return gulp.src('app/**/*.js')
         .pipe(watch('app/**/*.js'))
         .pipe(jshint(jshintConfig))
         .pipe(jshint.reporter(stylish));
+});
+
+gulp.task('sass:watch', function () {
+    gulp.watch('./sass/**/*.scss', ['sass']);
 });
 
 // ToDo: program tests tasks
