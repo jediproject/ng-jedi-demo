@@ -3,6 +3,7 @@ var addsrc = require('gulp-add-src');
 var argv = require('yargs').argv;
 var change = require('gulp-change');
 var clean = require('gulp-clean');
+var file = require('gulp-file');
 var filter = require('gulp-filter');
 var flatten = require('gulp-flatten');
 var fs = require('fs');
@@ -30,6 +31,7 @@ var assets = require('./assetsfiles.json');
 var packageJSON = require('./package');
 var jshintConfig = packageJSON.jshintConfig;
 
+var version = { version: '0.0.1', files: {} };
 var isProduction = argv.env === 'master' || argv.env === 'mirror';
 argv.env = argv.env ? argv.env : 'develop'
 
@@ -63,7 +65,10 @@ gulp.task('assets', ['clean'], function () {
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('./assets/css'));
 
-    return merge(libs, css, fonts, scss);
+    var versionFile = file('version.json', JSON.stringify(version, null, 4), { src: true })
+        .pipe(gulp.dest('./'));
+
+    return merge(libs, css, fonts, scss, versionFile);
 });
 
 gulp.task('setEnvironment', function () {
@@ -135,7 +140,7 @@ function getModules() {
 // Modify manifest to template
 function modifyManifest(content) {
     var files = JSON.parse(content);
-    var version = { version: '0.0.1', files: files };
+    version.files = files;
     return JSON.stringify(version, null, 4);
 }
 
