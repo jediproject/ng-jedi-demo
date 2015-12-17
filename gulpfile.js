@@ -88,21 +88,21 @@ gulp.task('build', ['clean', 'cleanBuild', 'assets', 'setEnvironment'], function
     var regx = new RegExp(versionName, "g");
 
     return gulp.src(['**/*.*', '!**/*.tpl.*', '!**/env/*.*'], { cwd: 'app/', base: './' })
-        .pipe(gulpif(/\.js$/, jshint(jshintConfig)))                                        // JSHint only JS files from project
-        .pipe(jshint.reporter(stylish))                                                     // Better output for lint errors
-        .pipe(jshint.reporter('fail'))                                                      // Raise exception on lint error
-        .pipe(addsrc(['favicon.ico', 'main.js', '**/env/*-env.json']))                      // Add root project folder files
-        .pipe(addsrc(['**/*.*', '!img/dogs/*.*'], { cwd: 'assets/', base: './' }))          // Add assets files
-        .pipe(gulpif(/\.js$/, gulpif(isProduction, uglify())))                              // Uglify all JS files
-        .pipe(gulpif(/\.css$/, gulpif(isProduction, minifyCss())))                          // Minify all CSS files
-        .pipe(rev())                                                                        // Versioning for cache bust
-        .pipe(addsrc(['index.html', '**/img/dogs/*.*']))                                    // Add files that can't be reved.
-        .pipe(revReplace({ modifyUnreved: modifyToReplace, modifyReved: modifyToReplace })) // Replace rev references
-        .pipe(gulpif(/main\-[0-9a-z]+\.js$/, replace('version.json', versionName)))         // Replace version reference in main-*.js
-        .pipe(gulp.dest('build/'))                                                          // Build output
-        .pipe(rev.manifest(versionName, { merge: true }))                                   // Create manifest file
-        .pipe(gulpif(regx, change(modifyManifest)))                                         // Change manifest structure to mach previous version.
-        .pipe(gulp.dest('build/'));                                                         // Manifest output
+        .pipe(gulpif(/\.js$/, jshint(jshintConfig)))                                                // JSHint only JS files from project
+        .pipe(jshint.reporter(stylish))                                                             // Better output for lint errors
+        .pipe(jshint.reporter('fail'))                                                              // Raise exception on lint error
+        .pipe(addsrc(['favicon.ico', 'main.js', '**/env/*-env.json']))                              // Add root project folder files
+        .pipe(addsrc(['**/*.*', '!sass/**/*.*', '!img/dogs/*.*'], { cwd: 'assets/', base: './' }))  // Add assets files
+        .pipe(gulpif(/\.js$/, gulpif(isProduction, uglify())))                                      // Uglify all JS files
+        .pipe(gulpif(/\.css$/, gulpif(isProduction, minifyCss())))                                  // Minify all CSS files
+        .pipe(rev())                                                                                // Versioning for cache bust
+        .pipe(addsrc(['index.html', '**/img/dogs/*.*']))                                            // Add files that can't be reved.
+        .pipe(revReplace({ modifyUnreved: modifyToReplace, modifyReved: modifyToReplace }))         // Replace rev references
+        .pipe(gulpif(/main\-[0-9a-z]+\.js$/, replace('version.json', versionName)))                 // Replace version reference in main-*.js
+        .pipe(gulp.dest('build/'))                                                                  // Build output
+        .pipe(rev.manifest(versionName, { merge: true }))                                           // Create manifest file
+        .pipe(gulpif(regx, change(modifyManifest)))                                                 // Change manifest structure to mach previous version.
+        .pipe(gulp.dest('build/'));                                                                 // Manifest output
 });
 
 gulp.task('jshint:watch', function () {
