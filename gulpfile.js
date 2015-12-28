@@ -25,12 +25,13 @@ var sass = require('gulp-sass');
 var stylish = require('jshint-stylish');
 var uglify = require('gulp-uglify');
 var watch = require('gulp-watch');
-var protractor = require("gulp-protractor").protractor
+var protractor = require("gulp-protractor").protractor;
 
 var assets = require('./assetsfiles.json');
 var packageJSON = require('./package');
 var jshintConfig = packageJSON.jshintConfig;
 
+var versionName, versionFileRegx = null;
 var version = { version: '0.0.1', files: {} };
 var isProduction = argv.env === 'master' || argv.env === 'mirror';
 argv.env = argv.env ? argv.env : 'develop'
@@ -89,15 +90,15 @@ gulp.task('setEnvironment', function () {
 // Run App files Build / Buildmin
 gulp.task('build', ['clean', 'cleanBuild', 'assets', 'setEnvironment'], function () {
     // Random version file for each build
-    var versionName = 'version-' + Math.random().toString(36).substring(8) + '.json';
-    var regx = new RegExp(versionName, "g");
+    versionName = 'version-' + Math.random().toString(36).substring(8) + '.json';
+    versionFileRegx = new RegExp(versionName, "g");
 
     return gulp.src(['**/*.*', '!**/*.tpl.*', '!**/env/*.*'], { cwd: 'app/', base: './' })
         .pipe(gulpif(/\.js$/, jshint(jshintConfig)))                                                // JSHint only JS files from project
         .pipe(jshint.reporter(stylish))                                                             // Better output for lint errors
         .pipe(jshint.reporter('fail'))                                                              // Raise exception on lint error
         .pipe(addsrc(['favicon.ico', 'main.js', '**/env/*-env.json']))                              // Add root project folder files
-        .pipe(addsrc(['**/*.*', '!sass/**/*.*', '!img/dogs/*.*'], { cwd: 'assets/', base: './' }))  // Add assets files
+        .pipe(addsrc(['**/*.*', '!**/*.scss', '!img/dogs/*.*'], { cwd: 'assets/', base: './' }))    // Add assets files
         .pipe(gulpif(/\.js$/, gulpif(isProduction, uglify())))                                      // Uglify all JS files
         .pipe(gulpif(/\.css$/, gulpif(isProduction, minifyCss())))                                  // Minify all CSS files
         .pipe(rev())                                                                                // Versioning for cache bust
@@ -106,19 +107,35 @@ gulp.task('build', ['clean', 'cleanBuild', 'assets', 'setEnvironment'], function
         .pipe(gulpif(/main\-[0-9a-z]+\.js$/, replace('version.json', versionName)))                 // Replace version reference in main-*.js
         .pipe(gulp.dest('build/'))                                                                  // Build output
         .pipe(rev.manifest(versionName, { merge: true }))                                           // Create manifest file
-        .pipe(gulpif(regx, change(modifyManifest)))                                                 // Change manifest structure to mach previous version.
+        .pipe(gulpif(versionFileRegx, change(modifyManifest)))                                      // Change manifest structure to mach previous version.
         .pipe(gulp.dest('build/'));                                                                 // Manifest output
 });
 
-gulp.task('jshint:watch', function () {
-    return gulp.src('app/**/*.js')
-        .pipe(watch('app/**/*.js'))
-        .pipe(jshint(jshintConfig))
-        .pipe(jshint.reporter(stylish));
+gulp.task('watch', ['sass:watch', 'build:watch', 'assets:watch'], function () { });
+
+// Watch task to build app/
+gulp.task('build:watch', function () {
+    return watch(['**/*.*', '!**/*.tpl.*', '!**/env/*.*'], { cwd: 'app/', base: './' })
+        .pipe(gulpif(/\.js$/, jshint(jshintConfig)))
+        .pipe(jshint.reporter(stylish))
+        .pipe(gulpif(/\.js$/, gulpif(isProduction, uglify())))
+        .pipe(gulpif(/\.css$/, gulpif(isProduction, minifyCss())))
+        .pipe(rename(setVersionFileName))
+        .pipe(gulp.dest('build/'));
 });
 
+gulp.task('assets:watch', function () {
+    return watch(['**/*.css'], { cwd: 'assets/', base: './' })
+        .pipe(gulpif(/\.css$/, gulpif(isProduction, minifyCss())))
+        .pipe(rename(setVersionFileName))
+        .pipe(gulp.dest('build/'));
+});
+
+// Watch Sass files to compile Css
 gulp.task('sass:watch', function () {
-    gulp.watch('./sass/**/*.scss', ['sass']);
+    return watch('./assets/sass/**/*.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('./assets/css'));
 });
 
 // ToDo: program tests tasks
@@ -148,4 +165,11 @@ function modifyManifest(content) {
 function modifyToReplace(filename) {
     if (filename.indexOf('/') > -1) filename = filename.replace(/\.js$/, '');
     return filename.replace('assets', '').replace(/^\/+/g, '');
+}
+
+// Remove optional paths in search for replace revved files
+function setVersionFileName(file) {
+    var version = require(glob.sync('./build/version*.json')[0]);
+    var versionedFileName = version.files[path.posix.join(file.dirname.replace('\\', '/'), file.basename + file.extname)];
+    return file.basename = path.basename(versionedFileName, path.extname(versionedFileName));
 }

@@ -7,7 +7,7 @@
 			"request": "launch",
 			"program": "./node_modules/gulp/bin/gulp.js",
 			"stopOnEntry": false,
-			"args": ["build"],
+			"args": ["watch"],
 			"cwd": ".",
 			"runtimeExecutable": null,
 			"runtimeArgs": [
