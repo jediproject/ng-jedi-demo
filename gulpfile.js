@@ -25,7 +25,6 @@ var sass = require('gulp-sass');
 var stylish = require('jshint-stylish');
 var uglify = require('gulp-uglify');
 var watch = require('gulp-watch');
-var protractor = require("gulp-protractor").protractor;
 
 var assets = require('./assetsfiles.json');
 var packageJSON = require('./package');
@@ -136,15 +135,6 @@ gulp.task('sass:watch', function () {
     return watch('./assets/sass/**/*.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('./assets/css'));
-});
-
-// ToDo: program tests tasks
-gulp.task('protractor', function () {
-    gulp.src('files')
-        .pipe(protractor({
-            configFile: 'test/e2e/protractor-conf.js'
-        }))
-        .on('error', function (e) { throw e })
 });
 
 // Get modules from directories inside ./app/ folder
