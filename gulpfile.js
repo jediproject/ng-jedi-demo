@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var addsrc = require('gulp-add-src');
 var argv = require('yargs').argv;
+var autoprefixer = require('gulp-autoprefixer');
 var change = require('gulp-change');
 var clean = require('gulp-clean');
 var file = require('gulp-file');
@@ -60,6 +61,7 @@ gulp.task('assets', ['clean'], function () {
 
     var scss = gulp.src('./assets/sass/**/*.scss')
         .pipe(sass().on('error', sass.logError))
+        .pipe(autoprefixer())
         .pipe(gulp.dest('./assets/css'));
 
     var versionFile = file('version.json', JSON.stringify(version, null, 4), { src: true })
@@ -131,6 +133,7 @@ gulp.task('assets:watch', function () {
 gulp.task('sass:watch', function () {
     return watch('./assets/sass/**/*.scss')
         .pipe(sass().on('error', sass.logError))
+        .pipe(autoprefixer())
         .pipe(gulp.dest('./assets/css'));
 });
 
