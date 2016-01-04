@@ -1,4 +1,4 @@
-@import "compass";
+@import "../../node_modules/compass-mixins/lib/compass";
 
 /* custom css */
 .body-wide #header {
@@ -63,4 +63,8 @@ div.divider {
 a[disabled] img, img[disabled] {
     filter: alpha(opacity=60);
     opacity: .6;
+}
+
+:fullscreen a {
+    display: flex
 }
