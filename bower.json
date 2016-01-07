@@ -50,7 +50,8 @@
     "angular": "=1.4.8",
     "eonasdan-bootstrap-datetimepicker": "=4.14.30",
     "moment": "=2.10.6",
-    "bootstrap": "=3.3.6"
+    "bootstrap": "=3.3.6",
+    "requirejs": "=2.1.22"
   },
   "devDependencies": {}
 }

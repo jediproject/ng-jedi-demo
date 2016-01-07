@@ -8,17 +8,17 @@
   "dependencies": {
     "bower": "=1.7.1",
     "chalk": "=1.1.1",
-    "ember-cli-bootstrap": "0.0.15",
+    "ember-cli-bootstrap": "=0.0.15",
     "lodash": "=3.10.1"
   },
   "devDependencies": {
     "angular-mocks": "=1.4.8",
     "apimocker": "=0.4.7",
-    "compass-mixins": "^0.12.7",
+    "compass-mixins": "=0.12.7",
     "glob": "=6.0.1",
     "gulp": "=3.9.0",
     "gulp-add-src": "=0.2.0",
-    "gulp-autoprefixer": "^3.1.0",
+    "gulp-autoprefixer": "=3.1.0",
     "gulp-change": "=1.0.0",
     "gulp-clean": "=0.3.1",
     "gulp-file": "=0.2.0",
@@ -53,21 +53,21 @@
     "merge-stream": "=1.0.0",
     "phantomjs": "=1.9.19",
     "protractor": "=3.0.0",
-    "protractor-html-screenshot-reporter": "0.0.21",
+    "protractor-html-screenshot-reporter": "=0.0.21",
     "requirejs": "=2.1.22",
     "yargs": "=3.31.0"
   },
   "scripts": {
-    "develop": "npm install && bower install && gulp",
-    "release": "npm install && bower install && gulp build --env=release",
-    "master": "npm install && bower install && gulp build --env=master",
-    "start": "npm install && bower install && gulp && start node node_modules/apimocker/bin/apimocker.js -c mocks/config.json && start node node_modules/json-server/bin/index.js mocks/animals/animals.json -p 3001 && node node_modules/http-server/bin/http-server -a localhost -p 8080",
-    "unit": "npm install && bower install && gulp && start node node_modules/apimocker/bin/apimocker.js -c mocks/config.json && start node node_modules/json-server/bin/index.js mocks/animals/animals.json -p 3001 && karma start test/unit/karma.conf.js",
-    "e2e": "npm install && bower install && gulp && start node node_modules/apimocker/bin/apimocker.js -c mocks/config.json && start node node_modules/json-server/bin/index.js mocks/animals/animals.json -p 3001 && start webdriver-manager start && start node node_modules/http-server/bin/http-server -a localhost -p 8080 && protractor test/e2e/protractor-conf.js",
     "heroku": "bower install && bower update && gulp",
-    "start-nix": "npm install && bower install && gulp && (node node_modules/apimocker/bin/apimocker.js -c mocks/config.json & node node_modules/json-server/bin/index.js mocks/animals/animals.json -p 3001 & node node_modules/http-server/bin/http-server -a localhost -p 8080)",
-    "unit-nix": "npm install && bower install && gulp && (node node_modules/apimocker/bin/apimocker.js -c mocks/config.json & node node_modules/json-server/bin/index.js mocks/animals/animals.json -p 3001 & karma start test/unit/karma.conf.js)",
-    "e2e-nix": "npm install && bower install && gulp && (node node_modules/apimocker/bin/apimocker.js -c mocks/config.json & node node_modules/json-server/bin/index.js mocks/animals/animals.json -p 3001 & webdriver-manager start & node node_modules/http-server/bin/http-server -a localhost -p 8080 & protractor test/e2e/protractor-conf.js)"
+    "develop": "npm install && node node_modules/bower/bin/bower install && node node_modules/gulp/bin/gulp.js",
+    "release": "npm install && node node_modules/bower/bin/bower install && node node_modules/gulp/bin/gulp.js build --env=release",
+    "master": "npm install && node node_modules/bower/bin/bower install && node node_modules/gulp/bin/gulp.js build --env=master",
+    "start": "npm install && node node_modules/bower/bin/bower install && node node_modules/gulp/bin/gulp.js && start node node_modules/apimocker/bin/apimocker.js -c mocks/config.json && start node node_modules/json-server/bin/index.js mocks/animals/animals.json -p 3001 && node node_modules/http-server/bin/http-server -a localhost -p 8080",
+    "unit": "npm install && node node_modules/bower/bin/bower install && node node_modules/gulp/bin/gulp.js && start node node_modules/apimocker/bin/apimocker.js -c mocks/config.json && start node node_modules/json-server/bin/index.js mocks/animals/animals.json -p 3001 && karma start test/unit/karma.conf.js",
+    "e2e": "npm install && node node_modules/bower/bin/bower install && node node_modules/gulp/bin/gulp.js && start node node_modules/apimocker/bin/apimocker.js -c mocks/config.json && start node node_modules/json-server/bin/index.js mocks/animals/animals.json -p 3001 && start webdriver-manager start && start node node_modules/http-server/bin/http-server -a localhost -p 8080 && protractor test/e2e/protractor-conf.js",
+    "start-nix": "npm install && node node_modules/bower/bin/bower install && node node_modules/gulp/bin/gulp.js && (node node_modules/apimocker/bin/apimocker.js -c mocks/config.json & node node_modules/json-server/bin/index.js mocks/animals/animals.json -p 3001 & node node_modules/http-server/bin/http-server -a localhost -p 8080)",
+    "unit-nix": "npm install && node node_modules/bower/bin/bower install && node node_modules/gulp/bin/gulp.js && (node node_modules/apimocker/bin/apimocker.js -c mocks/config.json & node node_modules/json-server/bin/index.js mocks/animals/animals.json -p 3001 & karma start test/unit/karma.conf.js)",
+    "e2e-nix": "npm install && node node_modules/bower/bin/bower install && node node_modules/gulp/bin/gulp.js && (node node_modules/apimocker/bin/apimocker.js -c mocks/config.json & node node_modules/json-server/bin/index.js mocks/animals/animals.json -p 3001 & webdriver-manager start & node node_modules/http-server/bin/http-server -a localhost -p 8080 & protractor test/e2e/protractor-conf.js)"
   },
   "jshintConfig": {
     "globalstrict": true,
