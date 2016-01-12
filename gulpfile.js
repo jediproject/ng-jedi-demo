@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var addsrc = require('gulp-add-src');
 var argv = require('yargs').argv;
 var autoprefixer = require('gulp-autoprefixer');
+var browserSync = require('browser-sync').create();
 var change = require('gulp-change');
 var clean = require('gulp-clean');
 var file = require('gulp-file');
@@ -83,6 +84,14 @@ gulp.task('sprite', function () {
         .pipe(gulpif('*.png', gulp.dest('./assets/img/sprite/'), gulp.dest('./assets/css/')));
 });
 
+gulp.task('sass', function () {
+    return gulp.src('./assets/sass/**/*.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(autoprefixer())
+        .pipe(gulp.dest('./assets/css'))
+        .pipe(browserSync.stream());
+});
+
 gulp.task('setEnvironment', function () {
     // Get modules from folders inside "./app/"
     var modules = getModules();
@@ -148,6 +157,21 @@ gulp.task('sass:watch', function () {
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer())
         .pipe(gulp.dest('./assets/css'));
+});
+
+gulp.task('build-watch', ['build'], function () {return browserSync.reload()});
+
+// Static server
+gulp.task('serve', ['build'], function() {
+    browserSync.init({
+        server: {
+            baseDir: "./"
+        },
+        port: 8080
+    });
+    
+    gulp.watch('app/**/*').on('change', browserSync.reload);
+    gulp.watch('assets/sass/**/*', ['sass']);
 });
 
 // Get modules from directories inside ./app/ folder

@@ -53,7 +53,8 @@
 		"method1 chamado": "Method1 called",
 		"method2 chamado": "Method2 called",
 		"confirmação": "Confirmation",
-		"teste de confirmação?": "Confirmation test?"
+		"teste de confirmação?": "Confirmation test?",
+        "login inválido!": "Invalid login!"
 	},
 	"regexResources": {
 		"Valor: (.*)": "Value: $1"
