@@ -18,8 +18,8 @@
             <!--#===== yeoman menu hook =====#-->
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="javascript:;" alt="Português" ng-disabled="appCtrl.getLanguage() == 'pt'"><img src="assets/img/pt-BR.png" ng-click="appCtrl.setLanguage('pt')" /></a></li>
-            <li><a href="javascript:;" alt="English" ng-disabled="appCtrl.getLanguage() == 'en'"><img src="assets/img/en-US.png" ng-click="appCtrl.setLanguage('en')" /></a></li>
+            <li><a href="javascript:;" alt="Português" ng-disabled="appCtrl.getLanguage() == 'pt'"><img class="icon icon-pt-BR" ng-click="appCtrl.setLanguage('pt')" /></a></li>
+            <li><a href="javascript:;" alt="English" ng-disabled="appCtrl.getLanguage() == 'en'"><img class="icon icon-en-US" ng-click="appCtrl.setLanguage('en')" /></a></li>
             <li><a href="javascript:;" jd-i18n title="Sair" ng-click="appCtrl.signout()"><span class="glyphicon glyphicon-off"></span></a></li>
         </ul>
         <div class="nav navbar-nav navbar-right"><p class="navbar-text">{{appContext.identity.name}}</p></div>

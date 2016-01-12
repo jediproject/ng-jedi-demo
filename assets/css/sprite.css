@@ -1,0 +1,13 @@
+.icon {
+  background-image: url(../../assets/img/sprite/sprite.png);
+}
+.icon-en-US {
+  background-position: -0px -0px;
+  width: 31px;
+  height: 23px;
+}
+.icon-pt-BR {
+  background-position: -0px -23px;
+  width: 30px;
+  height: 23px;
+}
