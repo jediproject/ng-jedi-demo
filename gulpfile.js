@@ -61,11 +61,6 @@ gulp.task('assets', ['clean'], function () {
     var fonts = gulp.src(assets.fonts.src)
         .pipe(gulp.dest(assets.fonts.dest));
 
-    var sprites = sprity.src({ src: ['./assets/img/*.png'], 
-                        style: './assets/css/sprite.css',
-                        cssPath: './assets/img/sprite/' })
-        .pipe(gulpif('*.png', gulp.dest('./assets/img/sprite/'), gulp.dest('./assets/css/')));
-
     var scss = gulp.src('./assets/sass/**/*.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer())
@@ -74,7 +69,7 @@ gulp.task('assets', ['clean'], function () {
     var versionFile = file('version.json', JSON.stringify(version, null, 4), { src: true })
         .pipe(gulp.dest('./'));
 
-    return merge(libs, css, fonts, sprites, scss, versionFile);
+    return merge(libs, css, fonts, scss, versionFile);
 });
 
 gulp.task('sprite', function () {
