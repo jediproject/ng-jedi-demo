@@ -154,8 +154,6 @@ gulp.task('sass:watch', function () {
         .pipe(gulp.dest('./assets/css'));
 });
 
-gulp.task('build-watch', ['build'], function () {return browserSync.reload()});
-
 // Static server
 gulp.task('serve', ['build'], function() {
     browserSync.init({
