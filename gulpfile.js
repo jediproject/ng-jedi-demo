@@ -39,7 +39,7 @@ gulp.task('default', ['clean', 'assets', 'setEnvironment'], function () { });
 
 // Clean Build
 gulp.task('clean', function () {
-    return gulp.src(['assets/libs', 'assets/css/*', 'assets/fonts', '!assets/css/app.css'])
+    return gulp.src(['assets/libs', 'assets/css/*', 'assets/fonts', '!assets/css/app.css', '!assets/css/sprite.css'])
         .pipe(clean());
 });
 
