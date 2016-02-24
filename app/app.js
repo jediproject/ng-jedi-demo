@@ -91,6 +91,16 @@ define([
                 return identity;
             }
         });
+
+        RestangularProvider.addResponseInterceptor(function (data, operation, what, url, response, deferred) {
+            if (operation === "getList" || operation === "post") {
+                var count = response.headers('X-Total-Count');
+                if (count) {
+                    data.totalCount = count;
+                }
+            }
+            return data;
+        });
     }]);
 
     app.run(['$http', '$route', '$rootScope', '$location', 'jedi.dialogs.AlertHelper', '$timeout', '$injector', '$log', 'jedi.i18n.Localize', function ($http, $route, $rootScope, $location, alertHelper, $timeout, $injector, $log, localize) {
@@ -118,7 +128,7 @@ define([
             $log.info('Load modules');
 
             // load app modules (e.g.: core, billing)
-            jd.factory.loadModules(['core'], function (module) {
+            jd.factory.loadModules(['core', 'admin'], function (module) {
                 // adiciona path para i18n do sistema
                 localize.addResource('app/' + module + '/i18n/resources_{lang}.json');
             }, function () {
@@ -142,6 +152,11 @@ define([
                         breadcrumb: ['Comum', 'Componentes'],
                         templateUrl: jd.factory.getFileVersion('app/common/features/components/components.html'),
                         controllerUrl: jd.factory.getFileVersion('app/common/features/components/components-ctrl.js')
+                    })).
+                    when('/admin/photos', angularAMD.route({
+                        breadcrumb: ['Administração', 'Fotos'],
+                        templateUrl: jd.factory.getFileVersion('app/admin/features/photos/photos.html'),
+                        controllerUrl: jd.factory.getFileVersion('app/admin/features/photos/photos-ctrl.js')
                     }));
                 
                 $route.reload();

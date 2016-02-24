@@ -1,0 +1,23 @@
+<form jd-panel jd-title="Cadastro de Fotos" ng-controller="app.admin.photos.PhotosCtrl as photosCtrl">
+    <div jd-panel jd-title="Filtros" jd-toggle>
+        <div class="row">
+            <input jd-input jd-label="Título" ng-model="photosCtrl.photosModel.titleFilter">
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <button class="btn btn-primary" ng-click="photosCtrl.filter()">Filtrar</button>
+                <button class="btn btn-info" ng-click="photosCtrl.clean()">Limpar</button>
+            </div>
+        </div>
+    </div>
+
+    <div jd-panel jd-title="Resultado" jd-toggle>
+        <table jd-table="photosCtrl.photosTbConfig" jd-paginated>
+            <td jd-sortable jd-attribute="id" jd-title="Código"></td>
+            <td jd-sortable jd-attribute="title" jd-title="Título"></td>
+            <td jd-sortable jd-title="Preview">
+                <img ng-src="{{item.thumbnailUrl}}">
+            </td>
+        </table>
+    </div>
+</form>
