@@ -69,24 +69,24 @@
 	</div>
 
 	<p class="text-warning">
-		<strong jd-i18n>Máscaras</strong>
+		<strong><a jd-i18n href="https://github.com/assisrafael/angular-input-masks">Máscaras</a></strong>
 		<hr>
 	</p>
 
 	<div class="row">
-		<input jd-input jd-label="CPF" jd-help="Valor: {{componentsCtrl.componentsModel.data.cpf | json}}" ng-model="componentsCtrl.componentsModel.data.cpf" type="text" required mask="cpf" />
+		<input jd-input jd-label="CPF" jd-help="Valor: {{componentsCtrl.componentsModel.data.cpf | json}}" ng-model="componentsCtrl.componentsModel.data.cpf" type="text" required ui-br-cpf-mask />
 
-		<input jd-input jd-label="CNPJ" jd-help="Valor: {{componentsCtrl.componentsModel.data.cnpj | json}}" ng-model="componentsCtrl.componentsModel.data.cnpj" type="text" required mask="cnpj" />
+		<input jd-input jd-label="CNPJ" jd-help="Valor: {{componentsCtrl.componentsModel.data.cnpj | json}}" ng-model="componentsCtrl.componentsModel.data.cnpj" type="text" required ui-br-cnpj-mask />
 
-		<input jd-input jd-label="CEP" jd-help="Valor: {{componentsCtrl.componentsModel.data.cep | json}}" ng-model="componentsCtrl.componentsModel.data.cep" type="text" required mask="cep" />
+		<input jd-input jd-label="CEP" jd-help="Valor: {{componentsCtrl.componentsModel.data.cep | json}}" ng-model="componentsCtrl.componentsModel.data.cep" type="text" required ui-br-cep-mask />
 
-		<input jd-input jd-label="Inteiro" jd-help="Valor: {{componentsCtrl.componentsModel.data.int | json}}" ng-model="componentsCtrl.componentsModel.data.int" type="text" required mask="int" />
+		<input jd-input jd-label="Inteiro" jd-help="Valor: {{componentsCtrl.componentsModel.data.int | json}}" ng-model="componentsCtrl.componentsModel.data.int" type="text" required ui-number-mask="0" ui-hide-group-sep />
 
-		<input jd-input jd-label="Telefone" jd-help="Valor: {{componentsCtrl.componentsModel.data.tel | json}}" ng-model="componentsCtrl.componentsModel.data.tel" type="text" required mask="tel" />
+		<input jd-input jd-label="Telefone" jd-help="Valor: {{componentsCtrl.componentsModel.data.tel | json}}" ng-model="componentsCtrl.componentsModel.data.tel" type="text" required ui-br-phone-number />
 
-		<input jd-input jd-label="Outro" jd-help="Valor: {{componentsCtrl.componentsModel.data.other | json}}" ng-model="componentsCtrl.componentsModel.data.other" type="text" required mask="9999-9999-9999" />
+		<input jd-input jd-label="Decimal" jd-help="Valor: {{componentsCtrl.componentsModel.data.decimal | json}}" ng-model="componentsCtrl.componentsModel.data.decimal" type="text" required ui-number-mask />
 
-		<input jd-input jd-label="Decimal" jd-help="Valor: {{componentsCtrl.componentsModel.data.decimal | json}}" ng-model="componentsCtrl.componentsModel.data.decimal" type="text" required ng-currency-mask currency="" />
+        <input jd-input jd-label="Money" jd-help="Valor: {{componentsCtrl.componentsModel.data.money | json}}" ng-model="componentsCtrl.componentsModel.data.money" type="text" required ui-money-mask />
 	</div>
 
 	<p class="text-warning">

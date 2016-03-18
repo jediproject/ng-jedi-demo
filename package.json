@@ -3,7 +3,6 @@
   "private": true,
   "version": "0.0.1",
   "description": "Adote-me",
-  "repository": "",
   "license": "MIT",
   "dependencies": {
     "bower": "=1.7.1",
