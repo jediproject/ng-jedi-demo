@@ -46,7 +46,10 @@ require.config({
         'restangular': 'assets/libs/restangular/restangular',
         'angular-toastr': 'assets/libs/angular-toastr/angular-toastr.tpls',
         'angular-indexed-db': 'assets/libs/angular-indexed-db/angular-indexed-db',
-        'angular-input-masks': 'assets/libs/angular-input-masks/angular-input-masks-standalone.min',
+        'angular-input-masks': 'assets/libs/angular-input-masks/angular-input-masks',
+        'br-validations': 'assets/libs/br-validations/br-validations.min',
+        'string-mask': 'assets/libs/string-mask/string-mask',
+        'angular-ngMask': 'assets/libs/angular-ngMask-alias/ngMask',
 
         //## 3rd party non angular scripts
         'bootstrap': 'assets/libs/bootstrap/bootstrap',
@@ -79,13 +82,14 @@ require.config({
         "angular-i18n": ["angular"],
         "angularAMD": ["angular"],
         "angular-bootstrap": ["bootstrap", "angular"],
-        "angular-input-masks": ["angular"],
+        "angular-input-masks": ["angular", "string-mask", "br-validations", "moment"],
         "angular-toastr": ["angular"],
         "angular-file-upload": ["angular"],
         "restangular": ["lodash", "angular"],
         "angular-loading-bar": ["angular"],
         'angular-dynamic-locale': ["angular"],
-        'angular-indexed-db': ['angular']
+        'angular-indexed-db': ['angular'],
+        'angular-ngMask': ['angular']
     },
 
     // kick start application

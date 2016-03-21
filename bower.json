@@ -43,7 +43,8 @@
     "weather-icons": "=2.0.10",
     "jquery": "=2.1.4",
     "angular-cookie": "=4.0.9",
-    "angular-input-masks": "=2.1.1"
+    "angular-input-masks": "=2.1.1",
+    "angular-ngMask-alias": "*"
   },
   "resolutions": {
     "angular": "=1.4.8",

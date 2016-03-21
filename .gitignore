@@ -18,3 +18,4 @@ version.json
 *.log
 assets/css/activities.css
 .vscode/
+.history/
