@@ -1,4 +1,7 @@
 "use strict";
+ 
+ /** @TODO workaround to make angular-input-mask work with requirejs  */
+var _require = require;
 
 // added to avoid concat app for all paths started with app
 require.jsExtRegExp = /^app\/|^\/|:|\?|\.js$/;
@@ -82,7 +85,12 @@ require.config({
         "angular-i18n": ["angular"],
         "angularAMD": ["angular"],
         "angular-bootstrap": ["bootstrap", "angular"],
-        "angular-input-masks": ["angular", "string-mask", "br-validations", "moment"],
+        "angular-input-masks": {
+            deps:  ["angular", "string-mask", "br-validations", "moment"],
+            init: function() {
+                require = _require;
+            }
+        },
         "angular-toastr": ["angular"],
         "angular-file-upload": ["angular"],
         "restangular": ["lodash", "angular"],
