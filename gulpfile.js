@@ -126,7 +126,35 @@ gulp.task('build', ['clean', 'cleanBuild', 'assets', 'setEnvironment'], function
         .pipe(gulp.dest(buildFolder));                                                              // Manifest output
 });
 
-// Static server with watch
+gulp.task('watch', ['sass:watch', 'build:watch', 'assets:watch'], function () { });
+
+// Watch task to build app/
+gulp.task('build:watch', function () {
+    return watch(['**/*.*', '!**/*.tpl.*', '!**/env/*.*'], { cwd: appFolder, base: './' })
+        .pipe(gulpif(/\.js$/, jshint(jshintConfig)))
+        .pipe(jshint.reporter(stylish))
+        .pipe(gulpif(/\.js$/, gulpif(isProduction, uglify())))
+        .pipe(gulpif(/\.css$/, gulpif(isProduction, minifyCss())))
+        .pipe(rename(setVersionFileName))
+        .pipe(gulp.dest(buildFolder));
+});
+
+gulp.task('assets:watch', function () {
+    return watch(['**/*.css'], { cwd: 'assets/', base: './' })
+        .pipe(gulpif(/\.css$/, gulpif(isProduction, minifyCss())))
+        .pipe(rename(setVersionFileName))
+        .pipe(gulp.dest(buildFolder));
+});
+
+// Watch Sass files to compile Css
+gulp.task('sass:watch', function () {
+    return watch('./assets/sass/**/*.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(autoprefixer())
+        .pipe(gulp.dest('./assets/css'));
+});
+
+// Static server
 gulp.task('serve', ['build'], function() {
     browserSync.init({
         server: {

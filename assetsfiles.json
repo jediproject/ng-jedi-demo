@@ -47,8 +47,10 @@
             "bower_components/angular-i18n/angular-locale_pt.js",
             "bower_components/angular-dynamic-locale/dist/tmhDynamicLocale.js",
             "bower_components/angular-loading-bar/build/loading-bar.js",
+            "bower_components/angular-ngMask-alias/dist/ngMask.js",
             "bower_components/angular-route/angular-route.js",
             "bower_components/angularAMD/angularAMD.js",
+            "bower_components/ng-currency-mask/dist/ng-currency-mask.js",
             "bower_components/restangular/dist/restangular.js",
             "bower_components/bootstrap/dist/js/bootstrap.js",
             "bower_components/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js",
@@ -72,11 +74,7 @@
             "bower_components/ng-jedi-table/table.js",
             "bower_components/angular-toastr/dist/angular-toastr.tpls.js",
             "bower_components/ng-jedi-activities/activities.js",
-            "bower_components/angular-indexed-db/angular-indexed-db.js",
-            "bower_components/angular-input-masks/angular-input-masks.js",
-            "bower_components/br-validations/releases/br-validations.min.js",
-            "bower_components/string-mask/src/string-mask.js",
-            "bower_components/angular-ngMask-alias/dist/ngMask.js"
+            "bower_components/angular-indexed-db/angular-indexed-db.js"
         ]
     }
 }
