@@ -6,7 +6,7 @@
   "repository": "",
   "license": "MIT",
   "dependencies": {
-    "bower": "=1.7.1",
+    "bower": "=1.5.3",
     "chalk": "=1.1.1",
     "ember-cli-bootstrap": "=0.0.15",
     "lodash": "=3.10.1"
