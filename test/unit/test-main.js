@@ -37,7 +37,7 @@ require.config({
         'ng-jedi-activities': 'assets/libs/ng-jedi-activities/activities',
         'ng-jedi-security': 'assets/libs/ng-jedi-security/security',
         'ng-jedi-table': 'assets/libs/ng-jedi-table/table',
-        
+
         // ## Common Components
         'app-common': 'app/common/common-app',
         'app-common-env': 'app/common/env/common-env.json',

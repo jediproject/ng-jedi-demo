@@ -78,7 +78,7 @@ define([
         ActivitiesConfig.saveLabel = 'Salvar';
         ActivitiesConfig.removeLabel = 'Excluir';
 
-        LocalizeConfig.defaultLanguage = 'pt';
+        LocalizeConfig.defaultLanguage = 'en';
 
         // configure authService
         authServiceProvider.config({
@@ -158,7 +158,7 @@ define([
                         templateUrl: jd.factory.getFileVersion('app/admin/features/photos/photos.html'),
                         controllerUrl: jd.factory.getFileVersion('app/admin/features/photos/photos-ctrl.js')
                     }));
-                
+
                 $route.reload();
             });
 

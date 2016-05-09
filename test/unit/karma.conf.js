@@ -16,15 +16,15 @@ module.exports = function(config) {
             'test/unit/test-main.js',
             'bower_components/ng-jedi-factory/test-factory.js',
             {
-                pattern: 'node_modules/angular-mocks/angular-mocks.js', 
+                pattern: 'node_modules/angular-mocks/angular-mocks.js',
                 included: false
             },
             {
-                pattern: 'app/**/*.*', 
+                pattern: 'app/**/*.*',
                 included: false
             },
             {
-                pattern: 'assets/**/*.*', 
+                pattern: 'assets/**/*.*',
                 included: false
             },
             {
@@ -32,7 +32,7 @@ module.exports = function(config) {
                 included: false
             },
             {
-                pattern: 'test/unit/**/**/*.spec.js', 
+                pattern: 'test/unit/**/**/*.spec.js',
                 included: false
             }
         ],
@@ -45,7 +45,10 @@ module.exports = function(config) {
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-            //'app/**/*.html': ['ng-html2js']
+            // source files, that you wanna generate coverage for
+            // do not include tests or libraries
+            // (these files will be instrumented by Istanbul)
+            // 'app/**/*.js': ['coverage']
         },
 
         ngHtml2JsPreprocessor: {
@@ -56,7 +59,7 @@ module.exports = function(config) {
         // test results reporter to use
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['progress'],
+        reporters: ['mocha'],
 
         // web server port
         port: 9876,
