@@ -29,13 +29,6 @@
 	- admin/pass
 	- user/pass
 
-## Bower components troubleshoot:
-    
-* If you have any problems when cloning bower components from git you can try the command below:
-```bash
-git config --global url."https://".insteadOf "git://"
-```
-
 * Tests:
     - With the application runing you can execute e2e tests:
 	```bash
